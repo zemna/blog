@@ -4,6 +4,7 @@
 # which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
+gems: [jekyll-paginate]
 
 # Site settings
 title: zemna's Blog
@@ -17,6 +18,13 @@ github_username:  zemna
 
 # Build settings
 markdown: kramdown
+
+# Permalinks
+permalink: pretty
+
+paginate: 5
+
+version: 1.0.0
 
 defaults:
   -
