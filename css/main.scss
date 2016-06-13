@@ -52,3 +52,24 @@ $on-laptop:        800px;
         "syntax",
         "lanyon"
 ;
+
+footer {
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+    .container {
+        padding-top: 20px;
+        .social-links {
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 14px;
+        }
+    }
+    img {
+        display: inline-block;
+        position: relative;
+        margin-left: 5px;
+        opacity: .8;
+        margin-bottom: 0;
+    }
+}
