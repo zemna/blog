@@ -128,7 +128,10 @@ gulp.task('deploy', [], () => {
   // Uncomment paths to published from .gitignore
   //cp.spawn('sed', ['-i', "''", 's/public/#public/', '.gitignore'], { stdio: 'inherit' });
 
-  gulp.src('public').pipe($.subtree());
+  gulp.src('./public/**/*.*').pipe($.ghPages({
+    remoteUrl: "https://github.com/zemna/blog.git",
+    branch: "gh-pages"
+  }));
 
   // Re-comment paths to be ignored
   //return cp.spawn('git', ['checkout', '.gitignore'], { stdio: 'inherit' });
