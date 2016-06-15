@@ -1,0 +1,51 @@
+---
+layout: page
+permalink: "categories/index.html"
+---
+<article class="box tags">
+  <div class="box-header">
+    <h2>Categories</h2>
+  </div>
+
+  <div class="box-body tags-cloud">
+    <ul>
+      {% for category in site.categories %}
+      {% capture category_name %}{{ category | first }}{% endcapture %}
+      <li>
+        <a href="#{{ category | first | slugize }}">
+          {{ category_name }}
+          <span class="badge">{{ site.categories[category_name].size }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</article>
+
+{% for category in site.categories %}
+{% capture category_name %}{{ category | first }}{% endcapture %}
+<article class="box tags" id="#{{ category_name | slugize }}">
+  <div class="box-header">
+    <h3>
+      <a id="{{ category_name }}" href="#{{ category_name }}" aria-hidden="true"></a>
+      {{ category_name }}
+    </h3>
+  </div>
+
+  <div class="box-body">
+    <ul>
+      {% for post in site.categories[category_name] %}
+      <li>
+        <h4>
+          <small class="box-meta">
+            <span><i class="fa fa-calendar"></i> {{ post.date | date: "%Y-%m-%d" }}</span>
+            <span><i class="fa fa-comments"></i><a href="{{ post.url | prepend: site.baseurl }}#disqus_thread">0</a></span>
+          </small>
+          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h4>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</article>
+{% endfor %}

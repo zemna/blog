@@ -1,0 +1,51 @@
+---
+layout: page
+permalink: "tags/index.html"
+---
+<article class="box tags">
+  <div class="box-header">
+    <h2>Tags</h2>
+  </div>
+
+  <div class="box-body tags-cloud">
+    <ul>
+      {% assign tags = site.tags | sort %}
+      {% for tag in tags %}
+      <li>
+        <a href="#{{ tag | first | slugize }}">
+          {{ tag | first }}
+          <span class="badge">{{ site.tags[tag.first].size }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</article>
+
+{% for tag in site.tags %}
+  {% capture tag_name %}{{ tag | first }}{% endcapture %}
+  <article class="box tags" id="#{{ tag_name | slugize }}">
+    <div class="box-header">
+      <h3>
+        <a id="{{ tag_name }}" href="#{{ tag_name }}" aria-hidden="true"></a>
+        {{ tag_name }}
+      </h3>
+    </div>
+
+    <div class="box-body">
+      <ul>
+        {% for post in site.tags[tag_name] %}
+          <li>
+            <h4>
+              <small class="box-meta">
+                <span><i class="fa fa-calendar"></i> {{ post.date | date: "%Y-%m-%d" }}</span>
+                <span><i class="fa fa-comments"></i><a href="{{ post.url | prepend: site.baseurl }}#disqus_thread">0</a></span>
+              </small>
+              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h4>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </article>
+{% endfor %}

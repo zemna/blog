@@ -1,36 +1,38 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-gems: [jekyll-paginate]
+# Plugins
+gems:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
 
 # Site settings
-title: zemna's Blog
+title: "zemna blog"
 email: zemna@zemna.net
 description: > # this means to ignore newlines until "baseurl:"
   zemna's Blog gives useful information about software programming.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://blog.zemna.net" # the base hostname & protocol for your site
-twitter_username: zemna
-github_username:  zemna
+
+excerpt_separator: <!--more-->
+
+# Contacts
+author: "zemna"
+email: "zemna@zemna.net"
+github: "https://github.com/zemna"
+facebook: "https://www.facebook.com/zemnanet" 
 
 # Build settings
-markdown: kramdown
+exclude:
+  - lib
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - bower.json
+  - gulpfile.babel.js
+  - package.json
+permalink: /:categories/:slug/
+lsi: false # If set to true generate related posts
 
-# Permalinks
-permalink: pretty
-
+# Outputting
 paginate: 5
-
-version: 1.0.0
-
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "default"
-      author: "zemna"
+paginate_path: /page:num/
+destination: public

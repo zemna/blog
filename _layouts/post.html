@@ -1,27 +1,118 @@
 ---
 layout: default
 ---
+<div class="container">
+  <section id="main" class="col-md-9">
+    <article class="box">
+      <div class="box-header">
+        <h2>
+          <span class="title">{{ page.title }}</span>
+          <span class="action dropdown pull-right">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#">
+              <i class="fa fa-share-alt"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}&title={{ page.title | encode }}" id="sns-facebook">Facebook</a></li>
+              <li><a href="http://twitter.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}&title={{ page.title | encode }}&text={{ page.title | encode }}" id="sns-twitter">Twitter</a></li>
+              <li><a href="https://plus.google.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" id="sns-google">Google+</a></li>
+            </ul>
+          </span>
+        </h2>
 
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
-  {{ content }}
-</div>
+        <p class="box-meta">
+          <span>
+            <i class="fa fa-calendar"></i>
+            {{ page.date | date: "%Y-%m-%d" }}
+          </span>
+          <span>
+            <i class="fa fa-user"></i>
+            Posted by {{  page.author }}
+          </span>
+          <span>
+            <i class="fa fa-folder"></i>
+            {% for category in page.categories %}
+              <a href="/categories#{{ category | slugize }}">
+               {{ category }}
+              </a>
+              {% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          </span>
+          <span>
+            <i class="fa fa-comments"></i>
+            <a href="{{ page.url | prepend: site.baseurl }}#disqus_thread" title="comments">0</a>
+          </span>
+        </p>
+      </div>
 
-{% include disqus.html %}
+      <div class="box-body">
+        {{ content }}
+      </div>
 
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
+      <footer class="box-tags">
+        <span><i class="fa fa-tags"></i> Tags:</span>
+        {% for tag in page.tags %}
+          <a href="/tags#{{ tag | slugize }}">
+            {{ tag }}
           </a>
-        </h3>
-      </li>
-    {% endfor %}
-  </ul>
+          {% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </footer>
+    </article>
+
+    <nav id="pagination">
+      <ul class="pager">
+        {% if page.previous %}
+        <li class="previous">
+          <a href="{{ page.previous.url | prepend: site.baseurl }}">
+            <span aria-hidden="true">
+              <i class="fa fa-chevron-left"></i>
+            </span>
+            <span class="pager-title-sm">Older</span>
+            <span class="pager-title">
+              {{ page.previous.title | truncate: 20, '...'}}
+            </span>
+          </a>
+        </li>
+        {% else %}
+        <li class="previous disabled">
+          <a href="#">
+            <span aria-hidden="true">
+              <i class="fa fa-chevron-left"></i>
+            </span>
+            <span>Older</span>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if page.next %}
+        <li class="next">
+          <a href="{{ page.next.url | prepend: site.baseurl }}">
+            <span class="pager-title">
+              {{ page.next.title | truncate: 20, '...'}}
+            </span>
+            <span class="pager-title-sm">Newer</span>
+            <span aria-hidden="true">
+              <i class="fa fa-chevron-right"></i>
+            </span>
+          </a>
+        </li>
+        {% else %}
+        <li class="next disabled">
+          <a href="#">
+            <span>Newer</span>
+            <span aria-hidden="true">
+              <i class="fa fa-chevron-right"></i>
+            </span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    {% include post-comments.html %}
+  </section>
+
+  <aside id="sidebar" class="col-md-3">
+    {% include site-sidebar.html %}
+  </aside>
 </div>

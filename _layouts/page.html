@@ -2,7 +2,12 @@
 layout: default
 ---
 
-<div class="page">
-  <h1 class="page-title">{{ page.title }}</h1>
-  {{ content }}
+<div class="container">
+  <div id="main" class="col-md-9">
+    {{ content }}
+  </div>
+
+  <aside id="sidebar" class="col-md-3">
+    {% include site-sidebar.html %}
+  </aside>
 </div>

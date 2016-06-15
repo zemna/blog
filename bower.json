@@ -1,0 +1,26 @@
+{
+  "name": "zemna/blog",
+  "homepage": "http://blog.zemna.net",
+  "authors": [
+    "zemna <zemna@zemna.net>"
+  ],
+  "description": "blog",
+  "main": "_assets/scripts/main.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "_assets/vendor",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "simple-jekyll-search": "^1.1.4",
+    "ekko-lightbox": "^4.0.2",
+    "fastclick": "^1.0.6",
+    "moment": "^2.13.0",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}

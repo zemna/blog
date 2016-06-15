@@ -9,7 +9,10 @@
           <li><a href="https://plus.google.com/+ShinjaeKang"><i class="fa fa-lg fa-google-plus"></i></a></li>
           <li><a href="https://id.linkedin.com/in/zemna"><i class="fa fa-lg fa-linkedin"></i></a></li>
         </ul>
-        <p>&copy; 2016 zemna. Powered by <a href="https://jekyllrb.com/">Jekyll.</a></p>
+        <p>
+          &copy; {{ site.time | date:"%Y" }} zemna. Powered by <a href="https://jekyllrb.com/">Jekyll.</a>
+          <a href="/feed.xml">Rss</a>
+        </p>
       </div>
       <div class="pull-right">
         <p>Proudly hosted by <a href="https://github.com"><img src="/images/github-logo.png" width="100" alt="Github"></a>
@@ -18,10 +21,3 @@
     </div>
   </div>
 </footer>
-
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<!-- Bootstrap -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<!-- Disqus -->
-<script id="dsq-count-scr" src="//zemnanetblog.disqus.com/count.js" async></script>
