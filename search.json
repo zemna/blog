@@ -1,15 +1,43 @@
----
-# content removed bc of error
-# "content"  : "{{ post.content | strip_html | strip_newlines | remove_chars | escape}}"
----
 [
-  {% for post in site.posts %}
+  
   {
-    "title"    : "{{ post.title | escape }}",
-    "category" : "{{ post.categories | join: ', ' }}",
-    "tags"     : "{{ post.tags | join: ', ' }}",
-    "url"      : "{{ site.baseurl }}{{ post.url }}",
-    "date"     : "{{ post.date | date: '%Y-%m-%d' }}"
-  }{% unless forloop.last %},{% endunless %}
-  {% endfor %}
+    "title"    : "How to Integrate Travis for Jekyll on Github Pages",
+    "category" : "Jekyll, Travis",
+    "tags"     : "",
+    "url"      : "/jekyll/travis/how-to-integrate-travis-for-jekyll-on-github-pages/",
+    "date"     : "2016-06-15"
+  },
+  
+  {
+    "title"    : "How to deploy subfolder to Github Pages",
+    "category" : "Github",
+    "tags"     : "",
+    "url"      : "/github/how-to-deploy-subfolder-to-github-pages/",
+    "date"     : "2016-06-15"
+  },
+  
+  {
+    "title"    : "ERPNext ",
+    "category" : "ERP",
+    "tags"     : "",
+    "url"      : "/erp/erpnext-manual/",
+    "date"     : "2016-06-14"
+  },
+  
+  {
+    "title"    : "Jekyll ",
+    "category" : "jekyll",
+    "tags"     : "",
+    "url"      : "/jekyll/jekyll/",
+    "date"     : "2016-06-09"
+  },
+  
+  {
+    "title"    : "Welcome to Jekyll!",
+    "category" : "jekyll, update",
+    "tags"     : "jekyll, update",
+    "url"      : "/jekyll/update/welcome-to-jekyll/",
+    "date"     : "2016-06-08"
+  }
+  
 ]
