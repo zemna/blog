@@ -7,3 +7,5 @@ _assets/vendor
 /fonts
 /styles
 /scripts
+/npm-debug.log
+/public/npm-debug.log
