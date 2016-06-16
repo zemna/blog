@@ -74,22 +74,20 @@
             });
 
             /* Activate Lightbox */
-            var imgObjects = bodyContainer.find('img');
-
-            if (imgObjects.length) {
-                imgObjects.each(function() {
+            if ($('img').length) {
+                $('img').each(function() {
                     var that = $(this);
                     that.closest('a').attr('data-toggle', 'lightbox').attr('data-title', that.attr('alt'));
                 });
 
-                bodyContainer.delegate('*[data-toggle="lightbox"]', 'click', function(e) {
+                $(document).delegate('*[data-toggle="lightbox"]', 'click', function(e) {
                     e.preventDefault();
                     $(this).ekkoLightbox();
                 });
-
+                
                 // While we are dealing with image objects
                 // Let's update SEO meta fields
-                var firstImageUrl = imgObjects.first().attr('src');
+                var firstImageUrl = $('img').first().attr('src');
 
                 firstImageUrl = (firstImageUrl.indexOf('//') !== -1)
                     ? firstImageUrl

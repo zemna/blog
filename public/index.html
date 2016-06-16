@@ -96,6 +96,86 @@
     <article class="box">
       <div class="box-header">
         <h2>
+          <a href="/jekyll/how-to-use-lightbox-in-jekyll/">How to use Lightbox in Jekyll</a>
+        </h2>
+        <p class="box-meta text-muted">
+          <span>
+            <i class="fa fa-calendar"></i>
+            2016-06-16
+          </span>
+          <span>
+            <i class="fa fa-user"></i>
+            Posted by 
+          </span>
+          <span>
+            <i class="fa fa-folder"></i>
+            
+              <a href="/categories#Jekyll">
+                Jekyll
+              </a>
+              
+            
+          </span>
+          <span>
+            <i class="fa fa-comments"></i>
+            <a href="/jekyll/how-to-use-lightbox-in-jekyll/#disqus_thread" title="comments">0</a>
+          </span>
+        </p>
+      </div>
+
+      <div class="box-body">
+        <p>Install with bower</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>bower install ekko-lightbox --save
+</code></pre>
+</div>
+
+<p>Basic usage likes bellow,</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"image-url"</span> <span class="na">data-toggle=</span><span class="s">"lightbox"</span> <span class="na">data-title=</span><span class="s">"Image title"</span> <span class="na">data-footer=</span><span class="s">"Image footer"</span><span class="nt">&gt;</span>
+    ![Image Title](/images/github-logo.png){: width="400px" }
+<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+</div>
+
+<p>If you want to give lightbox feature to all images in page, we can it by bellow javascript.</p>
+
+<p>first, give anchor to image in jekyll</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>[![Title](/images/github-logo.png){: width="400px"}](/images/github-logo.png)
+</code></pre>
+</div>
+
+<p>and, make javascript like bellow,</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'img'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="nx">that</span><span class="p">.</span><span class="nx">closest</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-toggle'</span><span class="p">,</span> <span class="s1">'lightbox'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-title'</span><span class="p">,</span> <span class="nx">that</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'alt'</span><span class="p">));</span>
+    <span class="p">});</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">delegate</span><span class="p">(</span><span class="s1">'*[data-toggle="lightbox"]'</span><span class="p">,</span> <span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">ekkoLightbox</span><span class="p">();</span>
+    <span class="p">});</span>    
+<span class="p">})</span>
+</code></pre>
+</div>
+
+<p>This is sample.</p>
+
+<p><a href="/images/github-logo.png"><img src="/images/github-logo.png" alt="Title" width="400px" /></a></p>
+
+      </div>
+
+      <footer class="box-footer">
+        
+      </footer>
+    </article>
+    
+    <article class="box">
+      <div class="box-header">
+        <h2>
           <a href="/jekyll/travis/how-to-integrate-travis-for-jekyll-on-github-pages/">How to Integrate Travis for Jekyll on Github Pages</a>
         </h2>
         <p class="box-meta text-muted">
@@ -230,7 +310,7 @@
       <div class="box-body">
         <p>I’m using <code class="highlighter-rouge">ERPNext</code> for my company to manage stock product and accounting system.</p>
 
-<p><img src="/images/erpnext.jpg" alt="ERPNext screenshot" /></p>
+<p><a href="/images/erpnext.jpg"><img src="/images/erpnext.jpg" alt="ERPNext screenshot" /></a></p>
 
 <p>It’s free for 1 user. It contains Accounting, Inventory, Purchasing, Selling, CRM, Human Resources, Manufacturing and Website system. You’ll love it after test this amazing features.</p>
 
@@ -292,70 +372,12 @@
       </footer>
     </article>
     
-    <article class="box">
-      <div class="box-header">
-        <h2>
-          <a href="/jekyll/update/welcome-to-jekyll/">Welcome to Jekyll!</a>
-        </h2>
-        <p class="box-meta text-muted">
-          <span>
-            <i class="fa fa-calendar"></i>
-            2016-06-08
-          </span>
-          <span>
-            <i class="fa fa-user"></i>
-            Posted by 
-          </span>
-          <span>
-            <i class="fa fa-folder"></i>
-            
-              <a href="/categories#jekyll">
-                jekyll
-              </a>
-              , 
-            
-              <a href="/categories#update">
-                update
-              </a>
-              
-            
-          </span>
-          <span>
-            <i class="fa fa-comments"></i>
-            <a href="/jekyll/update/welcome-to-jekyll/#disqus_thread" title="comments">0</a>
-          </span>
-        </p>
-      </div>
-
-      <div class="box-body">
-        <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
-
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
-
-<p>Jekyll also offers powerful support for code snippets:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
-
-<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
-
-
-      </div>
-
-      <footer class="box-footer">
-        
-      </footer>
-    </article>
-    
 
     <nav id="pagination">
       <ul class="pager">
         
-        <li class="previous disabled">
-          <a href="#">
+        <li class="previous">
+          <a href="/page2/">
             <span aria-hidden="true">
               <i class="fa fa-chevron-left"></i>
             </span>
@@ -463,6 +485,13 @@
       
       <li>
         <h4>
+          <small class="box-meta"><i class="material-icons">today</i> 2016-06-16</small>
+          <a href="/jekyll/how-to-use-lightbox-in-jekyll/">How to use Lightbox in Jekyll</a>
+        </h4>
+      </li>
+      
+      <li>
+        <h4>
           <small class="box-meta"><i class="material-icons">today</i> 2016-06-15</small>
           <a href="/jekyll/travis/how-to-integrate-travis-for-jekyll-on-github-pages/">How to Integrate Travis for Jekyll on Github Pages</a>
         </h4>
@@ -472,13 +501,6 @@
         <h4>
           <small class="box-meta"><i class="material-icons">today</i> 2016-06-15</small>
           <a href="/github/how-to-deploy-subfolder-to-github-pages/">How to deploy subfolder to Github Pages</a>
-        </h4>
-      </li>
-      
-      <li>
-        <h4>
-          <small class="box-meta"><i class="material-icons">today</i> 2016-06-14</small>
-          <a href="/erp/erpnext-manual/">ERPNext </a>
         </h4>
       </li>
       
