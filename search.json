@@ -9,6 +9,14 @@
   },
   
   {
+    "title"    : "How to add social sharing buttons to Jekyll",
+    "category" : "Jekyll",
+    "tags"     : "",
+    "url"      : "/jekyll/how-to-add-social-sharing-buttons-to-jekyll/",
+    "date"     : "2016-06-16"
+  },
+  
+  {
     "title"    : "How to Integrate Travis for Jekyll on Github Pages",
     "category" : "Jekyll, Travis",
     "tags"     : "",
