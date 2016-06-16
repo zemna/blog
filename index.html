@@ -171,14 +171,24 @@
       </div>
 
       <div class="box-body">
-        
-<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example App"</span><span class="p">,</span><span class="w">
+        <p>We can use <code class="highlighter-rouge">git subtree</code> to do this. And also nest git commands to execute force push (<a href="http://stackoverflow.com/questions/12644855/how-do-i-reset-a-heroku-git-repository-to-its-initial-state/13403588#13403588">Reference</a>).</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git push origin <span class="sb">`</span>git subtree split --prefix subfolder-name-here master<span class="sb">`</span>:gh-pages --force
+</code></pre>
+</div>
+
+<p>Put this command to <code class="highlighter-rouge">package.json</code> file like bellow.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My App"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
     </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git subtree push --prefix subfolder-name-here origin gh-pages"</span><span class="w">
+        </span><span class="nt">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git push origin `git subtree split --prefix subfolder-name-here master`:gh-pages --force"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>After that, we can use <code class="highlighter-rouge">npm run deploy</code> command to deploy subfolder to <code class="highlighter-rouge">gh-pages</code> branch.</p>
 
       </div>
 
