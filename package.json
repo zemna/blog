@@ -28,6 +28,6 @@
   },
   "private": true,
   "scripts": {
-    "deploy": "git subtree push --prefix public origin gh-pages"
+    "deploy": "git push origin `git subtree split --prefix public master :gh-pages --force"
   }
 }
