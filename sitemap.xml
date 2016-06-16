@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://blog.zemna.net/jekyll/how-to-use-lightbox-in-jekyll/</loc>
+<lastmod>2016-06-16T00:00:00+07:00</lastmod>
+</url>
+<url>
 <loc>http://blog.zemna.net/jekyll/travis/how-to-integrate-travis-for-jekyll-on-github-pages/</loc>
 <lastmod>2016-06-15T00:00:00+07:00</lastmod>
 </url>
@@ -34,5 +38,8 @@
 </url>
 <url>
 <loc>http://blog.zemna.net/guest-book/</loc>
+</url>
+<url>
+<loc>http://blog.zemna.net/page2/</loc>
 </url>
 </urlset>

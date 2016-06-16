@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "How to use Lightbox in Jekyll",
+    "category" : "Jekyll",
+    "tags"     : "",
+    "url"      : "/jekyll/how-to-use-lightbox-in-jekyll/",
+    "date"     : "2016-06-16"
+  },
+  
+  {
     "title"    : "How to Integrate Travis for Jekyll on Github Pages",
     "category" : "Jekyll, Travis",
     "tags"     : "",
