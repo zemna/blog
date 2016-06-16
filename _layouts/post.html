@@ -7,16 +7,6 @@ layout: default
       <div class="box-header">
         <h2>
           <span class="title">{{ page.title }}</span>
-          <span class="action dropdown pull-right">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#">
-              <i class="fa fa-share-alt"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}&title={{ page.title | encode }}" id="sns-facebook">Facebook</a></li>
-              <li><a href="http://twitter.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}&title={{ page.title | encode }}&text={{ page.title | encode }}" id="sns-twitter">Twitter</a></li>
-              <li><a href="https://plus.google.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" id="sns-google">Google+</a></li>
-            </ul>
-          </span>
         </h2>
 
         <p class="box-meta">
@@ -41,11 +31,91 @@ layout: default
             <i class="fa fa-comments"></i>
             <a href="{{ page.url | prepend: site.baseurl }}#disqus_thread" title="comments">0</a>
           </span>
+          <ul class="list-inline">
+            <li>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}&title={{ page.title | encode }}" id="sns-facebook">
+              <span class="fa-stack">
+                <i class="fa fa-square fa-stack-2x" style="color: #3b5998;"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+              </a>
+            </li>
+            <li>
+              <a href="http://twitter.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}&title={{ page.title | encode }}&text={{ page.title | encode }}" id="sns-twitter">
+              <span class="fa-stack">
+                <i class="fa fa-square fa-stack-2x" style="color: #0084b4;"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://plus.google.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" id="sns-google">
+              <span class="fa-stack">
+                <i class="fa fa-square fa-stack-2x" style="color: #d34836;"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+              </a>
+            </li>
+          </ul>
         </p>
       </div>
 
       <div class="box-body">
         {{ content }}
+      </div>
+
+      <div class="box-social">
+        <h3>Share this:</h3>
+        <ul class="list-inline">
+          <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}&title={{ page.title | encode }}">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #3b5998;"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="http://twitter.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}&title={{ page.title | encode }}&text={{ page.title | encode }}" id="sns-twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #0084b4;"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://plus.google.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" id="sns-google">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #d34836;"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #007bb5;"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://pinterest.com/pin/create/button/?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #cb2027;"></i>
+                <i class="fa fa-pinterest-p fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:?&subject={{ page.title | encode }}&body={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #45668e;"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
       </div>
 
       <footer class="box-tags">

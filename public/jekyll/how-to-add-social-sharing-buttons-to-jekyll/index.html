@@ -5,44 +5,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <meta name="description" content="zemna's Blog gives useful information about software programming.
-"/>
+  <meta name="description" content="We can try to use Font Awesome to generate social icon button.Click this link to get information about stacked icons.Facebook Button&lt;a href="https://www.f..."/>
   <meta name="google-site-verification" content="" />
   <meta name="naver-site-verification" content=""/>
 
   <meta name="msapplication-tap-highlight" content="no"/>
 
   <!-- Facebook Meta -->
-  <meta property="og:title" content="zemna blog"/>
+  <meta property="og:title" content="How to add social sharing buttons to Jekyll"/>
   <meta property="og:type" content="Website"/>
   <meta property="og:author" content="zemna (zemna@zemna.net)"/>
   <meta property="og:image" content=""/>
 
   <!-- Google+ Meta -->
-  <meta itemprop="name" content="zemna blog">
-  <meta itemprop="description" content="zemna's Blog gives useful information about software programming.
-">
+  <meta itemprop="name" content="How to add social sharing buttons to Jekyll">
+  <meta itemprop="description" content="We can try to use Font Awesome to generate social icon button.Click this link to get information about stacked icons.Facebook Button&lt;a href="https://www.f...">
   <meta itemprop="image" content="">
   <meta itemprop="author" content="zemna (zemna@zemna.net)"/>
 
   <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@appkrs" />
-  <meta name="twitter:title" content="zemna blog" />
-  <meta name="twitter:description" content="zemna's Blog gives useful information about software programming.
-" />
+  <meta name="twitter:title" content="How to add social sharing buttons to Jekyll" />
+  <meta name="twitter:description" content="We can try to use Font Awesome to generate social icon button.Click this link to get information about stacked icons.Facebook Button&lt;a href="https://www.f..." />
   <meta name="twitter:image" content="" />
   <meta name="twitter:domain" content="blog.appkr.kr">
 
   <!-- Mobile and Rss -->
-  <link rel="canonical" href="http://blog.zemna.net/"/>
+  <link rel="canonical" href="http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/"/>
   <link rel="alternate" type="application/rss+xml" title="zemna blog" href="http://blog.zemna.net/feed.xml"/>
 
   <link rel="stylesheet" href="/styles/main.min.css">
 
-  <title>zemna blog</title>
+  <title>How to add social sharing buttons to Jekyll</title>
 
-  <link rel="canonical" href="http://blog.zemna.net/">
+  <link rel="canonical" href="http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/">
   <link rel="alternate" type="application/rss+xml" title="zemna blog" href="http://blog.zemna.net/feed.xml">
 
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
@@ -92,13 +89,13 @@
 
   <div class="container">
   <section id="main" class="col-md-9">
-    
     <article class="box">
       <div class="box-header">
         <h2>
-          <a href="/jekyll/how-to-use-lightbox-in-jekyll/">How to use Lightbox in Jekyll</a>
+          <span class="title">How to add social sharing buttons to Jekyll</span>
         </h2>
-        <p class="box-meta text-muted">
+
+        <p class="box-meta">
           <span>
             <i class="fa fa-calendar"></i>
             2016-06-16
@@ -111,87 +108,7 @@
             <i class="fa fa-folder"></i>
             
               <a href="/categories#Jekyll">
-                Jekyll
-              </a>
-              
-            
-          </span>
-          <span>
-            <i class="fa fa-comments"></i>
-            <a href="/jekyll/how-to-use-lightbox-in-jekyll/#disqus_thread" title="comments">0</a>
-          </span>
-        </p>
-      </div>
-
-      <div class="box-body">
-        <p>Install with bower</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>bower install ekko-lightbox --save
-</code></pre>
-</div>
-
-<p>Basic usage likes bellow,</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"image-url"</span> <span class="na">data-toggle=</span><span class="s">"lightbox"</span> <span class="na">data-title=</span><span class="s">"Image title"</span> <span class="na">data-footer=</span><span class="s">"Image footer"</span><span class="nt">&gt;</span>
-    ![Image Title](/images/github-logo.png){: width="400px" }
-<span class="nt">&lt;/a&gt;</span>
-</code></pre>
-</div>
-
-<p>If you want to give lightbox feature to all images in page, we can it by bellow javascript.</p>
-
-<p>first, give anchor to image in jekyll</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>[![Title](/images/github-logo.png){: width="400px"}](/images/github-logo.png)
-</code></pre>
-</div>
-
-<p>and, make javascript like bellow,</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'img'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-        <span class="nx">that</span><span class="p">.</span><span class="nx">closest</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-toggle'</span><span class="p">,</span> <span class="s1">'lightbox'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-title'</span><span class="p">,</span> <span class="nx">that</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'alt'</span><span class="p">));</span>
-    <span class="p">});</span>
-
-    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">delegate</span><span class="p">(</span><span class="s1">'*[data-toggle="lightbox"]'</span><span class="p">,</span> <span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">ekkoLightbox</span><span class="p">();</span>
-    <span class="p">});</span>    
-<span class="p">})</span>
-</code></pre>
-</div>
-
-<p>This is sample.</p>
-
-<p><a href="/images/github-logo.png"><img src="/images/github-logo.png" alt="Title" width="400px" /></a></p>
-
-      </div>
-
-      <footer class="box-footer">
-        
-      </footer>
-    </article>
-    
-    <article class="box">
-      <div class="box-header">
-        <h2>
-          <a href="/jekyll/how-to-add-social-sharing-buttons-to-jekyll/">How to add social sharing buttons to Jekyll</a>
-        </h2>
-        <p class="box-meta text-muted">
-          <span>
-            <i class="fa fa-calendar"></i>
-            2016-06-16
-          </span>
-          <span>
-            <i class="fa fa-user"></i>
-            Posted by 
-          </span>
-          <span>
-            <i class="fa fa-folder"></i>
-            
-              <a href="/categories#Jekyll">
-                Jekyll
+               Jekyll
               </a>
               
             
@@ -200,6 +117,32 @@
             <i class="fa fa-comments"></i>
             <a href="/jekyll/how-to-add-social-sharing-buttons-to-jekyll/#disqus_thread" title="comments">0</a>
           </span>
+          <ul class="list-inline">
+            <li>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/&title=How to add social sharing buttons to Jekyll" id="sns-facebook">
+              <span class="fa-stack">
+                <i class="fa fa-square fa-stack-2x" style="color: #3b5998;"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+              </a>
+            </li>
+            <li>
+              <a href="http://twitter.com/share?url=http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/&title=How to add social sharing buttons to Jekyll&text=How to add social sharing buttons to Jekyll" id="sns-twitter">
+              <span class="fa-stack">
+                <i class="fa fa-square fa-stack-2x" style="color: #0084b4;"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://plus.google.com/share?url=http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/" id="sns-google">
+              <span class="fa-stack">
+                <i class="fa fa-square fa-stack-2x" style="color: #d34836;"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+              </a>
+            </li>
+          </ul>
         </p>
       </div>
 
@@ -252,184 +195,89 @@
 
       </div>
 
-      <footer class="box-footer">
+      <div class="box-social">
+        <h3>Share this:</h3>
+        <ul class="list-inline">
+          <li>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/&title=How to add social sharing buttons to Jekyll">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #3b5998;"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="http://twitter.com/share?url=http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/&title=How to add social sharing buttons to Jekyll&text=How to add social sharing buttons to Jekyll" id="sns-twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #0084b4;"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://plus.google.com/share?url=http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/" id="sns-google">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #d34836;"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #007bb5;"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://pinterest.com/pin/create/button/?url=http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #cb2027;"></i>
+                <i class="fa fa-pinterest-p fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:?&subject=How to add social sharing buttons to Jekyll&body=http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x" style="color: #45668e;"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <footer class="box-tags">
+        <span><i class="fa fa-tags"></i> Tags:</span>
         
       </footer>
     </article>
-    
-    <article class="box">
-      <div class="box-header">
-        <h2>
-          <a href="/jekyll/travis/how-to-integrate-travis-for-jekyll-on-github-pages/">How to Integrate Travis for Jekyll on Github Pages</a>
-        </h2>
-        <p class="box-meta text-muted">
-          <span>
-            <i class="fa fa-calendar"></i>
-            2016-06-15
-          </span>
-          <span>
-            <i class="fa fa-user"></i>
-            Posted by 
-          </span>
-          <span>
-            <i class="fa fa-folder"></i>
-            
-              <a href="/categories#Jekyll">
-                Jekyll
-              </a>
-              , 
-            
-              <a href="/categories#Travis">
-                Travis
-              </a>
-              
-            
-          </span>
-          <span>
-            <i class="fa fa-comments"></i>
-            <a href="/jekyll/travis/how-to-integrate-travis-for-jekyll-on-github-pages/#disqus_thread" title="comments">0</a>
-          </span>
-        </p>
-      </div>
-
-      <div class="box-body">
-        <ul>
-  <li><a href="https://jaicab.com/2016/04/05/travis-for-jekyll-on-github-pages/">https://jaicab.com/2016/04/05/travis-for-jekyll-on-github-pages/</a></li>
-</ul>
-
-      </div>
-
-      <footer class="box-footer">
-        
-      </footer>
-    </article>
-    
-    <article class="box">
-      <div class="box-header">
-        <h2>
-          <a href="/github/how-to-deploy-subfolder-to-github-pages/">How to deploy subfolder to Github Pages</a>
-        </h2>
-        <p class="box-meta text-muted">
-          <span>
-            <i class="fa fa-calendar"></i>
-            2016-06-15
-          </span>
-          <span>
-            <i class="fa fa-user"></i>
-            Posted by 
-          </span>
-          <span>
-            <i class="fa fa-folder"></i>
-            
-              <a href="/categories#Github">
-                Github
-              </a>
-              
-            
-          </span>
-          <span>
-            <i class="fa fa-comments"></i>
-            <a href="/github/how-to-deploy-subfolder-to-github-pages/#disqus_thread" title="comments">0</a>
-          </span>
-        </p>
-      </div>
-
-      <div class="box-body">
-        <p>We can use <code class="highlighter-rouge">git subtree</code> to do this. And also nest git commands to execute force push (<a href="http://stackoverflow.com/questions/12644855/how-do-i-reset-a-heroku-git-repository-to-its-initial-state/13403588#13403588">Reference</a>).</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git push origin <span class="sb">`</span>git subtree split --prefix subfolder-name-here master<span class="sb">`</span>:gh-pages --force
-</code></pre>
-</div>
-
-<p>Put this command to <code class="highlighter-rouge">package.json</code> file like bellow.</p>
-
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My App"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git push origin `git subtree split --prefix subfolder-name-here master`:gh-pages --force"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-<p>After that, we can use <code class="highlighter-rouge">npm run deploy</code> command to deploy subfolder to <code class="highlighter-rouge">gh-pages</code> branch.</p>
-
-      </div>
-
-      <footer class="box-footer">
-        
-      </footer>
-    </article>
-    
-    <article class="box">
-      <div class="box-header">
-        <h2>
-          <a href="/erp/erpnext-manual/">ERPNext </a>
-        </h2>
-        <p class="box-meta text-muted">
-          <span>
-            <i class="fa fa-calendar"></i>
-            2016-06-14
-          </span>
-          <span>
-            <i class="fa fa-user"></i>
-            Posted by 
-          </span>
-          <span>
-            <i class="fa fa-folder"></i>
-            
-              <a href="/categories#ERP">
-                ERP
-              </a>
-              
-            
-          </span>
-          <span>
-            <i class="fa fa-comments"></i>
-            <a href="/erp/erpnext-manual/#disqus_thread" title="comments">0</a>
-          </span>
-        </p>
-      </div>
-
-      <div class="box-body">
-        <p>I’m using <code class="highlighter-rouge">ERPNext</code> for my company to manage stock product and accounting system.</p>
-
-<p><a href="/images/erpnext.jpg"><img src="/images/erpnext.jpg" alt="ERPNext screenshot" /></a></p>
-
-<p>It’s free for 1 user. It contains Accounting, Inventory, Purchasing, Selling, CRM, Human Resources, Manufacturing and Website system. You’ll love it after test this amazing features.</p>
-
-<ul>
-  <li>Website : <a href="https://erpnext.com">https://erpnext.com</a></li>
-  <li>User Manual : <a href="http://frappe.github.io/erpnext/user/manual/en">http://frappe.github.io/erpnext/user/manual/en</a></li>
-  <li>Forum : <a href="https://discuss.erpnext.com">https://discuss.erpnext.com</a></li>
-  <li>Github : <a href="https://github.com/frappe">https://github.com/frappe</a></li>
-</ul>
-
-      </div>
-
-      <footer class="box-footer">
-        
-      </footer>
-    </article>
-    
 
     <nav id="pagination">
       <ul class="pager">
         
         <li class="previous">
-          <a href="/page2/">
+          <a href="/jekyll/travis/how-to-integrate-travis-for-jekyll-on-github-pages/">
             <span aria-hidden="true">
               <i class="fa fa-chevron-left"></i>
             </span>
-            Older
+            <span class="pager-title-sm">Older</span>
+            <span class="pager-title">
+              How to Integrate ...
+            </span>
           </a>
         </li>
         
 
         
-        <li class="next disabled">
-          <a href="#">
-            Newer
+        <li class="next">
+          <a href="/jekyll/how-to-use-lightbox-in-jekyll/">
+            <span class="pager-title">
+              How to use Lightb...
+            </span>
+            <span class="pager-title-sm">Newer</span>
             <span aria-hidden="true">
               <i class="fa fa-chevron-right"></i>
             </span>
@@ -438,6 +286,20 @@
         
       </ul>
     </nav>
+
+    <div class="comments" style="margin-bottom: 30px;">
+    <div id="disqus_thread"></div>
+    <script>
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//zemnanetblog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
   </section>
 
   <aside id="sidebar" class="col-md-3">
