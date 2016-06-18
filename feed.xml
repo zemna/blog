@@ -6,8 +6,8 @@
 </description>
     <link>http://blog.zemna.net/</link>
     <atom:link href="http://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 16 Jun 2016 16:02:26 +0700</pubDate>
-    <lastBuildDate>Thu, 16 Jun 2016 16:02:26 +0700</lastBuildDate>
+    <pubDate>Sat, 18 Jun 2016 08:43:52 +0700</pubDate>
+    <lastBuildDate>Sat, 18 Jun 2016 08:43:52 +0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -55,11 +55,15 @@
 &lt;p&gt;&lt;a href=&quot;/images/github-logo.png&quot;&gt;&lt;img src=&quot;/images/github-logo.png&quot; alt=&quot;Title&quot; width=&quot;400px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 16 Jun 2016 00:00:00 +0700</pubDate>
-        <link>http://blog.zemna.net/jekyll/how-to-use-lightbox-in-jekyll/</link>
-        <guid isPermaLink="true">http://blog.zemna.net/jekyll/how-to-use-lightbox-in-jekyll/</guid>
+        <link>http://blog.zemna.net/programming/how-to-use-lightbox-in-jekyll/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/programming/how-to-use-lightbox-in-jekyll/</guid>
+        
+        <category>jekyll,</category>
+        
+        <category>lightbox</category>
         
         
-        <category>Jekyll</category>
+        <category>programming</category>
         
       </item>
     
@@ -112,11 +116,15 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 16 Jun 2016 00:00:00 +0700</pubDate>
-        <link>http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/</link>
-        <guid isPermaLink="true">http://blog.zemna.net/jekyll/how-to-add-social-sharing-buttons-to-jekyll/</guid>
+        <link>http://blog.zemna.net/programming/how-to-add-social-sharing-buttons-to-jekyll/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/programming/how-to-add-social-sharing-buttons-to-jekyll/</guid>
+        
+        <category>jekyll</category>
+        
+        <category>social</category>
         
         
-        <category>Jekyll</category>
+        <category>programming</category>
         
       </item>
     
@@ -127,13 +135,15 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Wed, 15 Jun 2016 00:00:00 +0700</pubDate>
-        <link>http://blog.zemna.net/jekyll/travis/how-to-integrate-travis-for-jekyll-on-github-pages/</link>
-        <guid isPermaLink="true">http://blog.zemna.net/jekyll/travis/how-to-integrate-travis-for-jekyll-on-github-pages/</guid>
+        <link>http://blog.zemna.net/programming/how-to-integrate-travis-for-jekyll-on-github-pages/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/programming/how-to-integrate-travis-for-jekyll-on-github-pages/</guid>
+        
+        <category>jekyll,</category>
+        
+        <category>travis-ci</category>
         
         
-        <category>Jekyll</category>
-        
-        <category>Travis</category>
+        <category>programming</category>
         
       </item>
     
@@ -159,11 +169,13 @@
 &lt;p&gt;After that, we can use &lt;code class=&quot;highlighter-rouge&quot;&gt;npm run deploy&lt;/code&gt; command to deploy subfolder to &lt;code class=&quot;highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch.&lt;/p&gt;
 </description>
         <pubDate>Wed, 15 Jun 2016 00:00:00 +0700</pubDate>
-        <link>http://blog.zemna.net/github/how-to-deploy-subfolder-to-github-pages/</link>
-        <guid isPermaLink="true">http://blog.zemna.net/github/how-to-deploy-subfolder-to-github-pages/</guid>
+        <link>http://blog.zemna.net/programming/how-to-deploy-subfolder-to-github-pages/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/programming/how-to-deploy-subfolder-to-github-pages/</guid>
+        
+        <category>github</category>
         
         
-        <category>Github</category>
+        <category>programming</category>
         
       </item>
     
@@ -186,8 +198,12 @@
         <link>http://blog.zemna.net/erp/erpnext-manual/</link>
         <guid isPermaLink="true">http://blog.zemna.net/erp/erpnext-manual/</guid>
         
+        <category>erp</category>
         
-        <category>ERP</category>
+        <category>erpnext</category>
+        
+        
+        <category>erp</category>
         
       </item>
     
@@ -200,11 +216,13 @@
 &lt;p&gt;&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;http://jekyllrb.com/&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 09 Jun 2016 20:45:00 +0700</pubDate>
-        <link>http://blog.zemna.net/jekyll/jekyll/</link>
-        <guid isPermaLink="true">http://blog.zemna.net/jekyll/jekyll/</guid>
-        
+        <link>http://blog.zemna.net/programming/jekyll/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/programming/jekyll/</guid>
         
         <category>jekyll</category>
+        
+        
+        <category>programming</category>
         
       </item>
     
@@ -226,17 +244,13 @@
 
 </description>
         <pubDate>Wed, 08 Jun 2016 20:55:39 +0700</pubDate>
-        <link>http://blog.zemna.net/jekyll/update/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://blog.zemna.net/jekyll/update/welcome-to-jekyll/</guid>
+        <link>http://blog.zemna.net/programming/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/programming/welcome-to-jekyll/</guid>
         
         <category>jekyll</category>
         
-        <category>update</category>
         
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>programming</category>
         
       </item>
     

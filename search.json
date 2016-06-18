@@ -2,57 +2,57 @@
   
   {
     "title"    : "How to use Lightbox in Jekyll",
-    "category" : "Jekyll",
-    "tags"     : "",
-    "url"      : "/jekyll/how-to-use-lightbox-in-jekyll/",
+    "category" : "programming",
+    "tags"     : "jekyll,, lightbox",
+    "url"      : "/programming/how-to-use-lightbox-in-jekyll/",
     "date"     : "2016-06-16"
   },
   
   {
     "title"    : "How to add social sharing buttons to Jekyll",
-    "category" : "Jekyll",
-    "tags"     : "",
-    "url"      : "/jekyll/how-to-add-social-sharing-buttons-to-jekyll/",
+    "category" : "programming",
+    "tags"     : "jekyll, social",
+    "url"      : "/programming/how-to-add-social-sharing-buttons-to-jekyll/",
     "date"     : "2016-06-16"
   },
   
   {
     "title"    : "How to Integrate Travis for Jekyll on Github Pages",
-    "category" : "Jekyll, Travis",
-    "tags"     : "",
-    "url"      : "/jekyll/travis/how-to-integrate-travis-for-jekyll-on-github-pages/",
+    "category" : "programming",
+    "tags"     : "jekyll,, travis-ci",
+    "url"      : "/programming/how-to-integrate-travis-for-jekyll-on-github-pages/",
     "date"     : "2016-06-15"
   },
   
   {
     "title"    : "How to deploy subfolder to Github Pages",
-    "category" : "Github",
-    "tags"     : "",
-    "url"      : "/github/how-to-deploy-subfolder-to-github-pages/",
+    "category" : "programming",
+    "tags"     : "github",
+    "url"      : "/programming/how-to-deploy-subfolder-to-github-pages/",
     "date"     : "2016-06-15"
   },
   
   {
     "title"    : "ERPNext ",
-    "category" : "ERP",
-    "tags"     : "",
+    "category" : "erp",
+    "tags"     : "erp, erpnext",
     "url"      : "/erp/erpnext-manual/",
     "date"     : "2016-06-14"
   },
   
   {
     "title"    : "Jekyll ",
-    "category" : "jekyll",
-    "tags"     : "",
-    "url"      : "/jekyll/jekyll/",
+    "category" : "programming",
+    "tags"     : "jekyll",
+    "url"      : "/programming/jekyll/",
     "date"     : "2016-06-09"
   },
   
   {
     "title"    : "Welcome to Jekyll!",
-    "category" : "jekyll, update",
-    "tags"     : "jekyll, update",
-    "url"      : "/jekyll/update/welcome-to-jekyll/",
+    "category" : "programming",
+    "tags"     : "jekyll",
+    "url"      : "/programming/welcome-to-jekyll/",
     "date"     : "2016-06-08"
   }
   
