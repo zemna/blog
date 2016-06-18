@@ -13,7 +13,7 @@ permalink: "categories/index.html"
       {% capture category_name %}{{ category | first }}{% endcapture %}
       <li>
         <a href="#{{ category | first | slugize }}">
-          {{ category_name }}
+          {{ site.data.categories[category_name].name }}
           <span class="badge">{{ site.categories[category_name].size }}</span>
         </a>
       </li>
@@ -28,7 +28,7 @@ permalink: "categories/index.html"
   <div class="box-header">
     <h3>
       <a id="{{ category_name }}" href="#{{ category_name }}" aria-hidden="true"></a>
-      {{ category_name }}
+      {{ site.data.categories[category_name].name }}
     </h3>
   </div>
 

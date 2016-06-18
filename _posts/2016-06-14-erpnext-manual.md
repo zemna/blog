@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "ERPNext "
-categories: ERP
+categories: erp
+tags: erp erpnext
 ---
 
 I'm using `ERPNext` for my company to manage stock product and accounting system.

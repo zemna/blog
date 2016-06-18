@@ -27,34 +27,15 @@
   <div class="panel-heading">
     <h1 class="panel-title">Categories</h1>
   </div>
-
-  <div class="panel-body">
-    <ul>
-      <li>
-        <a href="/categories#programming">
-          Programming
-          <span class="badge">{{ site.categories['programming'].size }}</span>
-        </a>
-      </li>
-      <li>
-        <a href="/categories#mobile-n-embedded">
-          Mobile & Embedded
-          <span class="badge">{{ site.categories['mobile-n-embedded'].size }}</span>
-        </a>
-      </li>
-      <li>
-        <a href="/categories#linux">
-          Linux
-          <span class="badge">{{ site.categories['linux'].size }}</span>
-        </a>
-      </li>
-      <li>
-        <a href="/categories#uncategorized">
-          Uncategorized
-          <span class="badge">{{ site.categories['uncategorized'].size }}</span>
-        </a>
-      </li>
-    </ul>
+  <div class="list-group">
+    {% for category in site.categories %}
+      {% capture category_slug %}{{ category | first }}{% endcapture %}
+      <a href="/categories#{{ category_slug }}" class="list-group-item">
+        <span class="badge">{{ site.categories[category_slug].size }}</span>
+        {% assign category_name = site.data.categories[category_slug].name %}
+        {{ category_name }}
+      </a>
+    {% endfor %}
   </div>
 </section>
 

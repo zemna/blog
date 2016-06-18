@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "How to add social sharing buttons to Jekyll"
-categories: Jekyll
+categories: programming
+tags: jekyll social
 ---
 
 We can try to use [Font Awesome](http://fontawesome.io) to generate social icon button.

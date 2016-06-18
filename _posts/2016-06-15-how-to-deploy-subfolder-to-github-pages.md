@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "How to deploy subfolder to Github Pages"
-categories: [Github]
+categories: programming
+tags: github
 ---
 
 We can use `git subtree` to do this. And also nest git commands to execute force push ([Reference](http://stackoverflow.com/questions/12644855/how-do-i-reset-a-heroku-git-repository-to-its-initial-state/13403588#13403588)).

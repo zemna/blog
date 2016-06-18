@@ -22,7 +22,7 @@ layout: default
             <i class="fa fa-folder"></i>
             {% for category in post.categories %}
               <a href="/categories#{{ category | slugize }}">
-                {{ category }}
+                {{ site.data.categories[category].name }}
               </a>
               {% unless forloop.last %}, {% endunless %}
             {% endfor %}

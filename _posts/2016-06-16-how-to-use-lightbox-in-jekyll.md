@@ -1,7 +1,8 @@
 ---
 layout: post
 title:  "How to use Lightbox in Jekyll"
-categories: Jekyll
+categories: programming
+tags: jekyll, lightbox
 ---
 
 Install with bower
