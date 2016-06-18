@@ -2,98 +2,100 @@
 layout: default
 ---
 <div class="container">
-  <section id="main" class="col-md-9">
-    {% for post in paginator.posts %}
-    <article class="box">
-      <div class="box-header">
-        <h2>
-          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-        <p class="box-meta text-muted">
-          <span>
-            <i class="fa fa-calendar"></i>
-            {{ post.date | date: "%Y-%m-%d" }}
-          </span>
-          <span>
-            <i class="fa fa-user"></i>
-            Posted by {{ post.author }}
-          </span>
-          <span>
-            <i class="fa fa-folder"></i>
-            {% for category in post.categories %}
-              <a href="/categories#{{ category | slugize }}">
-                {{ site.data.categories[category].name }}
-              </a>
-              {% unless forloop.last %}, {% endunless %}
-            {% endfor %}
-          </span>
-          <span>
-            <i class="fa fa-comments"></i>
-            <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread" title="comments">0</a>
-          </span>
-        </p>
-      </div>
-
-      <div class="box-body">
-        {{ post.content | split:'<!--more-->' | first }}
-      </div>
-
-      <footer class="box-footer">
-        {% if post.content contains '<!--more-->' %}
-        <a class="btn btn-default" href="{{ post.url | prepend: site.baseurl }}">
-          Read More <i class="fa fa-arrow-right"></i>
-        </a>
-        {% endif %}
-      </footer>
-    </article>
-    {% endfor %}
-
-    <nav id="pagination">
-      <ul class="pager">
-        {% if paginator.next_page %}
-        <li class="previous">
-          <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">
-            <span aria-hidden="true">
-              <i class="fa fa-chevron-left"></i>
+  <div class="row">
+    <section id="main" class="col-md-9">
+      {% for post in paginator.posts %}
+      <article class="box">
+        <div class="box-header">
+          <h2>
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              {{ post.date | date: "%Y-%m-%d" }}
             </span>
-            Older
-          </a>
-        </li>
-        {% else %}
-        <li class="previous disabled">
-          <a href="#">
-            <span aria-hidden="true">
-              <i class="fa fa-chevron-left"></i>
+            <span>
+              <i class="fa fa-user"></i>
+              Posted by {{ post.author }}
             </span>
-            Older
-          </a>
-        </li>
-        {% endif %}
+            <span>
+              <i class="fa fa-folder"></i>
+              {% for category in post.categories %}
+                <a href="/categories#{{ category | slugize }}">
+                  {{ site.data.categories[category].name }}
+                </a>
+                {% unless forloop.last %}, {% endunless %}
+              {% endfor %}
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
 
-        {% if paginator.previous_page %}
-        <li class="next">
-          <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">
-            Newer
-            <span aria-hidden="true">
-              <i class="fa fa-chevron-right"></i>
-            </span>
-          </a>
-        </li>
-        {% else %}
-        <li class="next disabled">
-          <a href="#">
-            Newer
-            <span aria-hidden="true">
-              <i class="fa fa-chevron-right"></i>
-            </span>
-          </a>
-        </li>
-        {% endif %}
-      </ul>
-    </nav>
-  </section>
+        <div class="box-body">
+          {{ post.content | split:'<!--more-->' | first }}
+        </div>
 
-  <aside id="sidebar" class="col-md-3">
-    {% include site-sidebar.html %}
-  </aside>
+        <footer class="box-footer">
+          {% if post.content contains '<!--more-->' %}
+          <a class="btn btn-default" href="{{ post.url | prepend: site.baseurl }}">
+            Read More <i class="fa fa-arrow-right"></i>
+          </a>
+          {% endif %}
+        </footer>
+      </article>
+      {% endfor %}
+
+      <nav id="pagination">
+        <ul class="pager">
+          {% if paginator.next_page %}
+          <li class="previous">
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">
+              <span aria-hidden="true">
+                <i class="fa fa-chevron-left"></i>
+              </span>
+              Older
+            </a>
+          </li>
+          {% else %}
+          <li class="previous disabled">
+            <a href="#">
+              <span aria-hidden="true">
+                <i class="fa fa-chevron-left"></i>
+              </span>
+              Older
+            </a>
+          </li>
+          {% endif %}
+
+          {% if paginator.previous_page %}
+          <li class="next">
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">
+              Newer
+              <span aria-hidden="true">
+                <i class="fa fa-chevron-right"></i>
+              </span>
+            </a>
+          </li>
+          {% else %}
+          <li class="next disabled">
+            <a href="#">
+              Newer
+              <span aria-hidden="true">
+                <i class="fa fa-chevron-right"></i>
+              </span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </section>
+
+    <aside id="sidebar" class="col-md-3">
+      {% include site-sidebar.html %}
+    </aside>
+  </div>
 </div>
