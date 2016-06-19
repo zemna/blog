@@ -4,5 +4,8 @@ programming:
 jekyll:
   name: Jekyll
 
+web:
+  name: Web
+
 erp:
   name: ERP

@@ -6,9 +6,46 @@
 </description>
     <link>http://blog.zemna.net/</link>
     <atom:link href="http://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2016 19:01:04 +0700</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2016 19:01:04 +0700</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2016 21:37:46 +0700</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2016 21:37:46 +0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Orbit - Free Responsive Bootstrap Resume/CV Template</title>
+        <description>&lt;p&gt;Do you want to make a personal Resumt/CV site?.&lt;/p&gt;
+
+&lt;p&gt;Try to use &lt;code class=&quot;highlighter-rouge&quot;&gt;Orbit&lt;/code&gt; theme by &lt;code class=&quot;highlighter-rouge&quot;&gt;3rd Wave Media&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://themes.3rdwavemedia.com/wp-content/uploads/2016/01/Responsive-HTML5-Resume-CV-Template-for-Developers.png&quot;&gt;&lt;img src=&quot;http://themes.3rdwavemedia.com/wp-content/uploads/2016/01/Responsive-HTML5-Resume-CV-Template-for-Developers.png&quot; alt=&quot;Orbit Theme&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;btn btn-primary&quot; href=&quot;http://themes.3rdwavemedia.com/website-templates/orbit-free-resume-cv-template-for-developers&quot;&gt;
+  &lt;i class=&quot;fa fa-download&quot;&gt;&lt;/i&gt; Go to download
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can use this great template under the the &lt;em&gt;Creative Commons Attribution 3.0 License (CC BY 3.0)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I make my resume site using this template.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://resume.zemna.net&quot;&gt;http://resume.zemna.net&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Jun 2016 21:22:00 +0700</pubDate>
+        <link>http://blog.zemna.net/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/</guid>
+        
+        <category>web</category>
+        
+        <category>theme</category>
+        
+        <category>orbit</category>
+        
+        <category>bootstrap</category>
+        
+        <category>resume</category>
+        
+        
+        <category>web</category>
+        
+      </item>
     
       <item>
         <title>How to speed up Jekyll site</title>
