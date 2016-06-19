@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "Orbit - Free Responsive Bootstrap Resume/CV Template",
+    "category" : "web",
+    "tags"     : "web, theme, orbit, bootstrap, resume",
+    "url"      : "/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/",
+    "date"     : "2016-06-19"
+  },
+  
+  {
     "title"    : "How to speed up Jekyll site",
     "category" : "jekyll",
     "tags"     : "jekyll",
