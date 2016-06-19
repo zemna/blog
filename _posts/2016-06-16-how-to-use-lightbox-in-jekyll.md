@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "How to use Lightbox in Jekyll"
+excerpt: "Learn how to use Lightbox plugin in Jekyll"
 categories: programming
 tags: jekyll, lightbox
 ---

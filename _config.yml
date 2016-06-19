@@ -36,3 +36,6 @@ lsi: false # If set to true generate related posts
 paginate: 5
 paginate_path: /page:num/
 destination: public
+
+# Facebook Sharing
+facebook_api_id: 632837843538038

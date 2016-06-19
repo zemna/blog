@@ -1,0 +1,23 @@
+$font-family-base: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-size-base:   16px;
+$line-height-base: 1.5;
+
+$headings-font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.1 !default;
+
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
