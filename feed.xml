@@ -6,9 +6,28 @@
 </description>
     <link>http://blog.zemna.net/</link>
     <atom:link href="http://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2016 18:09:37 +0700</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2016 18:09:37 +0700</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2016 19:01:04 +0700</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2016 19:01:04 +0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>How to speed up Jekyll site</title>
+        <description>&lt;p&gt;Great article to speed up Jekyll site.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.webjeda.com/jekyll-speed/&quot;&gt;How to speed up Jekyll blog? - WebJeda&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://wiredcraft.com/blog/make-jekyll-fast/&quot;&gt;13 Steps to a Faster Jekyll Website - Wiredcraft&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Jun 2016 18:34:00 +0700</pubDate>
+        <link>http://blog.zemna.net/jekyll/how-to-speed-up-jekyll-site/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/jekyll/how-to-speed-up-jekyll-site/</guid>
+        
+        <category>jekyll</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
     
       <item>
         <title>How to use Lightbox in Jekyll</title>
