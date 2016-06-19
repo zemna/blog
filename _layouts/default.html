@@ -38,6 +38,9 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}"/>
 
+  <!-- Begin MailChimp Signup Form -->
+  <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+
   <link rel="stylesheet" href="/styles/main.min.css">
 
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
@@ -69,6 +72,8 @@
   {% include site-header.html %}
 
   {{ content }}
+
+  {% include newsletter.html %}
 
   {% include site-footer.html %}
 

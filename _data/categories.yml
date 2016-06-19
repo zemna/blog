@@ -1,5 +1,8 @@
 programming:
   name: Programming
 
+jekyll:
+  name: Jekyll
+
 erp:
   name: ERP
