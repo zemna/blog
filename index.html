@@ -16,10 +16,6 @@ layout: default
               {{ post.date | date: "%Y-%m-%d" }}
             </span>
             <span>
-              <i class="fa fa-user"></i>
-              Posted by {{ post.author }}
-            </span>
-            <span>
               <i class="fa fa-folder"></i>
               {% for category in post.categories %}
                 <a href="/categories#{{ category | slugize }}">
