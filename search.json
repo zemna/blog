@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "How to setting to use SQL Server in Laravel",
+    "category" : "laravel",
+    "tags"     : "laravel",
+    "url"      : "/laravel/how-to-setting-to-use-sql-server-in-laravel/",
+    "date"     : "2016-06-20"
+  },
+  
+  {
     "title"    : "Orbit - Free Responsive Bootstrap Resume/CV Template",
     "category" : "web",
     "tags"     : "web, theme, orbit, bootstrap, resume",
