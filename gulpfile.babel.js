@@ -107,7 +107,8 @@ gulp.task('serve', ['images', 'styles', 'scripts', 'icons', 'jekyll'], () => {
     notify: false,
     logPrefix: 'Jekyll',
     server: ['public'],
-    port: 3000
+    online: true,
+    port: 4000
   });
 
   gulp.watch(['_assets/styles/**/*.{scss,css}'], ['styles', 'jekyll', reload]);
@@ -128,7 +129,9 @@ gulp.task('deploy', [], () => {
   // Uncomment paths to published from .gitignore
   //cp.spawn('sed', ['-i', "''", 's/public/#public/', '.gitignore'], { stdio: 'inherit' });
 
-  gulp.src('./public/**/*').pipe($.ghPages());
+  gulp.src('./public/**/*').pipe($.ghPages({
+    force: true
+  }));
 
   // Re-comment paths to be ignored
   //return cp.spawn('git', ['checkout', '.gitignore'], { stdio: 'inherit' });

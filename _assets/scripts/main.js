@@ -33,10 +33,10 @@
             var activeItem = navItem.find('active');
 
             switch (currentUrl) {
-                case 'guest-book':
+                case 'projects':
                     navItem.eq(1).addClass('active');
                     break;
-                case 'profile':
+                case 'guest-book':
                     navItem.eq(2).addClass('active');
                     break;
                 default:
