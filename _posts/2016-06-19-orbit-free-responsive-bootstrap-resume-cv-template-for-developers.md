@@ -11,7 +11,7 @@ Do you want to make a personal Resumt/CV site?.
 
 Try to use `Orbit` theme by `3rd Wave Media`.
 
-[![Orbit Theme](http://themes.3rdwavemedia.com/wp-content/uploads/2016/01/Responsive-HTML5-Resume-CV-Template-for-Developers.png)](http://themes.3rdwavemedia.com/wp-content/uploads/2016/01/Responsive-HTML5-Resume-CV-Template-for-Developers.png)
+[![Orbit Theme](http://themes.3rdwavemedia.com/wp-content/uploads/2016/01/Responsive-HTML5-Resume-CV-Template-for-Developers.png){: .img-responsive }](http://themes.3rdwavemedia.com/wp-content/uploads/2016/01/Responsive-HTML5-Resume-CV-Template-for-Developers.png)
 
 <a class="btn btn-primary" href="http://themes.3rdwavemedia.com/website-templates/orbit-free-resume-cv-template-for-developers">
   <i class="fa fa-download"></i> Go to download

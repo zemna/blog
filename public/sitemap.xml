@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://blog.zemna.net/laravel/how-to-setting-to-use-sql-server-in-laravel/</loc>
+<lastmod>2016-06-20T12:47:00+07:00</lastmod>
+</url>
+<url>
 <loc>http://blog.zemna.net/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/</loc>
 <lastmod>2016-06-19T21:22:00+07:00</lastmod>
 </url>
