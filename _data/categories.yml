@@ -4,6 +4,9 @@ programming:
 jekyll:
   name: Jekyll
 
+laravel:
+  name: Laravel
+
 web:
   name: Web
 
