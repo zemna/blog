@@ -163,3 +163,8 @@ footer {
         background-color: rgba(0, 191, 243, .8);
     }
 }
+
+// Set vertical-align for facebook button
+.fb_iframe_widget span {
+  vertical-align: baseline !important;
+}
