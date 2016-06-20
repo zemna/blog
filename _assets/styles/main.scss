@@ -41,6 +41,14 @@ footer {
     margin-bottom: 0;
 }
 
+.box-tags {
+    padding-top: 10px;
+    .tag {
+        padding: 6px 12px;
+        margin-right: 4px;
+    }
+}
+
 #app {
     a {
         text-decoration: none;
