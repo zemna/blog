@@ -57,11 +57,11 @@
   <meta name="msapplication-TileColor" content="#ffffff" />
   <meta name="msapplication-TileImage" content="/images/pencil-144-168414.png">
   <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/pencil-152-168414.png">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/pencil-144-168414.png"">
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/pencil-120-168414.png"">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/pencil-114-168414.png"">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/pencil-72-168414.png"">
-  <link rel="apple-touch-icon-precomposed" href="/pencil-57-168414.png"">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/pencil-144-168414.png">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/pencil-120-168414.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/pencil-114-168414.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/pencil-72-168414.png">
+  <link rel="apple-touch-icon-precomposed" href="/pencil-57-168414.png">
   <link rel="icon" href="/pencil-32-168414.png" sizes="32x32">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -101,6 +101,82 @@
   <div class="container">
   <div class="row">
     <section id="main" class="col-md-9">
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
+            <a href="/programming/how-to-use-lightbox-in-jekyll/">How to use Lightbox in Jekyll</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-06-16
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#programming">
+                  Programming
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/programming/how-to-use-lightbox-in-jekyll/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>Install with bower</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>bower install ekko-lightbox --save
+</code></pre>
+</div>
+
+<p>Basic usage likes bellow,</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"image-url"</span> <span class="na">data-toggle=</span><span class="s">"lightbox"</span> <span class="na">data-title=</span><span class="s">"Image title"</span> <span class="na">data-footer=</span><span class="s">"Image footer"</span><span class="nt">&gt;</span>
+    ![Image Title](/images/github-logo.png){: width="400px" }
+<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+</div>
+
+<p>If you want to give lightbox feature to all images in page, we can it by bellow javascript.</p>
+
+<p>first, give anchor to image in jekyll</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>[![Title](/images/github-logo.png){: width="400px"}](/images/github-logo.png)
+</code></pre>
+</div>
+
+<p>and, make javascript like bellow,</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'img'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="nx">that</span><span class="p">.</span><span class="nx">closest</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-toggle'</span><span class="p">,</span> <span class="s1">'lightbox'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-title'</span><span class="p">,</span> <span class="nx">that</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'alt'</span><span class="p">));</span>
+    <span class="p">});</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">delegate</span><span class="p">(</span><span class="s1">'*[data-toggle="lightbox"]'</span><span class="p">,</span> <span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">ekkoLightbox</span><span class="p">();</span>
+    <span class="p">});</span>    
+<span class="p">})</span>
+</code></pre>
+</div>
+
+<p>This is sample.</p>
+
+<p><a href="/images/github-logo.png"><img src="/images/github-logo.png" alt="Title" width="400px" /></a></p>
+
+        </div>
+
+        <footer class="box-footer">
+          
+        </footer>
+      </article>
       
       <article class="box">
         <div class="box-header">
@@ -320,46 +396,6 @@
         </footer>
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/programming/jekyll/">Jekyll </a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-09
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#programming">
-                  Programming
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/programming/jekyll/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>Simple, blog-aware, static sites generator.</p>
-
-<p>I’m using jekyll to this blog.</p>
-
-<p><a href="http://jekyllrb.com/">http://jekyllrb.com/</a></p>
-
-        </div>
-
-        <footer class="box-footer">
-          
-        </footer>
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -422,7 +458,7 @@
     
       
       <a href="/categories#programming" class="list-group-item">
-        <span class="badge">6</span>
+        <span class="badge">7</span>
         
         Programming
       </a>
@@ -486,6 +522,12 @@
     </span>
     
     <span style="font-size: 94%">
+      <a href="/tags#freetds">
+        freetds
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
       <a href="/tags#github">
         github
       </a>
@@ -518,6 +560,12 @@
     <span style="font-size: 94%">
       <a href="/tags#orbit">
         orbit
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#programming">
+        programming
       </a>
     </span>
     
@@ -566,21 +614,21 @@
       <li>
         <h4>
           <small class="box-meta"><i class="material-icons">today</i> 2016-06-20</small>
-          <a href="/laravel/how-to-setting-to-use-sql-server-in-laravel/">How to setting to use SQL Server in Laravel</a>
+          <a href="/programming/what-is-freetds/">What is FreeTDS</a>
         </h4>
       </li>
       
       <li>
         <h4>
-          <small class="box-meta"><i class="material-icons">today</i> 2016-06-19</small>
-          <a href="/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/">Orbit - Free Responsive Bootstrap Resume/CV Template</a>
-        </h4>
-      </li>
-      
-      <li>
-        <h4>
-          <small class="box-meta"><i class="material-icons">today</i> 2016-06-19</small>
+          <small class="box-meta"><i class="material-icons">today</i> 2016-06-20</small>
           <a href="/web/how-to-vertial-align-of-facebook-button-with-others/">How to vertical align of Facebook button with others</a>
+        </h4>
+      </li>
+      
+      <li>
+        <h4>
+          <small class="box-meta"><i class="material-icons">today</i> 2016-06-20</small>
+          <a href="/laravel/how-to-setting-to-use-sql-server-in-laravel/">How to setting to use SQL Server in Laravel</a>
         </h4>
       </li>
       
@@ -681,6 +729,15 @@
   <script id="dsq-count-scr" src="//zemnanetblog.disqus.com/count.js" async></script>
   <script src="/scripts/main.min.js"></script>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-58080837-1', 'auto');
+    ga('send', 'pageview');
+  </script>  
 </body>
 
 </html>

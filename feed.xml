@@ -6,9 +6,56 @@
 </description>
     <link>http://blog.zemna.net/</link>
     <atom:link href="http://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jun 2016 19:16:38 +0700</pubDate>
-    <lastBuildDate>Mon, 20 Jun 2016 19:16:38 +0700</lastBuildDate>
+    <pubDate>Tue, 21 Jun 2016 10:47:22 +0700</pubDate>
+    <lastBuildDate>Tue, 21 Jun 2016 10:47:22 +0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>What is FreeTDS</title>
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FreeTDS&lt;/code&gt; is a set of libraries for Unix and Linux that allows your programs to natively talk to Microsoft SQL Server and Sybase datbases.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.freetds.org/&quot;&gt;Main Website&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/FreeTDS/freetds&quot;&gt;Github Repository&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 20 Jun 2016 19:48:00 +0700</pubDate>
+        <link>http://blog.zemna.net/programming/what-is-freetds/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/programming/what-is-freetds/</guid>
+        
+        <category>programming</category>
+        
+        <category>freetds</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
+    
+      <item>
+        <title>How to vertical align of Facebook button with others</title>
+        <description>&lt;p&gt;When I attach social buttons to my blog, Facebook button moves bottom almost 5 pixels from other social buttons like Twitter, Google+.&lt;/p&gt;
+
+&lt;p&gt;This is because facebook button has &lt;code class=&quot;highlighter-rouge&quot;&gt;vertical-align: bottom;&lt;/code&gt; style inside of widget;&lt;/p&gt;
+
+&lt;p&gt;We can solve this problem adding bellow style to css.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.fb_iframe_widget&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;vertical-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;baseline&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;!important&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 20 Jun 2016 18:37:00 +0700</pubDate>
+        <link>http://blog.zemna.net/web/how-to-vertial-align-of-facebook-button-with-others/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/web/how-to-vertial-align-of-facebook-button-with-others/</guid>
+        
+        <category>web</category>
+        
+        
+        <category>web</category>
+        
+      </item>
     
       <item>
         <title>How to setting to use SQL Server in Laravel</title>
@@ -106,31 +153,6 @@ This is because the difference of datetime string format. My SQL Server gives &l
         <category>bootstrap</category>
         
         <category>resume</category>
-        
-        
-        <category>web</category>
-        
-      </item>
-    
-      <item>
-        <title>How to vertical align of Facebook button with others</title>
-        <description>&lt;p&gt;When I attach social buttons to my blog, Facebook button moves bottom almost 5 pixels from other social buttons like Twitter, Google+.&lt;/p&gt;
-
-&lt;p&gt;This is because facebook button has &lt;code class=&quot;highlighter-rouge&quot;&gt;vertical-align: bottom;&lt;/code&gt; style inside of widget;&lt;/p&gt;
-
-&lt;p&gt;We can solve this problem adding bellow style to css.&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.fb_iframe_widget&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;vertical-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;baseline&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;!important&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Sun, 19 Jun 2016 18:37:00 +0700</pubDate>
-        <link>http://blog.zemna.net/web/how-to-vertial-align-of-facebook-button-with-others/</link>
-        <guid isPermaLink="true">http://blog.zemna.net/web/how-to-vertial-align-of-facebook-button-with-others/</guid>
-        
-        <category>web</category>
         
         
         <category>web</category>
@@ -350,25 +372,6 @@ This is because the difference of datetime string format. My SQL Server gives &l
         
         
         <category>erp</category>
-        
-      </item>
-    
-      <item>
-        <title>Jekyll </title>
-        <description>&lt;p&gt;Simple, blog-aware, static sites generator.&lt;/p&gt;
-
-&lt;p&gt;I’m using jekyll to this blog.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;http://jekyllrb.com/&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 09 Jun 2016 20:45:00 +0700</pubDate>
-        <link>http://blog.zemna.net/programming/jekyll/</link>
-        <guid isPermaLink="true">http://blog.zemna.net/programming/jekyll/</guid>
-        
-        <category>jekyll</category>
-        
-        
-        <category>programming</category>
         
       </item>
     
