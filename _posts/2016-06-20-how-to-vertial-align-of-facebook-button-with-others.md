@@ -2,7 +2,7 @@
 layout: post
 title:  "How to vertical align of Facebook button with others"
 excerpt: "Leaning how to vertical align of Facebook button with other social buttons"
-date:   2016-06-19 18:37:00 +0700
+date:   2016-06-20 18:37:00 +0700
 categories: web
 tags: web
 ---
