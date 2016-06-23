@@ -30,7 +30,7 @@ $ sudo vi /etc/freetds/freetds.conf
 ```bash
 [global]
     tds version = 7.2
-    client chartset = UTF-8
+    client charset = UTF-8
 ```
 
 Also create /etc/freetds/locales.conf file to allow correct parsing of dates.

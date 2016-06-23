@@ -105,6 +105,164 @@
       <article class="box">
         <div class="box-header">
           <h2>
+            <a href="/laravel/how-to-disable-xdebug/">How to disable xdebug</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-06-22
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#laravel">
+                  Laravel
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/laravel/how-to-disable-xdebug/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>When I run <code class="highlighter-rouge">composer update</code> command in shell, composer displays warning like bellow.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>You are running composer with xdebug enabled. This has a major impact on runtime performance. See https://getcomposer.org/xdebug
+</code></pre>
+</div>
+
+<p>And takes too long time to process.</p>
+
+<p>I already go to <a href="https://getcomposer.org/xdebug">https://getcomposer.org/xdebug</a> reference and tried to disable xdebug option in <code class="highlighter-rouge">php.ini</code> file. But I couldn’t found it.</p>
+
+<p>This is the real reference to disable <code class="highlighter-rouge">xdebug</code> option in <code class="highlighter-rouge">php.ini</code> file.</p>
+
+<h2 id="get-what-phpini-file-is-used">Get what php.ini file is used</h2>
+
+<p>First, check what kind of <code class="highlighter-rouge">php.ini</code> file is used.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>php -i | grep <span class="s2">"php.ini"</span>
+</code></pre>
+</div>
+
+<h2 id="comment-xdebug-option">Comment xdebug option</h2>
+
+<p>Search <code class="highlighter-rouge">zend_extension</code> option and comment it using ‘;(semicolon)’.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>;zend_extension <span class="o">=</span> <span class="s2">"/path/to/my/xdebug.so"</span>
+</code></pre>
+</div>
+
+<p>If you can’t find this option in <code class="highlighter-rouge">php.ini</code> file, maybe it is in <code class="highlighter-rouge">conf.d</code> folder. File name is like <code class="highlighter-rouge">'20-xdebug.ini'</code>. Open this file and comment it.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://getcomposer.org/doc/articles/troubleshooting.md#xdebug-impact-on-composer">Troubleshooting  - Composer</a></li>
+  <li><a href="https://laracasts.com/discuss/channels/servers/how-can-i-disable-the-xdebug">How can I disable the xdebug? - Laracasts</a></li>
+</ul>
+
+        </div>
+
+        <footer class="box-footer">
+          
+        </footer>
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
+            <a href="/laravel/deploy-laravel-to-production/">Deploy Laravel to Production</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-06-22
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#laravel">
+                  Laravel
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/laravel/deploy-laravel-to-production/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <h2 id="clone-laravel-source-to-server">Clone laravel source to server</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/zemna/groupware.git
+</code></pre>
+</div>
+
+<h2 id="install-necessary-modules">Install necessary modules</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install
+
+<span class="gp">$ </span>composer install --no-dev -o --prefer-dist
+
+<span class="gp">$ </span>bower install
+</code></pre>
+</div>
+
+<h2 id="make-env">Make .env</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp .env.example .env
+</code></pre>
+</div>
+
+<h2 id="generate-key-to-env">Generate key to .env</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan key:generate
+</code></pre>
+</div>
+
+<h2 id="execute-gulp-if-necessary">Execute <code class="highlighter-rouge">gulp</code> if necessary</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gulp --production
+</code></pre>
+</div>
+
+<h2 id="migrate-database">Migrate database</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan migrate
+</code></pre>
+</div>
+
+<h2 id="give-owner-to-web-server">Give owner to web server</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chown -R www-data:www-data <span class="k">*</span>
+</code></pre>
+</div>
+
+<h3 id="set-write-permission">Set write permission</h3>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod -R 775 bootstrap/cache
+<span class="gp">$ </span>chmod -R 775 storage
+</code></pre>
+</div>
+
+        </div>
+
+        <footer class="box-footer">
+          
+        </footer>
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
             <a href="/programming/what-is-freetds/">What is FreeTDS</a>
           </h2>
           <p class="box-meta text-muted">
@@ -240,7 +398,7 @@
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>global]
     tds version <span class="o">=</span> 7.2
-    client chartset <span class="o">=</span> UTF-8
+    client charset <span class="o">=</span> UTF-8
 </code></pre>
 </div>
 
@@ -267,96 +425,6 @@ This is because the difference of datetime string format. My SQL Server gives <c
 }
 </code></pre>
 </div>
-
-        </div>
-
-        <footer class="box-footer">
-          
-        </footer>
-      </article>
-      
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/">Orbit - Free Responsive Bootstrap Resume/CV Template</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-19
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#web">
-                  Web
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>Do you want to make a personal Resumt/CV site?.</p>
-
-<p>Try to use <code class="highlighter-rouge">Orbit</code> theme by <code class="highlighter-rouge">3rd Wave Media</code>.</p>
-
-<p><a href="http://themes.3rdwavemedia.com/wp-content/uploads/2016/01/Responsive-HTML5-Resume-CV-Template-for-Developers.png"><img src="http://themes.3rdwavemedia.com/wp-content/uploads/2016/01/Responsive-HTML5-Resume-CV-Template-for-Developers.png" alt="Orbit Theme" class="img-responsive" /></a></p>
-
-<p><a class="btn btn-primary" href="http://themes.3rdwavemedia.com/website-templates/orbit-free-resume-cv-template-for-developers">
-  <i class="fa fa-download"></i> Go to download
-</a></p>
-
-<p>You can use this great template under the the <em>Creative Commons Attribution 3.0 License (CC BY 3.0)</em>.</p>
-
-<p>I make my resume site using this template.</p>
-
-<p><a href="http://resume.zemna.net">http://resume.zemna.net</a></p>
-
-        </div>
-
-        <footer class="box-footer">
-          
-        </footer>
-      </article>
-      
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/jekyll/how-to-speed-up-jekyll-site/">How to speed up Jekyll site</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-19
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#jekyll">
-                  Jekyll
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/jekyll/how-to-speed-up-jekyll-site/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>Great article to speed up Jekyll site.</p>
-
-<p><a href="http://blog.webjeda.com/jekyll-speed/">How to speed up Jekyll blog? - WebJeda</a></p>
-
-<p><a href="https://wiredcraft.com/blog/make-jekyll-fast/">13 Steps to a Faster Jekyll Website - Wiredcraft</a></p>
 
         </div>
 
@@ -455,7 +523,7 @@ This is because the difference of datetime string format. My SQL Server gives <c
     
       
       <a href="/categories#laravel" class="list-group-item">
-        <span class="badge">1</span>
+        <span class="badge">3</span>
         
         Laravel
       </a>
@@ -475,6 +543,18 @@ This is because the difference of datetime string format. My SQL Server gives <c
     <span style="font-size: 94%">
       <a href="/tags#bootstrap">
         bootstrap
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#composer">
+        composer
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#deployment">
+        deployment
       </a>
     </span>
     
@@ -514,7 +594,7 @@ This is because the difference of datetime string format. My SQL Server gives <c
       </a>
     </span>
     
-    <span style="font-size: 94%">
+    <span style="font-size: 102%">
       <a href="/tags#laravel">
         laravel
       </a>
@@ -582,22 +662,22 @@ This is because the difference of datetime string format. My SQL Server gives <c
       
       <li>
         <h4>
+          <small class="box-meta"><i class="material-icons">today</i> 2016-06-22</small>
+          <a href="/laravel/how-to-disable-xdebug/">How to disable xdebug</a>
+        </h4>
+      </li>
+      
+      <li>
+        <h4>
+          <small class="box-meta"><i class="material-icons">today</i> 2016-06-22</small>
+          <a href="/laravel/deploy-laravel-to-production/">Deploy Laravel to Production</a>
+        </h4>
+      </li>
+      
+      <li>
+        <h4>
           <small class="box-meta"><i class="material-icons">today</i> 2016-06-20</small>
           <a href="/programming/what-is-freetds/">What is FreeTDS</a>
-        </h4>
-      </li>
-      
-      <li>
-        <h4>
-          <small class="box-meta"><i class="material-icons">today</i> 2016-06-20</small>
-          <a href="/web/how-to-vertial-align-of-facebook-button-with-others/">How to vertical align of Facebook button with others</a>
-        </h4>
-      </li>
-      
-      <li>
-        <h4>
-          <small class="box-meta"><i class="material-icons">today</i> 2016-06-20</small>
-          <a href="/laravel/how-to-setting-to-use-sql-server-in-laravel/">How to setting to use SQL Server in Laravel</a>
         </h4>
       </li>
       

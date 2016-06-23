@@ -1,6 +1,22 @@
 [
   
   {
+    "title"    : "How to disable xdebug",
+    "category" : "laravel",
+    "tags"     : "laravel, composer",
+    "url"      : "/laravel/how-to-disable-xdebug/",
+    "date"     : "2016-06-22"
+  },
+  
+  {
+    "title"    : "Deploy Laravel to Production",
+    "category" : "laravel",
+    "tags"     : "laravel, deployment",
+    "url"      : "/laravel/deploy-laravel-to-production/",
+    "date"     : "2016-06-22"
+  },
+  
+  {
     "title"    : "What is FreeTDS",
     "category" : "programming",
     "tags"     : "programming, freetds",
