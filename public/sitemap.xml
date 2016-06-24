@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://blog.zemna.net/laravel/some-tips-when-using-entrust-in-laravel/</loc>
+<lastmod>2016-06-24T07:18:00+07:00</lastmod>
+</url>
+<url>
 <loc>http://blog.zemna.net/laravel/how-to-disable-xdebug/</loc>
 <lastmod>2016-06-22T20:06:00+07:00</lastmod>
 </url>

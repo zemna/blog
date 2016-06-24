@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "Some Tips when using Entrust in Laravel",
+    "category" : "laravel",
+    "tags"     : "laravel, entrust",
+    "url"      : "/laravel/some-tips-when-using-entrust-in-laravel/",
+    "date"     : "2016-06-24"
+  },
+  
+  {
     "title"    : "How to disable xdebug",
     "category" : "laravel",
     "tags"     : "laravel, composer",

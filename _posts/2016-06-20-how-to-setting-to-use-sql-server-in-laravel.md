@@ -56,3 +56,5 @@ protected function getDateFormat() {
   return 'Y-m-d H:i:s+';
 }
 ```
+
+SqlServerGrammer.php file returns `Y-m-d H:i:s.000` DateFormat. Change it to `Y-m-d H:i:s` to apply all models or just delete this function. Because `Grammer.php` abstract class returns `Y-m-d H:i:s` format...
