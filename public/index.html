@@ -92,7 +92,7 @@
         <li><a href="/">Blog</a></li>
         <li><a href="/projects">Projects</a></li>
         <li><a href="/guest-book">Guest Book</a></li>
-        <li><a href="http://resume.zemna.net">Resume</a></li>
+        <li><a href="https://resume.zemna.net">Resume</a></li>
       </ul>
     </div>
   </div>
@@ -207,6 +207,120 @@
 <ul>
   <li><a href="https://github.com/Zizaco/entrust/issues/541">https://github.com/Zizaco/entrust/issues/541</a></li>
 </ul>
+
+<h4 id="error-when-delete-role">Error when delete role</h4>
+
+<p>In Laravel 5.2, error is occured when delete role. Because Entrust get User class using <code class="highlighter-rouge">Config::get('auth.model')</code>.</p>
+
+<p>EntrustRoleTrait.php file</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>    /**
+     * Many-to-Many relations with the user model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this-&gt;belongsToMany(Config::get('auth.model'), Config::get('entrust.role_user_table'),Config::get('entrust.role_foreign_key'),Config::get('entrust.user_foreign_key'));
+       // return $this-&gt;belongsToMany(Config::get('auth.model'), Config::get('entrust.role_user_table'));
+    }
+</code></pre>
+</div>
+
+<p>So We have to return right user model by that position. There are two solutions for this.</p>
+
+<h5 id="change-entrustroletraitphp-file-to-use-correct-configuration-value">1. Change EntrustRoleTrait.php file to use correct configuration value.</h5>
+
+<p>We can change <code class="highlighter-rouge">Config::get('auth.model')</code> to <code class="highlighter-rouge">Config::get('auth.providers.users.model')</code>. Laravel 5.2 already have users model information in that position.</p>
+
+<h5 id="add-authmodel-value-to-configauthphp-file">2. Add <code class="highlighter-rouge">auth.model</code> value to config/auth.php file</h5>
+
+<p>We can also add new value to config/auth.php file to allow Entrust get rights value.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>return [
+  ...
+
+  /**
+   * Add this configuration for Entrust
+   */
+  'model' =&gt; App\User::class,
+];
+</code></pre>
+</div>
+
+        </div>
+
+        <footer class="box-footer">
+          
+        </footer>
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
+            <a href="/laravel/class-memcached-not-found-error-in-laravel/">Class memcached not found error in Laravel</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-06-24
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#laravel">
+                  Laravel
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/laravel/class-memcached-not-found-error-in-laravel/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>If you got bellow error when use memcached in Laravel, please check following steps.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>exception <span class="s1">'Symfony\Component\Debug\Exception\FatalErrorException'</span> with message <span class="s1">'Class '</span>Memcached<span class="s1">' not found'</span> <span class="k">in</span> /var/www/gw/vendor/laravel/framework/src/Illuminate/Cache/MemcachedConnector.php:51
+</code></pre>
+</div>
+
+<h4 id="install-memcached">Install memcached</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install php5-memcached memcached
+</code></pre>
+</div>
+
+<p>Enabled php5-memcached</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo php5enmod memcached
+</code></pre>
+</div>
+
+<p>Restart apache web server</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo service apache2 restart
+</code></pre>
+</div>
+
+<h4 id="check-memcached-service-status">Check memcached service status</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo service memcached status
+</code></pre>
+</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="k">*</span> memcached is running
+</code></pre>
+</div>
+
+<h4 id="clear-cache">Clear cache</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan cache:clear
+</code></pre>
+</div>
 
         </div>
 
@@ -414,52 +528,6 @@
         </footer>
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/web/how-to-vertial-align-of-facebook-button-with-others/">How to vertical align of Facebook button with others</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-20
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#web">
-                  Web
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/web/how-to-vertial-align-of-facebook-button-with-others/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>When I attach social buttons to my blog, Facebook button moves bottom almost 5 pixels from other social buttons like Twitter, Google+.</p>
-
-<p>This is because facebook button has <code class="highlighter-rouge">vertical-align: bottom;</code> style inside of widget;</p>
-
-<p>We can solve this problem adding bellow style to css.</p>
-
-<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.fb_iframe_widget</span> <span class="nt">span</span> <span class="p">{</span>
-    <span class="nl">vertical-align</span><span class="p">:</span> <span class="nb">baseline</span> <span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-        </div>
-
-        <footer class="box-footer">
-          
-        </footer>
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -550,7 +618,7 @@
     
       
       <a href="/categories#laravel" class="list-group-item">
-        <span class="badge">4</span>
+        <span class="badge">5</span>
         
         Laravel
       </a>
@@ -627,7 +695,7 @@
       </a>
     </span>
     
-    <span style="font-size: 106%">
+    <span style="font-size: 110%">
       <a href="/tags#laravel">
         laravel
       </a>
@@ -636,6 +704,12 @@
     <span style="font-size: 94%">
       <a href="/tags#lightbox">
         lightbox
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#memcached">
+        memcached
       </a>
     </span>
     
@@ -702,15 +776,15 @@
       
       <li>
         <h4>
-          <small class="box-meta"><i class="material-icons">today</i> 2016-06-22</small>
-          <a href="/laravel/how-to-disable-xdebug/">How to disable xdebug</a>
+          <small class="box-meta"><i class="material-icons">today</i> 2016-06-24</small>
+          <a href="/laravel/class-memcached-not-found-error-in-laravel/">Class memcached not found error in Laravel</a>
         </h4>
       </li>
       
       <li>
         <h4>
           <small class="box-meta"><i class="material-icons">today</i> 2016-06-22</small>
-          <a href="/laravel/deploy-laravel-to-production/">Deploy Laravel to Production</a>
+          <a href="/laravel/how-to-disable-xdebug/">How to disable xdebug</a>
         </h4>
       </li>
       

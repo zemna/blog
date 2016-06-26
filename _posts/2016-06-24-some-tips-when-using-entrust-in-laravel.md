@@ -83,3 +83,43 @@ After create `<timestamp>_entrust_setup_tables.php`, you have to write your user
 Set `CACHE_DRIVER=array` in `.env` file.
 
 * [https://github.com/Zizaco/entrust/issues/541](https://github.com/Zizaco/entrust/issues/541)
+
+#### Error when delete role
+
+In Laravel 5.2, error is occured when delete role. Because Entrust get User class using `Config::get('auth.model')`.
+
+EntrustRoleTrait.php file
+
+```php
+    /**
+     * Many-to-Many relations with the user model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany(Config::get('auth.model'), Config::get('entrust.role_user_table'),Config::get('entrust.role_foreign_key'),Config::get('entrust.user_foreign_key'));
+       // return $this->belongsToMany(Config::get('auth.model'), Config::get('entrust.role_user_table'));
+    }
+```
+
+So We have to return right user model by that position. There are two solutions for this.
+
+##### 1. Change EntrustRoleTrait.php file to use correct configuration value.
+
+We can change `Config::get('auth.model')` to `Config::get('auth.providers.users.model')`. Laravel 5.2 already have users model information in that position.
+
+##### 2. Add `auth.model` value to config/auth.php file
+
+We can also add new value to config/auth.php file to allow Entrust get rights value.
+
+```php
+return [
+  ...
+
+  /**
+   * Add this configuration for Entrust
+   */
+  'model' => App\User::class,
+];
+```

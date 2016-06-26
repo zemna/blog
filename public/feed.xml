@@ -6,8 +6,8 @@
 </description>
     <link>http://blog.zemna.net/</link>
     <atom:link href="http://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 24 Jun 2016 07:53:13 +0700</pubDate>
-    <lastBuildDate>Fri, 24 Jun 2016 07:53:13 +0700</lastBuildDate>
+    <pubDate>Sun, 26 Jun 2016 15:53:24 +0700</pubDate>
+    <lastBuildDate>Sun, 26 Jun 2016 15:53:24 +0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -90,6 +90,46 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/Zizaco/entrust/issues/541&quot;&gt;https://github.com/Zizaco/entrust/issues/541&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h4 id=&quot;error-when-delete-role&quot;&gt;Error when delete role&lt;/h4&gt;
+
+&lt;p&gt;In Laravel 5.2, error is occured when delete role. Because Entrust get User class using &lt;code class=&quot;highlighter-rouge&quot;&gt;Config::get(&#39;auth.model&#39;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;EntrustRoleTrait.php file&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    /**
+     * Many-to-Many relations with the user model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this-&amp;gt;belongsToMany(Config::get(&#39;auth.model&#39;), Config::get(&#39;entrust.role_user_table&#39;),Config::get(&#39;entrust.role_foreign_key&#39;),Config::get(&#39;entrust.user_foreign_key&#39;));
+       // return $this-&amp;gt;belongsToMany(Config::get(&#39;auth.model&#39;), Config::get(&#39;entrust.role_user_table&#39;));
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;So We have to return right user model by that position. There are two solutions for this.&lt;/p&gt;
+
+&lt;h5 id=&quot;change-entrustroletraitphp-file-to-use-correct-configuration-value&quot;&gt;1. Change EntrustRoleTrait.php file to use correct configuration value.&lt;/h5&gt;
+
+&lt;p&gt;We can change &lt;code class=&quot;highlighter-rouge&quot;&gt;Config::get(&#39;auth.model&#39;)&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;Config::get(&#39;auth.providers.users.model&#39;)&lt;/code&gt;. Laravel 5.2 already have users model information in that position.&lt;/p&gt;
+
+&lt;h5 id=&quot;add-authmodel-value-to-configauthphp-file&quot;&gt;2. Add &lt;code class=&quot;highlighter-rouge&quot;&gt;auth.model&lt;/code&gt; value to config/auth.php file&lt;/h5&gt;
+
+&lt;p&gt;We can also add new value to config/auth.php file to allow Entrust get rights value.&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;return [
+  ...
+
+  /**
+   * Add this configuration for Entrust
+   */
+  &#39;model&#39; =&amp;gt; App\User::class,
+];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Fri, 24 Jun 2016 07:18:00 +0700</pubDate>
         <link>http://blog.zemna.net/laravel/some-tips-when-using-entrust-in-laravel/</link>
@@ -98,6 +138,61 @@
         <category>laravel</category>
         
         <category>entrust</category>
+        
+        
+        <category>laravel</category>
+        
+      </item>
+    
+      <item>
+        <title>Class memcached not found error in Laravel</title>
+        <description>&lt;p&gt;If you got bellow error when use memcached in Laravel, please check following steps.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;exception &lt;span class=&quot;s1&quot;&gt;&#39;Symfony\Component\Debug\Exception\FatalErrorException&#39;&lt;/span&gt; with message &lt;span class=&quot;s1&quot;&gt;&#39;Class &#39;&lt;/span&gt;Memcached&lt;span class=&quot;s1&quot;&gt;&#39; not found&#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /var/www/gw/vendor/laravel/framework/src/Illuminate/Cache/MemcachedConnector.php:51
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;install-memcached&quot;&gt;Install memcached&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo apt-get install php5-memcached memcached
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Enabled php5-memcached&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo php5enmod memcached
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Restart apache web server&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo service apache2 restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;check-memcached-service-status&quot;&gt;Check memcached service status&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo service memcached status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; memcached is running
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;clear-cache&quot;&gt;Clear cache&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;php artisan cache:clear
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 24 Jun 2016 07:18:00 +0700</pubDate>
+        <link>http://blog.zemna.net/laravel/class-memcached-not-found-error-in-laravel/</link>
+        <guid isPermaLink="true">http://blog.zemna.net/laravel/class-memcached-not-found-error-in-laravel/</guid>
+        
+        <category>laravel</category>
+        
+        <category>memcached</category>
         
         
         <category>laravel</category>
@@ -445,67 +540,6 @@ This is because the difference of datetime string format. My SQL Server gives &l
         <category>jekyll,</category>
         
         <category>lightbox</category>
-        
-        
-        <category>programming</category>
-        
-      </item>
-    
-      <item>
-        <title>How to add social sharing buttons to Jekyll</title>
-        <description>&lt;p&gt;We can try to use &lt;a href=&quot;http://fontawesome.io&quot;&gt;Font Awesome&lt;/a&gt; to generate social icon button.&lt;/p&gt;
-
-&lt;p&gt;Click &lt;a href=&quot;http://fontawesome.io/examples/#stacked&quot;&gt;this link&lt;/a&gt; to get information about stacked icons.&lt;/p&gt;
-
-&lt;h2 id=&quot;facebook-button&quot;&gt;Facebook Button&lt;/h2&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://www.facebook.com/sharer/sharer.php?u={{ page.url | replace:&#39;index.html&#39;,&#39;&#39; | prepend: site.baseurl | prepend: site.url }}&amp;amp;title={{ page.title | encode }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa-stack&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-square fa-stack-2x&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color: #3b5998;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-facebook fa-stack-1x fa-inverse&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;twitter-button&quot;&gt;Twitter Button&lt;/h2&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://twitter.com/share?url={{ page.url | replace:&#39;index.html&#39;,&#39;&#39; | prepend: site.baseurl | prepend: site.url }}&amp;amp;title={{ page.title | encode }}&amp;amp;text={{ page.title | encode }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa-stack&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-square fa-stack-2x&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color: #0084b4;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-twitter fa-stack-1x fa-inverse&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;google-button&quot;&gt;Google+ Button&lt;/h2&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://plus.google.com/share?url={{ page.url | replace:&#39;index.html&#39;,&#39;&#39; | prepend: site.baseurl | prepend: site.url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa-stack&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-square fa-stack-2x&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color: #d34836;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-google-plus fa-stack-1x fa-inverse&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;You can also make other types of social buttons.&lt;/p&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.sharelinkgenerator.com/&quot;&gt;Share Link Generator&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://designpieces.com/2012/12/social-media-colours-hex-and-rgb/&quot;&gt;Social Media Colours&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 16 Jun 2016 00:00:00 +0700</pubDate>
-        <link>http://blog.zemna.net/programming/how-to-add-social-sharing-buttons-to-jekyll/</link>
-        <guid isPermaLink="true">http://blog.zemna.net/programming/how-to-add-social-sharing-buttons-to-jekyll/</guid>
-        
-        <category>jekyll</category>
-        
-        <category>social</category>
         
         
         <category>programming</category>

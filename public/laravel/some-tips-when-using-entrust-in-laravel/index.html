@@ -88,7 +88,7 @@
         <li><a href="/">Blog</a></li>
         <li><a href="/projects">Projects</a></li>
         <li><a href="/guest-book">Guest Book</a></li>
-        <li><a href="http://resume.zemna.net">Resume</a></li>
+        <li><a href="https://resume.zemna.net">Resume</a></li>
       </ul>
     </div>
   </div>
@@ -231,6 +231,46 @@
   <li><a href="https://github.com/Zizaco/entrust/issues/541">https://github.com/Zizaco/entrust/issues/541</a></li>
 </ul>
 
+<h4 id="error-when-delete-role">Error when delete role</h4>
+
+<p>In Laravel 5.2, error is occured when delete role. Because Entrust get User class using <code class="highlighter-rouge">Config::get('auth.model')</code>.</p>
+
+<p>EntrustRoleTrait.php file</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>    /**
+     * Many-to-Many relations with the user model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this-&gt;belongsToMany(Config::get('auth.model'), Config::get('entrust.role_user_table'),Config::get('entrust.role_foreign_key'),Config::get('entrust.user_foreign_key'));
+       // return $this-&gt;belongsToMany(Config::get('auth.model'), Config::get('entrust.role_user_table'));
+    }
+</code></pre>
+</div>
+
+<p>So We have to return right user model by that position. There are two solutions for this.</p>
+
+<h5 id="change-entrustroletraitphp-file-to-use-correct-configuration-value">1. Change EntrustRoleTrait.php file to use correct configuration value.</h5>
+
+<p>We can change <code class="highlighter-rouge">Config::get('auth.model')</code> to <code class="highlighter-rouge">Config::get('auth.providers.users.model')</code>. Laravel 5.2 already have users model information in that position.</p>
+
+<h5 id="add-authmodel-value-to-configauthphp-file">2. Add <code class="highlighter-rouge">auth.model</code> value to config/auth.php file</h5>
+
+<p>We can also add new value to config/auth.php file to allow Entrust get rights value.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>return [
+  ...
+
+  /**
+   * Add this configuration for Entrust
+   */
+  'model' =&gt; App\User::class,
+];
+</code></pre>
+</div>
+
         </div>
 
         <!-- blog.zemna.net, content-bottom, link, responsive -->
@@ -327,13 +367,13 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/laravel/how-to-disable-xdebug/">
+            <a href="/laravel/class-memcached-not-found-error-in-laravel/">
               <span aria-hidden="true">
                 <i class="fa fa-chevron-left"></i>
               </span>
               <span class="pager-title-sm">Older</span>
               <span class="pager-title">
-                How to disable xd...
+                Class memcached n...
               </span>
             </a>
           </li>
@@ -429,7 +469,7 @@
     
       
       <a href="/categories#laravel" class="list-group-item">
-        <span class="badge">4</span>
+        <span class="badge">5</span>
         
         Laravel
       </a>
@@ -506,7 +546,7 @@
       </a>
     </span>
     
-    <span style="font-size: 106%">
+    <span style="font-size: 110%">
       <a href="/tags#laravel">
         laravel
       </a>
@@ -515,6 +555,12 @@
     <span style="font-size: 94%">
       <a href="/tags#lightbox">
         lightbox
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#memcached">
+        memcached
       </a>
     </span>
     
@@ -581,15 +627,15 @@
       
       <li>
         <h4>
-          <small class="box-meta"><i class="material-icons">today</i> 2016-06-22</small>
-          <a href="/laravel/how-to-disable-xdebug/">How to disable xdebug</a>
+          <small class="box-meta"><i class="material-icons">today</i> 2016-06-24</small>
+          <a href="/laravel/class-memcached-not-found-error-in-laravel/">Class memcached not found error in Laravel</a>
         </h4>
       </li>
       
       <li>
         <h4>
           <small class="box-meta"><i class="material-icons">today</i> 2016-06-22</small>
-          <a href="/laravel/deploy-laravel-to-production/">Deploy Laravel to Production</a>
+          <a href="/laravel/how-to-disable-xdebug/">How to disable xdebug</a>
         </h4>
       </li>
       

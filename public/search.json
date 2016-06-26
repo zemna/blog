@@ -9,6 +9,14 @@
   },
   
   {
+    "title"    : "Class memcached not found error in Laravel",
+    "category" : "laravel",
+    "tags"     : "laravel, memcached",
+    "url"      : "/laravel/class-memcached-not-found-error-in-laravel/",
+    "date"     : "2016-06-24"
+  },
+  
+  {
     "title"    : "How to disable xdebug",
     "category" : "laravel",
     "tags"     : "laravel, composer",
