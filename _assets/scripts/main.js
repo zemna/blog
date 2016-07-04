@@ -127,68 +127,6 @@
         });
     };
 
-    App.activateSearch = function() {
-        var self = this;
-        var searchInput = $('#q');
-
-        /* Initialize Jekyll Search */
-        SimpleJekyllSearch({
-            searchInput: document.getElementById('q'),
-            resultsContainer: document.getElementById('q-results'),
-            json: '/search.json',
-            searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
-            noResultsText: '<li class="text-warning">No results found</li>',
-            limit: 10,
-            fuzzy: false,
-            exclude: []
-        });
-
-        /* Key up/down navigation */
-
-        searchInput.on('keydown', function(e) {
-            var key = e.which;
-            var target = $('#q-results').find('li');
-
-            if ((key !== 38 && key !== 40 && key !== 13) || target.length < 1) {
-                return;
-            }
-
-            var navigate = function(direction) {
-                var down = (direction == 'down') ? true : false;
-
-                if (self.selected) {
-                    self.selected.removeClass('active');
-
-                    var next = down ? self.selected.next() : self.selected.prev();
-
-                    if (next.length > 0) {
-                        self.selected = next.addClass('active');
-                    } else {
-                        self.selected = down
-                            ? target.first().addClass('active')
-                            : target.last().addClass('active');
-                    }
-                } else {
-                    self.selected = down
-                        ? target.first().addClass('active')
-                        : target.last().addClass('active');
-                }
-            };
-
-            if (key === 40) {
-                navigate('down');
-            } else if (key === 38) {
-                navigate('up');
-            } else if (key === 13) {
-                if (self.selected) {
-                    window.location.href = self.selected.find('a').attr('href');
-                }
-            }
-
-            e.preventDefault();
-        });
-    };
-
     /* Helpers */
 
     App.anchorForId = function (id) {
