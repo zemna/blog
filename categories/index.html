@@ -406,19 +406,14 @@
         </div>
 
         <aside id="sidebar" class="col-md-3">
-            <section class="panel panel-default" id="search">
-  <div class="panel-heading">
-    <h1 class="panel-title">Search</h1>
+            <form action="/search" method="GET" class="m-b">
+  <div class="input-group">
+    <input class="form-control input-sm" type="text" id="q" name="q" placeholder="Search...">
+    <span class="input-group-btn">
+      <button class="btn btn-default btn-sm" type="submit"><i class="fa fa-search"></i></button>
+    </span>
   </div>
-  <div class="panel-body">
-    <form action="#">
-      <div class="form-group n-m-b">
-        <input class="form-control input" type="text" id="q" placeholder="Search...">
-        <ul id="q-results"></ul>
-      </div>
-    </form>
-  </div>
-</section>
+</form>
 
 <section class="text-center m-b">
   <!-- blog.zemna.net-sidebar -->
