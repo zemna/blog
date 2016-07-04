@@ -174,3 +174,12 @@ footer {
 .fb_iframe_widget span {
   vertical-align: baseline !important;
 }
+
+input.gsc-input,
+.gsc-input-box,
+.gsc-input-box-hover,
+.gsc-input-box-focus,
+.gsc-search-button {
+    box-sizing: content-box; 
+    line-height: normal;
+}
