@@ -1,7 +1,0 @@
-- name: Wirelss Configuration Changer
-  description: Automatically change wireless network configuration by SSID
-  link: https://github.com/zemna/WirelessConfigurationChanger
-
-- name: Zemna File Renamer
-  description: Rename single or multiple file(s) with rules
-  link: https://github.com/zemna/ZemnaFileRenamer

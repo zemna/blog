@@ -53,17 +53,16 @@
   </div>
 </section>
 
-<section class="panel panel-default" id="recent-posts">
+<section class="panel panel-default panel-posts" id="recent-posts">
   <div class="panel-heading">
     <h1 class="panel-title">Recent Posts</h1>
   </div>
-
   <div class="panel-body">
-    <ul>
+    <ul class="post-list">
       {% for post in site.posts limit:3 %}
-      <li>
+      <li class="post-item">
         <h4>
-          <small class="box-meta"><i class="material-icons">today</i> {{ post.date | date: "%Y-%m-%d" }}</small>
+          <small class="box-meta"><i class="fa fa-calendar"></i> {{ post.date | date: "%Y-%m-%d" }}</small>
           <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h4>
       </li>

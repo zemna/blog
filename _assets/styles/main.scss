@@ -65,6 +65,11 @@ footer {
         padding: 20px;
         background-color: #fff;
         border: 1px solid #eee;
+        .box-header {
+            h2 {
+                margin-top: 10px;
+            }
+        }
         .box-meta {
             color: #888;
             margin-bottom: 20px;
@@ -167,6 +172,15 @@ footer {
         right: 16px;
         padding: 10px;
         background-color: rgba(0, 191, 243, .8);
+    }
+}
+
+ul.post-list {
+    .post-item {
+        h4 {
+            font-size: 16px;
+            margin-top: 0;
+        }
     }
 }
 

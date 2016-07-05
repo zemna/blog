@@ -48,13 +48,13 @@ layout: default
           {{ post.content | split:'<!--more-->' | first }}
         </div>
 
-        <footer class="box-footer">
-          {% if post.content contains '<!--more-->' %}
-          <a class="btn btn-default" href="{{ post.url | prepend: site.baseurl }}">
-            Read More <i class="fa fa-arrow-right"></i>
-          </a>
-          {% endif %}
-        </footer>
+        {% if post.content contains '<!--more-->' %}
+          <footer class="box-footer">
+            <a class="btn btn-default" href="{{ post.url | prepend: site.baseurl }}">
+              Read More <i class="fa fa-arrow-right"></i>
+            </a>
+          </footer>
+        {% endif %}
       </article>
       {% endfor %}
 
