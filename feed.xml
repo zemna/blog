@@ -6,8 +6,8 @@
 </description>
     <link>http://blog.zemna.net/</link>
     <atom:link href="http://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Jul 2016 21:24:23 +0700</pubDate>
-    <lastBuildDate>Tue, 05 Jul 2016 21:24:23 +0700</lastBuildDate>
+    <pubDate>Wed, 06 Jul 2016 14:02:32 +0000</pubDate>
+    <lastBuildDate>Wed, 06 Jul 2016 14:02:32 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -28,7 +28,7 @@
 
 &lt;p&gt;Execute &lt;code class=&quot;highlighter-rouge&quot;&gt;npm rebuild node-sass --no-bin-links&lt;/code&gt; command. (&lt;a href=&quot;http://laravel.io/forum/10-29-2014-laravel-elixir-sass-error#reply-18818&quot;&gt;Reference&lt;/a&gt;)&lt;/p&gt;
 </description>
-        <pubDate>Mon, 04 Jul 2016 19:10:00 +0700</pubDate>
+        <pubDate>Mon, 04 Jul 2016 12:10:00 +0000</pubDate>
         <link>http://blog.zemna.net/laravel/troubleshooting-after-update-to-homestead-0-5-0/</link>
         <guid isPermaLink="true">http://blog.zemna.net/laravel/troubleshooting-after-update-to-homestead-0-5-0/</guid>
         
@@ -162,7 +162,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Fri, 24 Jun 2016 07:18:00 +0700</pubDate>
+        <pubDate>Fri, 24 Jun 2016 00:18:00 +0000</pubDate>
         <link>http://blog.zemna.net/laravel/some-tips-when-using-entrust-in-laravel/</link>
         <guid isPermaLink="true">http://blog.zemna.net/laravel/some-tips-when-using-entrust-in-laravel/</guid>
         
@@ -217,7 +217,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Fri, 24 Jun 2016 07:18:00 +0700</pubDate>
+        <pubDate>Fri, 24 Jun 2016 00:18:00 +0000</pubDate>
         <link>http://blog.zemna.net/laravel/class-memcached-not-found-error-in-laravel/</link>
         <guid isPermaLink="true">http://blog.zemna.net/laravel/class-memcached-not-found-error-in-laravel/</guid>
         
@@ -269,7 +269,7 @@
   &lt;li&gt;&lt;a href=&quot;https://laracasts.com/discuss/channels/servers/how-can-i-disable-the-xdebug&quot;&gt;How can I disable the xdebug? - Laracasts&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Wed, 22 Jun 2016 20:06:00 +0700</pubDate>
+        <pubDate>Wed, 22 Jun 2016 13:06:00 +0000</pubDate>
         <link>http://blog.zemna.net/laravel/how-to-disable-xdebug/</link>
         <guid isPermaLink="true">http://blog.zemna.net/laravel/how-to-disable-xdebug/</guid>
         
@@ -337,7 +337,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Wed, 22 Jun 2016 13:28:00 +0700</pubDate>
+        <pubDate>Wed, 22 Jun 2016 06:28:00 +0000</pubDate>
         <link>http://blog.zemna.net/laravel/deploy-laravel-to-production/</link>
         <guid isPermaLink="true">http://blog.zemna.net/laravel/deploy-laravel-to-production/</guid>
         
@@ -359,7 +359,7 @@
   &lt;li&gt;&lt;a href=&quot;https://github.com/FreeTDS/freetds&quot;&gt;Github Repository&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Mon, 20 Jun 2016 19:48:00 +0700</pubDate>
+        <pubDate>Mon, 20 Jun 2016 12:48:00 +0000</pubDate>
         <link>http://blog.zemna.net/programming/what-is-freetds/</link>
         <guid isPermaLink="true">http://blog.zemna.net/programming/what-is-freetds/</guid>
         
@@ -386,7 +386,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Mon, 20 Jun 2016 18:37:00 +0700</pubDate>
+        <pubDate>Mon, 20 Jun 2016 11:37:00 +0000</pubDate>
         <link>http://blog.zemna.net/web/how-to-vertial-align-of-facebook-button-with-others/</link>
         <guid isPermaLink="true">http://blog.zemna.net/web/how-to-vertial-align-of-facebook-button-with-others/</guid>
         
@@ -453,7 +453,7 @@ This is because the difference of datetime string format. My SQL Server gives &l
 
 &lt;p&gt;SqlServerGrammer.php file returns &lt;code class=&quot;highlighter-rouge&quot;&gt;Y-m-d H:i:s.000&lt;/code&gt; DateFormat. Change it to &lt;code class=&quot;highlighter-rouge&quot;&gt;Y-m-d H:i:s&lt;/code&gt; to apply all models or just delete this function. Because &lt;code class=&quot;highlighter-rouge&quot;&gt;Grammer.php&lt;/code&gt; abstract class returns &lt;code class=&quot;highlighter-rouge&quot;&gt;Y-m-d H:i:s&lt;/code&gt; format…&lt;/p&gt;
 </description>
-        <pubDate>Mon, 20 Jun 2016 12:47:00 +0700</pubDate>
+        <pubDate>Mon, 20 Jun 2016 05:47:00 +0000</pubDate>
         <link>http://blog.zemna.net/laravel/how-to-setting-to-use-sql-server-in-laravel/</link>
         <guid isPermaLink="true">http://blog.zemna.net/laravel/how-to-setting-to-use-sql-server-in-laravel/</guid>
         
@@ -482,7 +482,7 @@ This is because the difference of datetime string format. My SQL Server gives &l
 
 &lt;p&gt;&lt;a href=&quot;http://resume.zemna.net&quot;&gt;http://resume.zemna.net&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sun, 19 Jun 2016 21:22:00 +0700</pubDate>
+        <pubDate>Sun, 19 Jun 2016 14:22:00 +0000</pubDate>
         <link>http://blog.zemna.net/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/</link>
         <guid isPermaLink="true">http://blog.zemna.net/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/</guid>
         
@@ -509,7 +509,7 @@ This is because the difference of datetime string format. My SQL Server gives &l
 
 &lt;p&gt;&lt;a href=&quot;https://wiredcraft.com/blog/make-jekyll-fast/&quot;&gt;13 Steps to a Faster Jekyll Website - Wiredcraft&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sun, 19 Jun 2016 18:34:00 +0700</pubDate>
+        <pubDate>Sun, 19 Jun 2016 11:34:00 +0000</pubDate>
         <link>http://blog.zemna.net/jekyll/how-to-speed-up-jekyll-site/</link>
         <guid isPermaLink="true">http://blog.zemna.net/jekyll/how-to-speed-up-jekyll-site/</guid>
         
