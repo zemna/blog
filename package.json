@@ -23,9 +23,6 @@
     "gulp-uglify": "^1.5.3",
     "run-sequence": "^1.2.1"
   },
-  "engines": {
-    "node": ">=0.12"
-  },
   "private": true,
   "scripts": {
     "build": "bower install",
