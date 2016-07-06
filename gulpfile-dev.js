@@ -44,14 +44,13 @@ var distImages        = distAssets + 'img/';
 var distFont          = distAssets + 'fonts/';
 var deploy            = 'public/';
 var src               = './';
-var srcStylesheets    = src + '_sass/';
-var srcJavascripts    = src + '_js/';
+var srcStylesheets    = src + '_assets/styles/';
+var srcJavascripts    = src + '_assets/scripts/';
 var srcInclude        = src + '_includes/';
 var srcLayout         = src + '_layouts/';
-var srcImg            = src + '_img/';
+var srcImg            = src + '_assets/images/';
 var srcPost           = src + '_posts/';
-var srcTemplates      = src + 'templates/';
-var bowerDir          = src + 'bower_components/';
+var bowerDir          = src + '_assets/vendor/';
 
 // -->
 // Compass & SASS

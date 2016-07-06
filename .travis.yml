@@ -12,7 +12,6 @@ before_install:
   - rvm install 2.2
   - rvm use 2.2 --fuzzy
   - export GEMDIR=$(rvm gemdir)
-  - npm install
 
 before_script:
   - npm install -g gulp
