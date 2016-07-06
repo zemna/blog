@@ -1,7 +1,9 @@
-sudo: required
+sudo: false
 language: ruby
 rvm:
 - 2.1.2
+before_script:
+  - chmod +x ./build.sh
 # execute this script on each commit
 script: "./build.sh"
 # only take into account 'master' branch
