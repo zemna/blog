@@ -14,6 +14,8 @@ jekyll build
 
 htmlproofer ./public --disable-external
 
+gulp --production
+
 # cleanup
 rm -rf ../blog.zemna.net.gh-pages
 
