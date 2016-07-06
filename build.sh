@@ -10,7 +10,7 @@ fi
 set -e
 
 # build site with jekyll, by default to 'public' folder
-jekyll build
+npm run build
 
 htmlproofer ./public --disable-external
 

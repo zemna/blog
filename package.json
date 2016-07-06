@@ -28,6 +28,7 @@
   },
   "private": true,
   "scripts": {
+    "build": "bower install",
     "deploy": "git push origin `git subtree split --prefix public master`:gh-pages --force"
   }
 }
