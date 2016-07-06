@@ -12,6 +12,8 @@ set -e
 # build site with jekyll, by default to 'public' folder
 jekyll build
 
+htmlproofer ./public --disable-external
+
 # cleanup
 rm -rf ../blog.zemna.net.gh-pages
 

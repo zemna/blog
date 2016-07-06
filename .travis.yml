@@ -1,7 +1,8 @@
-sudo: false
 language: ruby
 rvm:
-- 2.1.2
+- 2.2
+before_install:
+  - npm install
 before_script:
   - chmod +x ./build.sh
 # execute this script on each commit
@@ -13,3 +14,6 @@ branches:
 env:
   global:
   - secure: ItElwgl6gT91ZtzEhEvD8WwEDLAw1ZnGpoYfifTjRSM15N0xm744kV1sxjaKmAwFSbK7O0GzQ0xTyn/Y0PRDnqlfJiX5HkygY03AKQRJrbTr+CK7JndhYz6AW7SwVYhBpebmM5+ywoRtw8nnQdr2rO1h4isHvTw7eJcD+QoeB5LmpFI+FZ4seZenSL78N3Z6TZ/duqy+ZW6yU2VjW/ViKs9JRZ0ohUJwCr6uX+4u+OQ7X2KVUYen2FNwMKX53IGdqLKOdfHy91HCS0lSOZSdyfK6wVLDqaTdM1go1vW9nuQct9KKTYcOob913Kv2zOaKDq4Bm0AQtp6tpAfofk2HLbJYp264yGnKZHTP+2sgq8cnNQlo3wGFln6Z5AKdpesWE9V2Eo7nD2v3pWaSWuOOWaDZgAPM95466wPo3hHrmJvSbZEAVb5qtEv8vaoNMr09B/q5LnDYiv4e/ogKYqAwURq7TdRtev7b2UXwG0dDNDJJRoMapM+n3WhHNB/zL98zsCVaRc3FLOMsDEMNY/E0fsfZPqvqi0LbtFTnLxdX72kM3N0g+f0bPQy3a1L1pvgc2p/H8J3XVTS20dDXadmwCKR2olY8xQG0tIzClHHD1/YFqOVh2tD5S9fFNyN/kJe+V4kC6hhC+B0UGVEdSqCsiZdhU+YDZgkO3Q+NbClcUlg=
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speed up installation of html-proofer
+
+sudo: false # route your build to the container-based infrastructure for a faster build
