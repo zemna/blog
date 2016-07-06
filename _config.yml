@@ -27,7 +27,7 @@ exclude:
   - Gemfile.lock
   - node_modules
   - bower.json
-  - *.sh
+  - "*.sh"
   - gulpfile.babel.js
   - package.json
 permalink: /:categories/:slug/
