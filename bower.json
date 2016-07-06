@@ -22,6 +22,6 @@
     "fastclick": "^1.0.6",
     "moment": "^2.13.0",
     "font-awesome": "fontawesome#^4.6.3",
-    "bootswatch": "^3.3.6+2"
+    "bootswatch": "^3.3.6"
   }
 }

@@ -11,10 +11,8 @@ set -e
 
 # build site with jekyll, by default to 'public' folder
 npm run build
-
-htmlproofer ./public --disable-external
-
 gulp --production
+htmlproofer ./public --disable-external
 
 # cleanup
 rm -rf ../blog.zemna.net.gh-pages
