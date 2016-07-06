@@ -126,7 +126,7 @@ layout: default
               </a>
             </li>
             <li>
-              <a href="mailto:?&subject={{ page.title | encode }}&body={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+              <a href="mailto:?&subject={{ page.title | encode }}&body={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" data-proofer-ignore>
                 <span class="fa-stack fa-lg">
                   <i class="fa fa-circle fa-stack-2x" style="color: #45668e;"></i>
                   <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>

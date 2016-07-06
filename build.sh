@@ -12,7 +12,7 @@ set -e
 # build site with jekyll, by default to 'public' folder
 npm run build
 gulp --production
-# htmlproofer ./public --disable-external --allow-hash-href="#"
+htmlproofer ./public --disable-external --allow-hash-href="#"
 
 # cleanup
 rm -rf ../blog.zemna.net.gh-pages
