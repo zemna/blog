@@ -30,7 +30,6 @@ exclude:
   - "*.sh"
   - README.md
   - gulffile.js
-  - gulpfile.babel.js
   - package.json
 permalink: /:categories/:slug/
 lsi: false # If set to true generate related posts
