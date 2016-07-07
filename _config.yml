@@ -10,7 +10,7 @@ email: zemna@zemna.net
 description: > # this means to ignore newlines until "baseurl:"
   zemna's Blog gives useful information about software programming.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://blog.zemna.net" # the base hostname & protocol for your site
+url: "https://blog.zemna.net" # the base hostname & protocol for your site
 
 excerpt_separator: <!--more-->
 
@@ -28,6 +28,8 @@ exclude:
   - node_modules
   - bower.json
   - "*.sh"
+  - README.md
+  - gulffile.js
   - gulpfile.babel.js
   - package.json
 permalink: /:categories/:slug/

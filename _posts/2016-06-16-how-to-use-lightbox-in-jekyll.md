@@ -16,7 +16,7 @@ Basic usage likes bellow,
 
 ```html
 <a href="image-url" data-toggle="lightbox" data-title="Image title" data-footer="Image footer">
-    ![Image Title](/images/github-logo.png){: width="400px" }
+    ![Image Title](/assets/img/github-logo.png){: width="400px" }
 </a>
 ```
 
@@ -25,7 +25,7 @@ If you want to give lightbox feature to all images in page, we can it by bellow 
 first, give anchor to image in jekyll
 
 ```html
-[![Title](/images/github-logo.png){: width="400px"}](/images/github-logo.png)
+[![Title](/assets/img/github-logo.png){: width="400px"}](/assets/img/github-logo.png)
 ```
 
 and, make javascript like bellow,
@@ -46,4 +46,4 @@ $(function() {
 
 This is sample.
 
-[![Title](/images/github-logo.png){: width="400px"}](/images/github-logo.png)
+[![Title](/assets/img/github-logo.png){: width="400px"}](/assets/img/github-logo.png)

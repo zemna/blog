@@ -5,6 +5,8 @@ categories: programming
 tags: jekyll social
 ---
 
+Lets we study how to add social sharing buttons to Jekyll. You can see the sharing buttons at bottom of this content. 
+
 We can try to use [Font Awesome](http://fontawesome.io) to generate social icon button.
 
 Click [this link](http://fontawesome.io/examples/#stacked) to get information about stacked icons.

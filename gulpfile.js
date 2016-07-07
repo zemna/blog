@@ -3,40 +3,38 @@
  * --> How to install? npm install --save-dev gulp-minify-html
  * @type {[type]}
  */
-var gulp = require('gulp'),
-    path = require('path'),
-    debug = require('gulp-debug'),
+var gulp = require('gulp');
+var path = require('path');
+var debug = require('gulp-debug');
 // CSS
-    sass = require('gulp-ruby-sass'),
-    minifyCSS = require('gulp-minify-css'),
+var sass = require('gulp-ruby-sass');
+var cleanCSS = require('gulp-clean-css');
 
 // JS BUILD
-    concat = require('gulp-concat'),
-    rename = require('gulp-rename'),
-    uglify = require('gulp-uglify'),
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
 // HTML
-    htmlmin = require('gulp-htmlmin'),
+var htmlmin = require('gulp-htmlmin');
 
 // Browser sync
-    browserSync = require('browser-sync'),
+var browserSync = require('browser-sync');
 
 // Import files
-    pkg = require('./package.json'),
+var pkg = require('./package.json');
 
 // Images files
-    imagemin = require('gulp-imagemin'),
+var imagemin = require('gulp-imagemin');
 
 // Utils
-    utils = require('gulp-util'),
-    options = require("minimist")(process.argv.slice(2)),
-    addsrc = require('gulp-add-src'),
-    spawn = require('child_process').spawn
-    ;
+var utils = require('gulp-util');
+var options = require("minimist")(process.argv.slice(2));
+var addsrc = require('gulp-add-src');
+var spawn = require('child_process').spawn;
 
 
 var dist              = 'public/';
-var dirPublic         = '/';
 var distAssets        = './assets/';
 var distStylesheets   = distAssets + 'css/';
 var distJavascripts   = distAssets + 'js/';
@@ -57,17 +55,12 @@ var bowerDir          = src + '_assets/vendor/';
 // <--
 gulp.task('compass', function() {
     return sass(srcStylesheets + '*.scss', {
-            style: 'compressed',
-            loadPath: [
-                bowerDir + 'fontawesome/scss',
-                bowerDir + 'bourbon/app/assets/stylesheets'
-            ]
+            style: 'compressed'
         })
         .on('error', sass.logError)
-        .pipe(addsrc(bowerDir + 'qTip2/dist/jquery.qtip.min.css'))
         .pipe(debug())
-        .pipe(options.production ? minifyCSS({keepBreaks: false, keepSpecialComments:true}) : utils.noop())
-        .pipe(concat('style.css'))
+        .pipe(options.production ? cleanCSS({compatibility: 'ie8'}) : utils.noop())
+        .pipe(concat('style.min.css'))
         .pipe(gulp.dest(distStylesheets));
 });
 
@@ -117,16 +110,16 @@ gulp.task('js-modernizr',function(){
 
 gulp.task('js',['js-modernizr'],function () {
     return gulp.src([
+        bowerDir + 'fastclick/lib/fastclick.js',
         bowerDir + 'jquery/dist/jquery.min.js',
-        bowerDir + 'underscore/underscore-min.js',
-        bowerDir + 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js',
-        bowerDir + 'qTip2/dist/jquery.qtip.min.js',
+        bowerDir + 'simple-jekyll-search/dest/jekyll-search.js',
+        bowerDir + 'bootstrap-sass/assets/javascripts/bootstrap.js',
+        bowerDir + 'ekko-lightbox/dist/ekko-lightbox.js',
+        bowerDir + 'moment/moment.js',
         srcJavascripts + 'modules/*.js',
         srcJavascripts + 'pages/*.js',
-        srcJavascripts + 'scripts.js'])
-        .pipe(concat(pkg.name + '.js'))
-        .pipe(gulp.dest(distJavascripts))
-        .pipe(rename(pkg.name + '.min.js'))
+        srcJavascripts + 'blog.js'])
+        .pipe(concat(pkg.name + '.min.js'))
         .pipe(options.production ? uglify() : utils.noop())
         .pipe(gulp.dest(distJavascripts));
 });
@@ -135,9 +128,9 @@ gulp.task('js',['js-modernizr'],function () {
 // JEKYLL task
 // <--
 gulp.task('jekyll', ['images', 'js', 'compass'], function (gulpCallBack){
-    var jekyll = process.platform === "win32" ? "jekyll.bat" : "jekyll";
+    var jekyllCmd = process.platform === "win32" ? "jekyll.bat" : "jekyll";
     // After build: cleanup HTML
-    var jekyll = spawn(jekyll, ['build'], {stdio: 'inherit'});
+    var jekyll = spawn(jekyllCmd, ['build'], {stdio: 'inherit'});
 
     jekyll.on('exit', function(code) {
         gulpCallBack(code === 0 ? null : 'ERROR: Jekyll process exited with code: '+code);
@@ -148,12 +141,12 @@ gulp.task('jekyll', ['images', 'js', 'compass'], function (gulpCallBack){
 // Icons task
 // <--
 gulp.task('icons', function() {
-    return gulp.src(bowerDir + 'fontawesome/fonts/**.*')
+    return gulp.src(bowerDir + 'font-awesome/fonts/**.*')
         .pipe(gulp.dest(distFont));
 });
 
 // -->
-// Icons task
+// Images task
 // <--
 gulp.task('images', function() {
     return gulp.src(srcImg + '**')

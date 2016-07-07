@@ -1,11 +1,7 @@
-_site
 .sass-cache
-.jekyll-metadata
+.tmp
 node_modules
 _assets/vendor
-/.tmp
-/fonts
-/styles
-/scripts
-/npm-debug.log
-/public
+npm-debug.log
+public
+assets

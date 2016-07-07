@@ -7,7 +7,7 @@ tags: erp erpnext
 
 I'm using `ERPNext` for my company to manage stock product and accounting system.
 
-[![ERPNext screenshot](/images/erpnext.jpg)](/images/erpnext.jpg)
+[![ERPNext screenshot](/assets/img/erpnext.jpg)](/assets/img/erpnext.jpg)
 
 It's free for 1 user. It contains Accounting, Inventory, Purchasing, Selling, CRM, Human Resources, Manufacturing and Website system. You'll love it after test this amazing features.
 
