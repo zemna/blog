@@ -66,8 +66,8 @@ footer {
         background-color: #fff;
         border: 1px solid #eee;
         .box-header {
-            h2 {
-                margin-top: 10px;
+            h2, h3 {
+                margin-top: 0;
             }
         }
         .box-meta {
@@ -104,19 +104,31 @@ footer {
         ul {
             padding-left: 0;
             list-style: none;
+            margin-bottom: 0;
+            li {
+                h4 {
+                    margin-top: 12px;
+                }
+            }
+            &:last-child {
+                h4 {
+                    margin-bottom: 0;
+                }
+            }
         }
         .tags-cloud {
             li {
                 display: inline-block;
+                line-height: 2.2;
+                h4 {
+                    margin-top: 10px;
+                }
             }
             a {
                 background: #ddd;
                 padding: 5px 7px;
                 color: #999;
                 margin-right: 5px;
-                .badge {
-                    margin-right: 7px;
-                }
             }
         }
     }

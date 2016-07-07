@@ -13,7 +13,7 @@ permalink: "tags/index.html"
       {% for tag in tags %}
       <li>
         <a href="#{{ tag | first | slugize }}">
-          {{ tag | first }}
+          <span>{{ tag | first }}</span>
           <span class="badge">{{ site.tags[tag.first].size }}</span>
         </a>
       </li>

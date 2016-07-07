@@ -13,7 +13,7 @@ permalink: "categories/index.html"
       {% capture category_name %}{{ category | first }}{% endcapture %}
       <li>
         <a href="#{{ category | first | slugize }}">
-          {{ site.data.categories[category_name].name }}
+          <span>{{ site.data.categories[category_name].name }}</span>
           <span class="badge">{{ site.categories[category_name].size }}</span>
         </a>
       </li>
