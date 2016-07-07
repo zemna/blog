@@ -49,6 +49,9 @@ var srcLayout         = src + '_layouts/';
 var srcImg            = src + '_assets/images/';
 var srcPost           = src + '_posts/';
 var bowerDir          = src + '_assets/vendor/';
+var srcCategories     = src + 'categories/';
+var srcTags           = src + 'tags/';
+var srcSearch         = src + 'search/';
 
 // -->
 // Compass & SASS
@@ -169,6 +172,9 @@ gulp.task('default', ['compass', 'js', 'icons', 'images', 'html', 'browser-sync'
         srcInclude + '*.html',
         srcLayout + '*.html',
         srcPost + '**',
+        srcCategories + '**',
+        srcTags + '**',
+        srcSearch + '**',
         src + '*.{md,html}'
     ], ['html']);
     // --> Ruby

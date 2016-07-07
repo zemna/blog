@@ -91,7 +91,7 @@
   {
     "title"    : "How to use Lightbox in Jekyll",
     "category" : "programming",
-    "tags"     : "jekyll,, lightbox",
+    "tags"     : "jekyll, lightbox",
     "url"      : "/programming/how-to-use-lightbox-in-jekyll/",
     "date"     : "2016-06-16"
   },
@@ -107,7 +107,7 @@
   {
     "title"    : "How to Integrate Travis for Jekyll on Github Pages",
     "category" : "programming",
-    "tags"     : "jekyll,, travis-ci",
+    "tags"     : "jekyll, travis-ci",
     "url"      : "/programming/how-to-integrate-travis-for-jekyll-on-github-pages/",
     "date"     : "2016-06-15"
   },
