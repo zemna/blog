@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "Automated Deploy with Jekyll, Gulp, Travis CI and GitHub Pages",
+    "category" : "jekyll",
+    "tags"     : "jekyll, gulp, travis-ci, github-pages",
+    "url"      : "/jekyll/automated-deploy-with-jekyll-gulp-travis-ci-and-github-pages/",
+    "date"     : "2016-07-07"
+  },
+  
+  {
     "title"    : "Troubleshooting after update to Homestead 0.5.0",
     "category" : "laravel",
     "tags"     : "laravel, homestead",
