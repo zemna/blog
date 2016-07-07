@@ -11,7 +11,7 @@ set -e
 
 # build site with jekyll, by default to 'public' folder
 npm run build
-gulp --production
+gulp generate --production
 htmlproofer ./public --disable-external --allow-hash-href
 
 # cleanup
