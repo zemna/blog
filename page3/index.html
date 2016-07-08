@@ -126,6 +126,92 @@
       <article class="box">
         <div class="box-header">
           <h2>
+            <a href="/laravel/how-to-setting-to-use-sql-server-in-laravel/">How to setting to use SQL Server in Laravel</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-06-20
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#laravel">
+                  Laravel
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/laravel/how-to-setting-to-use-sql-server-in-laravel/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>When I setup Laravel project for my company, I’ve faced the problem about SQL Server database connection problem. I’ve googled and now I can use it.</p>
+
+<h2 id="install-php70-sybase-to-homestead">1. Install php7.0-sybase to Homestead</h2>
+
+<p>New version of Homestead uses php7.0 to serve laravel website. So, I installed php7.0-sybase using bellow command.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install php7.0-sybase
+</code></pre>
+</div>
+
+<h2 id="edit-etcfreetdsfreetdsconf-file">2. Edit /etc/freetds/freetds.conf file</h2>
+
+<p>I don’t know about TDS but I followed reference bellow,</p>
+
+<ul>
+  <li><a href="https://laracasts.com/discuss/channels/general-discussion/sqlsrv-driver-on-linux/replies/14887">laracasts - sqlsrv driver on Linux?</a></li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo vi /etc/freetds/freetds.conf
+</code></pre>
+</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>global]
+    tds version <span class="o">=</span> 7.2
+    client charset <span class="o">=</span> UTF-8
+</code></pre>
+</div>
+
+<p>Also create /etc/freetds/locales.conf file to allow correct parsing of dates.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo vi /etc/freetds/locales.conf
+</code></pre>
+</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>default]
+    date format <span class="o">=</span> %Y-%m-%d %I:%M:%S.%z
+</code></pre>
+</div>
+
+<h2 id="add-getdateformat-function-to-each-model-classes">3. add getDateFormat() function to each Model classes</h2>
+
+<p>Eventhough I already set the datetime format from above, I still got the <code class="highlighter-rouge">Data missing</code> error when access <code class="highlighter-rouge">Carbon</code> class.
+This is because the difference of datetime string format. My SQL Server gives <code class="highlighter-rouge">'2016-06-20 13:00:00'</code> datetime string to Laravel, but <code class="highlighter-rouge">Carbon</code> accepts <code class="highlighter-rouge">'Y-m-d H:i:s.000'</code> format to create instance.</p>
+
+<p>So, add <code class="highlighter-rouge">getDateFormat()</code> function to each Model classes to give format information.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>protected function getDateFormat() {
+  return 'Y-m-d H:i:s+';
+}
+</code></pre>
+</div>
+
+<p>SqlServerGrammer.php file returns <code class="highlighter-rouge">Y-m-d H:i:s.000</code> DateFormat. Change it to <code class="highlighter-rouge">Y-m-d H:i:s</code> to apply all models or just delete this function. Because <code class="highlighter-rouge">Grammer.php</code> abstract class returns <code class="highlighter-rouge">Y-m-d H:i:s</code> format…</p>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
             <a href="/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/">Orbit - Free Responsive Bootstrap Resume/CV Template</a>
           </h2>
           <p class="box-meta text-muted">
@@ -363,42 +449,6 @@
         
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/programming/how-to-integrate-travis-for-jekyll-on-github-pages/">How to Integrate Travis for Jekyll on Github Pages</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-15
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#programming">
-                  Programming
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/programming/how-to-integrate-travis-for-jekyll-on-github-pages/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <ul>
-  <li><a href="https://jaicab.com/2016/04/05/travis-for-jekyll-on-github-pages/">https://jaicab.com/2016/04/05/travis-for-jekyll-on-github-pages/</a></li>
-</ul>
-
-        </div>
-
-        
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -484,7 +534,7 @@
     
       
       <a href="/categories#laravel" class="list-group-item">
-        <span class="badge">7</span>
+        <span class="badge">8</span>
         
         Laravel
       </a>
@@ -573,7 +623,7 @@
       </a>
     </span>
     
-    <span style="font-size: 118%">
+    <span style="font-size: 122%">
       <a href="/tags#laravel">
         laravel
       </a>
@@ -604,6 +654,12 @@
     </span>
     
     <span style="font-size: 94%">
+      <a href="/tags#pivot">
+        pivot
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
       <a href="/tags#programming">
         programming
       </a>
@@ -624,6 +680,12 @@
     <span style="font-size: 94%">
       <a href="/tags#theme">
         theme
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#timestamp">
+        timestamp
       </a>
     </span>
     
@@ -658,6 +720,13 @@
       <li class="post-item">
         <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-08</small>
+          <a href="/laravel/how-to-update-timestamp-in-pivot-table-in-laravel/">How to update timestamp in pivot table in Laravel</a>
+        </h4>
+      </li>
+      
+      <li class="post-item">
+        <h4>
+          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-08</small>
           <a href="/laravel/use-create-option-when-create-migration/">Use --create option when create migration</a>
         </h4>
       </li>
@@ -666,13 +735,6 @@
         <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-07</small>
           <a href="/jekyll/automated-deploy-with-jekyll-gulp-travis-ci-and-github-pages/">Automated Deploy with Jekyll, Gulp, Travis CI and GitHub Pages</a>
-        </h4>
-      </li>
-      
-      <li class="post-item">
-        <h4>
-          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-04</small>
-          <a href="/laravel/troubleshooting-after-update-to-homestead-0-5-0/">Troubleshooting after update to Homestead 0.5.0</a>
         </h4>
       </li>
       

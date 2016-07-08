@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "How to update timestamp in pivot table in Laravel",
+    "category" : "laravel",
+    "tags"     : "laravel, pivot, timestamp",
+    "url"      : "/laravel/how-to-update-timestamp-in-pivot-table-in-laravel/",
+    "date"     : "2016-07-08"
+  },
+  
+  {
     "title"    : "Use --create option when create migration",
     "category" : "laravel",
     "tags"     : "laravel, migration",

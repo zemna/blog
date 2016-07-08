@@ -6,9 +6,47 @@
 </description>
     <link>https://blog.zemna.net/</link>
     <atom:link href="https://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Jul 2016 01:45:29 +0000</pubDate>
-    <lastBuildDate>Fri, 08 Jul 2016 01:45:29 +0000</lastBuildDate>
+    <pubDate>Fri, 08 Jul 2016 05:04:06 +0000</pubDate>
+    <lastBuildDate>Fri, 08 Jul 2016 05:04:06 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>How to update timestamp in pivot table in Laravel</title>
+        <description>&lt;p&gt;When insert a new row to pivot table, we can use &lt;code class=&quot;highlighter-rouge&quot;&gt;attach()&lt;/code&gt; method like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$company = Company::find(1);
+$company-&amp;gt;users()-&amp;gt;attach(1);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;But this will not update created_at and updated_at timestamps column in pivot table.&lt;/p&gt;
+
+&lt;p&gt;To update timestamps, use &lt;code class=&quot;highlighter-rouge&quot;&gt;withTimestamps()&lt;/code&gt; method on the relationship method.&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class Company extends Model
+{
+  public function users()
+  {
+    return $this-&amp;gt;belongsToMany(User::class)-&amp;gt;withTimestamps();
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 08 Jul 2016 04:50:00 +0000</pubDate>
+        <link>https://blog.zemna.net/laravel/how-to-update-timestamp-in-pivot-table-in-laravel/</link>
+        <guid isPermaLink="true">https://blog.zemna.net/laravel/how-to-update-timestamp-in-pivot-table-in-laravel/</guid>
+        
+        <category>laravel</category>
+        
+        <category>pivot</category>
+        
+        <category>timestamp</category>
+        
+        
+        <category>laravel</category>
+        
+      </item>
     
       <item>
         <title>Use --create option when create migration</title>
@@ -827,73 +865,6 @@ git push --quiet origin gh-pages &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
         
         
         <category>web</category>
-        
-      </item>
-    
-      <item>
-        <title>How to setting to use SQL Server in Laravel</title>
-        <description>&lt;p&gt;When I setup Laravel project for my company, I’ve faced the problem about SQL Server database connection problem. I’ve googled and now I can use it.&lt;/p&gt;
-
-&lt;h2 id=&quot;install-php70-sybase-to-homestead&quot;&gt;1. Install php7.0-sybase to Homestead&lt;/h2&gt;
-
-&lt;p&gt;New version of Homestead uses php7.0 to serve laravel website. So, I installed php7.0-sybase using bellow command.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo apt-get install php7.0-sybase
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;edit-etcfreetdsfreetdsconf-file&quot;&gt;2. Edit /etc/freetds/freetds.conf file&lt;/h2&gt;
-
-&lt;p&gt;I don’t know about TDS but I followed reference bellow,&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://laracasts.com/discuss/channels/general-discussion/sqlsrv-driver-on-linux/replies/14887&quot;&gt;laracasts - sqlsrv driver on Linux?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo vi /etc/freetds/freetds.conf
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;global]
-    tds version &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 7.2
-    client charset &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; UTF-8
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Also create /etc/freetds/locales.conf file to allow correct parsing of dates.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo vi /etc/freetds/locales.conf
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;default]
-    date format &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; %Y-%m-%d %I:%M:%S.%z
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;add-getdateformat-function-to-each-model-classes&quot;&gt;3. add getDateFormat() function to each Model classes&lt;/h2&gt;
-
-&lt;p&gt;Eventhough I already set the datetime format from above, I still got the &lt;code class=&quot;highlighter-rouge&quot;&gt;Data missing&lt;/code&gt; error when access &lt;code class=&quot;highlighter-rouge&quot;&gt;Carbon&lt;/code&gt; class.
-This is because the difference of datetime string format. My SQL Server gives &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;2016-06-20 13:00:00&#39;&lt;/code&gt; datetime string to Laravel, but &lt;code class=&quot;highlighter-rouge&quot;&gt;Carbon&lt;/code&gt; accepts &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;Y-m-d H:i:s.000&#39;&lt;/code&gt; format to create instance.&lt;/p&gt;
-
-&lt;p&gt;So, add &lt;code class=&quot;highlighter-rouge&quot;&gt;getDateFormat()&lt;/code&gt; function to each Model classes to give format information.&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;protected function getDateFormat() {
-  return &#39;Y-m-d H:i:s+&#39;;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;SqlServerGrammer.php file returns &lt;code class=&quot;highlighter-rouge&quot;&gt;Y-m-d H:i:s.000&lt;/code&gt; DateFormat. Change it to &lt;code class=&quot;highlighter-rouge&quot;&gt;Y-m-d H:i:s&lt;/code&gt; to apply all models or just delete this function. Because &lt;code class=&quot;highlighter-rouge&quot;&gt;Grammer.php&lt;/code&gt; abstract class returns &lt;code class=&quot;highlighter-rouge&quot;&gt;Y-m-d H:i:s&lt;/code&gt; format…&lt;/p&gt;
-</description>
-        <pubDate>Mon, 20 Jun 2016 05:47:00 +0000</pubDate>
-        <link>https://blog.zemna.net/laravel/how-to-setting-to-use-sql-server-in-laravel/</link>
-        <guid isPermaLink="true">https://blog.zemna.net/laravel/how-to-setting-to-use-sql-server-in-laravel/</guid>
-        
-        <category>laravel</category>
-        
-        
-        <category>laravel</category>
         
       </item>
     
