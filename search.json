@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "Use --create option when create migration",
+    "category" : "laravel",
+    "tags"     : "laravel, migration",
+    "url"      : "/laravel/use-create-option-when-create-migration/",
+    "date"     : "2016-07-08"
+  },
+  
+  {
     "title"    : "Automated Deploy with Jekyll, Gulp, Travis CI and GitHub Pages",
     "category" : "jekyll",
     "tags"     : "jekyll, gulp, travis-ci, github-pages",

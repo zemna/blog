@@ -126,6 +126,75 @@
       <article class="box">
         <div class="box-header">
           <h2>
+            <a href="/laravel/how-to-disable-xdebug/">How to disable xdebug</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-06-22
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#laravel">
+                  Laravel
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/laravel/how-to-disable-xdebug/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>When I run <code class="highlighter-rouge">composer update</code> command in shell, composer displays warning like bellow.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>You are running composer with xdebug enabled. This has a major impact on runtime performance. See https://getcomposer.org/xdebug
+</code></pre>
+</div>
+
+<p>And takes too long time to process.</p>
+
+<p>I already go to <a href="https://getcomposer.org/xdebug">https://getcomposer.org/xdebug</a> reference and tried to disable xdebug option in <code class="highlighter-rouge">php.ini</code> file. But I couldn’t found it.</p>
+
+<p>This is the real reference to disable <code class="highlighter-rouge">xdebug</code> option in <code class="highlighter-rouge">php.ini</code> file.</p>
+
+<h2 id="get-what-phpini-file-is-used">Get what php.ini file is used</h2>
+
+<p>First, check what kind of <code class="highlighter-rouge">php.ini</code> file is used.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>php -i | grep <span class="s2">"php.ini"</span>
+</code></pre>
+</div>
+
+<h2 id="comment-xdebug-option">Comment xdebug option</h2>
+
+<p>Search <code class="highlighter-rouge">zend_extension</code> option and comment it using ‘;(semicolon)’.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>;zend_extension <span class="o">=</span> <span class="s2">"/path/to/my/xdebug.so"</span>
+</code></pre>
+</div>
+
+<p>If you can’t find this option in <code class="highlighter-rouge">php.ini</code> file, maybe it is in <code class="highlighter-rouge">conf.d</code> folder. File name is like <code class="highlighter-rouge">'20-xdebug.ini'</code>. Open this file and comment it.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://getcomposer.org/doc/articles/troubleshooting.md#xdebug-impact-on-composer">Troubleshooting  - Composer</a></li>
+  <li><a href="https://laracasts.com/discuss/channels/servers/how-can-i-disable-the-xdebug">How can I disable the xdebug? - Laracasts</a></li>
+</ul>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
             <a href="/laravel/deploy-laravel-to-production/">Deploy Laravel to Production</a>
           </h2>
           <p class="box-meta text-muted">
@@ -377,54 +446,6 @@ This is because the difference of datetime string format. My SQL Server gives <c
         
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/">Orbit - Free Responsive Bootstrap Resume/CV Template</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-19
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#web">
-                  Web
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/web/orbit-free-responsive-bootstrap-resume-cv-template-for-developers/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>Do you want to make a personal Resumt/CV site?.</p>
-
-<p>Try to use <code class="highlighter-rouge">Orbit</code> theme by <code class="highlighter-rouge">3rd Wave Media</code>.</p>
-
-<p><a href="http://themes.3rdwavemedia.com/wp-content/uploads/2016/01/Responsive-HTML5-Resume-CV-Template-for-Developers.png"><img src="http://themes.3rdwavemedia.com/wp-content/uploads/2016/01/Responsive-HTML5-Resume-CV-Template-for-Developers.png" alt="Orbit Theme" class="img-responsive" /></a></p>
-
-<p><a class="btn btn-primary" href="http://themes.3rdwavemedia.com/website-templates/orbit-free-resume-cv-template-for-developers">
-  <i class="fa fa-download"></i> Go to download
-</a></p>
-
-<p>You can use this great template under the the <em>Creative Commons Attribution 3.0 License (CC BY 3.0)</em>.</p>
-
-<p>I make my resume site using this template.</p>
-
-<p><a href="http://resume.zemna.net">http://resume.zemna.net</a></p>
-
-        </div>
-
-        
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -510,7 +531,7 @@ This is because the difference of datetime string format. My SQL Server gives <c
     
       
       <a href="/categories#laravel" class="list-group-item">
-        <span class="badge">6</span>
+        <span class="badge">7</span>
         
         Laravel
       </a>
@@ -599,7 +620,7 @@ This is because the difference of datetime string format. My SQL Server gives <c
       </a>
     </span>
     
-    <span style="font-size: 114%">
+    <span style="font-size: 118%">
       <a href="/tags#laravel">
         laravel
       </a>
@@ -614,6 +635,12 @@ This is because the difference of datetime string format. My SQL Server gives <c
     <span style="font-size: 94%">
       <a href="/tags#memcached">
         memcached
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#migration">
+        migration
       </a>
     </span>
     
@@ -677,6 +704,13 @@ This is because the difference of datetime string format. My SQL Server gives <c
       
       <li class="post-item">
         <h4>
+          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-08</small>
+          <a href="/laravel/use-create-option-when-create-migration/">Use --create option when create migration</a>
+        </h4>
+      </li>
+      
+      <li class="post-item">
+        <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-07</small>
           <a href="/jekyll/automated-deploy-with-jekyll-gulp-travis-ci-and-github-pages/">Automated Deploy with Jekyll, Gulp, Travis CI and GitHub Pages</a>
         </h4>
@@ -686,13 +720,6 @@ This is because the difference of datetime string format. My SQL Server gives <c
         <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-04</small>
           <a href="/laravel/troubleshooting-after-update-to-homestead-0-5-0/">Troubleshooting after update to Homestead 0.5.0</a>
-        </h4>
-      </li>
-      
-      <li class="post-item">
-        <h4>
-          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-06-24</small>
-          <a href="/laravel/some-tips-when-using-entrust-in-laravel/">Some Tips when using Entrust in Laravel</a>
         </h4>
       </li>
       
