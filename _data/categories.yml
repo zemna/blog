@@ -12,3 +12,6 @@ web:
 
 erp:
   name: ERP
+
+javascript:
+  name: JavaScript
