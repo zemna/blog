@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "How to add a new options by user to Select2 dropdown",
+    "category" : "javascript",
+    "tags"     : "javascript, select2, dropdown",
+    "url"      : "/javascript/how-to-add-a-new-options-by-user-to-select2-dropdown/",
+    "date"     : "2016-07-10"
+  },
+  
+  {
     "title"    : "How to update timestamp in pivot table in Laravel",
     "category" : "laravel",
     "tags"     : "laravel, pivot, timestamp",
