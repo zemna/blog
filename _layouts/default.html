@@ -16,7 +16,6 @@
   <meta property="og:url" content="{{ site.url }}/{{ page.url }}" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
-  <meta property="og:author" content="{{ site.author }} ({{ site.email }})" />
   <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | strip | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
   <meta property="og:image" content="{% if page.image %}{{ site.url }}/{{ page.image }}{% else %}{{ site.url }}/assets/img/zemna-logo.png{% endif %}" />
 
