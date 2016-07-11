@@ -65,15 +65,15 @@
                 
                 // While we are dealing with image objects
                 // Let's update SEO meta fields
-                var firstImageUrl = $('img').first().attr('src');
+                //var firstImageUrl = $('img').first().attr('src');
 
-                firstImageUrl = (firstImageUrl.indexOf('//') !== -1)
-                    ? firstImageUrl
-                    : 'http://' + window.location.host + ((firstImageUrl.startsWith('/')) ? '' : '/') +firstImageUrl;
+                //firstImageUrl = (firstImageUrl.indexOf('//') !== -1)
+                //    ? firstImageUrl
+                //    : 'http://' + window.location.host + ((firstImageUrl.startsWith('/')) ? '' : '/') +firstImageUrl;
 
-                $('meta[property="og:image"]').attr('content', firstImageUrl);
-                $('meta[itemprop="image"]').attr('content', firstImageUrl);
-                $('meta[name="twitter:image"]').attr('content', firstImageUrl);
+                //$('meta[property="og:image"]').attr('content', firstImageUrl);
+                //$('meta[itemprop="image"]').attr('content', firstImageUrl);
+                //$('meta[name="twitter:image"]').attr('content', firstImageUrl);
             }
         });
 
