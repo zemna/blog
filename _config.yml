@@ -42,4 +42,4 @@ destination: public
 highlighter: rouge
 
 # Facebook Sharing
-facebook_api_id: 632837843538038
+facebook_app_id: 632837843538038
