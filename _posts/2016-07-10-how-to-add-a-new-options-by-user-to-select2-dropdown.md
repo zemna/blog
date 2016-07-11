@@ -5,9 +5,14 @@ excerpt: "Learning how to add a new options by user to Select2 dropdown"
 date:   2016-07-10 10:15:00 +0700
 categories: javascript
 tags: javascript select2 dropdown
+image: assets/img/2016-07-10-how-to-add-a-new-options-by-user-to-select2-dropdown-001.jpg
 ---
 
-If you want to give user can add new options to select tag in runtime, we can use [Select2](https://select2.github.io/) jQuery library to do it.
+If you want to give user can add new options to select tag in runtime, you can use [Select2](https://select2.github.io/) jQuery library to do it.
+
+Final result is like this:
+
+[![Select2 Dropdown](/assets/img/2016-07-10-how-to-add-a-new-options-by-user-to-select2-dropdown-001.jpg){: .img-responsive }](/assets/img/2016-07-10-how-to-add-a-new-options-by-user-to-select2-dropdown-001.jpg)
 
 ### 1. Enable tags option
 

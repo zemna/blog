@@ -23,7 +23,7 @@
   <!-- Google+ Meta -->
   <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta itemprop="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | strip | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta itemprop="image" content="">
+  <meta itemprop="image" content="{{ site.url }}/{{ page.image }}">
   <meta itemprop="author" content="{{ site.author }} ({{ site.email }})"/>
 
   <!-- Twitter Meta -->
@@ -31,7 +31,7 @@
   <meta name="twitter:site" content="@appkrs" />
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
   <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | strip | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
-  <meta name="twitter:image" content="" />
+  <meta name="twitter:image" content="{{ site.url }}/{{ page.image }}" />
   <meta name="twitter:domain" content="blog.appkr.kr">
 
   <!-- Mobile and Rss -->
