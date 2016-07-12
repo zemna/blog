@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "Complex unique validation rule in Laravel",
+    "category" : "laravel",
+    "tags"     : "laravel, validation, unique",
+    "url"      : "/laravel/complex-unique-validation-rule-in-laravel/",
+    "date"     : "2016-07-12"
+  },
+  
+  {
     "title"    : "How to add a new options by user to Select2 dropdown",
     "category" : "javascript",
     "tags"     : "javascript, select2, dropdown",

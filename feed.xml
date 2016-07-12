@@ -6,9 +6,68 @@
 </description>
     <link>https://blog.zemna.net/</link>
     <atom:link href="https://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 11 Jul 2016 03:44:09 +0000</pubDate>
-    <lastBuildDate>Mon, 11 Jul 2016 03:44:09 +0000</lastBuildDate>
+    <pubDate>Tue, 12 Jul 2016 15:39:22 +0000</pubDate>
+    <lastBuildDate>Tue, 12 Jul 2016 15:39:22 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Complex unique validation rule in Laravel</title>
+        <description>&lt;p&gt;Laravel provides &lt;code class=&quot;highlighter-rouge&quot;&gt;unique&lt;/code&gt; validation rule for check unique value on a given database table.&lt;/p&gt;
+
+&lt;p&gt;Ref : &lt;a href=&quot;https://laravel.com/docs/5.1/validation#rule-unique&quot;&gt;https://laravel.com/docs/5.1/validation#rule-unique&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;syntax&quot;&gt;Syntax&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;unique:table,column,except,idColumn,whereColumn1,whereValue1,whereColumn2,whereValue2,…&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;ex1-validate-unique-value-in-given-database-table&quot;&gt;Ex1. Validate unique value in given database table&lt;/h3&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&#39;username&#39; =&amp;gt; &#39;unique:users,username&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;ex2-validate-unique-value-except-given-id&quot;&gt;Ex2. Validate unique value except given ID&lt;/h3&gt;
+
+&lt;p&gt;In mostly used when update existing record.&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&#39;username&#39; =&amp;gt; &#39;unique:users,username,&#39;.$user-&amp;gt;id
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;ex3-gives-id-column-name-if-primary-key-of-table-isnt-id&quot;&gt;Ex3. Gives id column name if primary key of table isn’t ‘id’.&lt;/h3&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&#39;username&#39; =&amp;gt; &#39;unique:users,username,&#39;.$user-&amp;gt;id.&#39;,user_id&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;ex4-adding-additional-where-clauses-for-more-complex-condition&quot;&gt;Ex4. Adding additional where clauses for more complex condition&lt;/h3&gt;
+
+&lt;p&gt;If company has tag list and want to check unique value,&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&#39;name&#39; =&amp;gt; &#39;unique:tags,name,NULL,id,company_id,&#39;.$company_id
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If company has hierarchical folder list and want to check unique value per each node,&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&#39;name&#39; =&amp;gt; &#39;unique:folders,name,NULL,id,company_id,&#39;.$company_id.&#39;,parent_id,&#39;.$parent_id
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 12 Jul 2016 15:10:00 +0000</pubDate>
+        <link>https://blog.zemna.net/laravel/complex-unique-validation-rule-in-laravel/</link>
+        <guid isPermaLink="true">https://blog.zemna.net/laravel/complex-unique-validation-rule-in-laravel/</guid>
+        
+        <category>laravel</category>
+        
+        <category>validation</category>
+        
+        <category>unique</category>
+        
+        
+        <category>laravel</category>
+        
+      </item>
     
       <item>
         <title>How to add a new options by user to Select2 dropdown</title>
@@ -909,28 +968,6 @@ git push --quiet origin gh-pages &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
         
         
         <category>laravel</category>
-        
-      </item>
-    
-      <item>
-        <title>What is FreeTDS</title>
-        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FreeTDS&lt;/code&gt; is a set of libraries for Unix and Linux that allows your programs to natively talk to Microsoft SQL Server and Sybase datbases.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.freetds.org/&quot;&gt;Main Website&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/FreeTDS/freetds&quot;&gt;Github Repository&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 20 Jun 2016 12:48:00 +0000</pubDate>
-        <link>https://blog.zemna.net/programming/what-is-freetds/</link>
-        <guid isPermaLink="true">https://blog.zemna.net/programming/what-is-freetds/</guid>
-        
-        <category>programming</category>
-        
-        <category>freetds</category>
-        
-        
-        <category>programming</category>
         
       </item>
     
