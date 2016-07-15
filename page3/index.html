@@ -125,6 +125,91 @@
       <article class="box">
         <div class="box-header">
           <h2>
+            <a href="/laravel/deploy-laravel-to-production/">Deploy Laravel to Production</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-06-22
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#laravel">
+                  Laravel
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/laravel/deploy-laravel-to-production/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <h2 id="clone-laravel-source-to-server">Clone laravel source to server</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/zemna/groupware.git
+</code></pre>
+</div>
+
+<h2 id="install-necessary-modules">Install necessary modules</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install
+
+<span class="gp">$ </span>composer install --no-dev -o --prefer-dist
+
+<span class="gp">$ </span>bower install
+</code></pre>
+</div>
+
+<h2 id="make-env">Make .env</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp .env.example .env
+</code></pre>
+</div>
+
+<h2 id="generate-key-to-env">Generate key to .env</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan key:generate
+</code></pre>
+</div>
+
+<h2 id="execute-gulp-if-necessary">Execute <code class="highlighter-rouge">gulp</code> if necessary</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gulp --production
+</code></pre>
+</div>
+
+<h2 id="migrate-database">Migrate database</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan migrate
+</code></pre>
+</div>
+
+<h2 id="give-owner-to-web-server">Give owner to web server</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chown -R www-data:www-data <span class="k">*</span>
+</code></pre>
+</div>
+
+<h3 id="set-write-permission">Set write permission</h3>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod -R 775 bootstrap/cache
+<span class="gp">$ </span>chmod -R 775 storage
+</code></pre>
+</div>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
             <a href="/programming/what-is-freetds/">What is FreeTDS</a>
           </h2>
           <p class="box-meta text-muted">
@@ -339,44 +424,6 @@ This is because the difference of datetime string format. My SQL Server gives <c
         
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/jekyll/how-to-speed-up-jekyll-site/">How to speed up Jekyll site</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-19
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#jekyll">
-                  Jekyll
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/jekyll/how-to-speed-up-jekyll-site/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>Great article to speed up Jekyll site.</p>
-
-<p><a href="http://blog.webjeda.com/jekyll-speed/">How to speed up Jekyll blog? - WebJeda</a></p>
-
-<p><a href="https://wiredcraft.com/blog/make-jekyll-fast/">13 Steps to a Faster Jekyll Website - Wiredcraft</a></p>
-
-        </div>
-
-        
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -455,7 +502,7 @@ This is because the difference of datetime string format. My SQL Server gives <c
     
       
       <a href="/categories#web" class="list-group-item">
-        <span class="badge">2</span>
+        <span class="badge">3</span>
         
         Web
       </a>
@@ -485,6 +532,12 @@ This is because the difference of datetime string format. My SQL Server gives <c
   <div class="panel-body tags">
     <div class="tags">
     
+    
+    <span style="font-size: 94%">
+      <a href="/tags#bitbucket">
+        bitbucket
+      </a>
+    </span>
     
     <span style="font-size: 94%">
       <a href="/tags#bootstrap">
@@ -570,6 +623,12 @@ This is because the difference of datetime string format. My SQL Server gives <c
       </a>
     </span>
     
+    <span style="font-size: 94%">
+      <a href="/tags#jira">
+        jira
+      </a>
+    </span>
+    
     <span style="font-size: 126%">
       <a href="/tags#laravel">
         laravel
@@ -615,6 +674,12 @@ This is because the difference of datetime string format. My SQL Server gives <c
     <span style="font-size: 94%">
       <a href="/tags#resume">
         resume
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#rocketchat">
+        rocketchat
       </a>
     </span>
     
@@ -684,6 +749,13 @@ This is because the difference of datetime string format. My SQL Server gives <c
       
       <li class="post-item">
         <h4>
+          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-15</small>
+          <a href="/web/how-to-integrate-jira-and-bitbucket-application-with-rocket-chat/">How to integrate JIRA and BitBucket application with Rocket.Chat</a>
+        </h4>
+      </li>
+      
+      <li class="post-item">
+        <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-12</small>
           <a href="/laravel/complex-unique-validation-rule-in-laravel/">Complex unique validation rule in Laravel</a>
         </h4>
@@ -693,13 +765,6 @@ This is because the difference of datetime string format. My SQL Server gives <c
         <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-10</small>
           <a href="/javascript/how-to-add-a-new-options-by-user-to-select2-dropdown/">How to add a new options by user to Select2 dropdown</a>
-        </h4>
-      </li>
-      
-      <li class="post-item">
-        <h4>
-          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-08</small>
-          <a href="/laravel/how-to-update-timestamp-in-pivot-table-in-laravel/">How to update timestamp in pivot table in Laravel</a>
         </h4>
       </li>
       

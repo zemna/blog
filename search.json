@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "How to integrate JIRA and BitBucket application with Rocket.Chat",
+    "category" : "web",
+    "tags"     : "jira, bitbucket, rocketchat",
+    "url"      : "/web/how-to-integrate-jira-and-bitbucket-application-with-rocket-chat/",
+    "date"     : "2016-07-15"
+  },
+  
+  {
     "title"    : "Complex unique validation rule in Laravel",
     "category" : "laravel",
     "tags"     : "laravel, validation, unique",
