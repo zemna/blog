@@ -209,10 +209,32 @@ layout: default
 {
   "@context": "http://schema.org",
   "@type": "Article",
-  "url": "{{ page.url | prepend: site.baseurl }}",
-  "name": "{{ page.title }}",
-  "datePublished": "{{ page.date | date: "%Y-%m-%d" }}",
-  "author": "{{ site.author }}",
-  "image": "{% if page.image %}{{ site.url }}/{{ page.image }}{% else %}{{ site.url }}/assets/img/zemna-logo.png{% endif %}"
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+  },
+  "headline": "{{ page.title }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{% if page.image %}{{ site.url }}/{{ page.image }}{% else %}{{ site.url }}/assets/img/zemna-logo.png{% endif %}",
+    "height": 800,
+    "width": 800
+  },
+  "datePublished": "{{ page.date }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author }}"
+  },
+   "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/img/zemna-logo.png",
+      "width": 600,
+      "height": 60
+    }
+  },
+  "description": "{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | strip | truncate: 160 }}{% else %}{{ site.description }}{% endif %}"
 }
 </script>
