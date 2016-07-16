@@ -4,15 +4,14 @@ layout: default
 <div class="container">
   <div class="row">
     <section id="main" class="col-md-9">
-      <article itemscope itemtype="http://schema.org/Article" class="box">
+      <article class="box">
         <div class="box-header">
           <h2>
-            <span itemprop="name" class="title">{{ page.title }}</span>
+            <span class="title">{{ page.title }}</span>
           </h2>
 
           <p class="box-meta">
             <span>
-              <meta itemprop="datePublished" content="{{ page.date | date: "%Y-%m-%d" }}">
               <i class="fa fa-calendar"></i>
               {{ page.date | date: "%Y-%m-%d" }}
             </span>
@@ -59,7 +58,7 @@ layout: default
           </script>
         </div>
 
-        <div itemprop="articleBody" class="box-body">
+        <div class="box-body">
           {{ content }}
         </div>
 
@@ -205,3 +204,15 @@ layout: default
     </aside>
   </div>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "url": "{{ page.url | prepend: site.baseurl }}",
+  "name": "{{ page.title }}",
+  "datePublished": "{{ page.date | date: "%Y-%m-%d" }}",
+  "author": "{{ site.author }}",
+  "image": "{% if page.image %}{{ site.url }}/{{ page.image }}{% else %}{{ site.url }}/assets/img/zemna-logo.png{% endif %}"
+}
+</script>
