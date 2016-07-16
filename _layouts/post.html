@@ -4,14 +4,15 @@ layout: default
 <div class="container">
   <div class="row">
     <section id="main" class="col-md-9">
-      <article class="box">
+      <article itemscope itemtype="http://schema.org/Article" class="box">
         <div class="box-header">
           <h2>
-            <span class="title">{{ page.title }}</span>
+            <span itemprop="name" class="title">{{ page.title }}</span>
           </h2>
 
           <p class="box-meta">
             <span>
+              <meta itemprop="datePublished" content="{{ page.date | date: "%Y-%m-%d" }}">
               <i class="fa fa-calendar"></i>
               {{ page.date | date: "%Y-%m-%d" }}
             </span>
@@ -58,7 +59,7 @@ layout: default
           </script>
         </div>
 
-        <div class="box-body">
+        <div itemprop="articleBody" class="box-body">
           {{ content }}
         </div>
 
