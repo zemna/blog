@@ -6,9 +6,111 @@
 </description>
     <link>https://blog.zemna.net/</link>
     <atom:link href="https://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 15 Jul 2016 14:18:10 +0000</pubDate>
-    <lastBuildDate>Fri, 15 Jul 2016 14:18:10 +0000</lastBuildDate>
+    <pubDate>Sat, 16 Jul 2016 00:48:44 +0000</pubDate>
+    <lastBuildDate>Sat, 16 Jul 2016 00:48:44 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>PHP Tutorial to Send Direct Message to Rocket.Chat User</title>
+        <description>&lt;h3 id=&quot;overview&quot;&gt;1. Overview&lt;/h3&gt;
+
+&lt;p&gt;I need to send direct message to target user to notify user action in my PHP application. My company already has &lt;code class=&quot;highlighter-rouge&quot;&gt;Rocket.Chat&lt;/code&gt; messaging system as a &lt;code class=&quot;highlighter-rouge&quot;&gt;Company Messenger&lt;/code&gt;. So I decide to use it. Here is a sample.&lt;/p&gt;
+
+&lt;h3 id=&quot;rocketchat-setting&quot;&gt;2. Rocket.Chat Setting&lt;/h3&gt;
+
+&lt;h4 id=&quot;give-create-d-permission-to-bot-role&quot;&gt;2.1. Give &lt;code class=&quot;highlighter-rouge&quot;&gt;create-d&lt;/code&gt; permission to &lt;code class=&quot;highlighter-rouge&quot;&gt;Bot&lt;/code&gt; role&lt;/h4&gt;
+
+&lt;p&gt;To send &lt;code class=&quot;highlighter-rouge&quot;&gt;Direct Message&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;Bot&lt;/code&gt; to user, &lt;code class=&quot;highlighter-rouge&quot;&gt;Bot&lt;/code&gt; role has to have &lt;code class=&quot;highlighter-rouge&quot;&gt;create-d&lt;/code&gt; permission. Go to “Administration” -&amp;gt; “Permissions” and check &lt;code class=&quot;highlighter-rouge&quot;&gt;create-d&lt;/code&gt; permission for &lt;code class=&quot;highlighter-rouge&quot;&gt;bot&lt;/code&gt; role.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/img/rocketchat-create-d-permission-for-bot.jpg&quot;&gt;&lt;img src=&quot;/assets/img/rocketchat-create-d-permission-for-bot.jpg&quot; alt=&quot;Rocket.Chat create-d permission&quot; class=&quot;img-responsive&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;create-a-new-bot-user&quot;&gt;2.2. Create a new bot user&lt;/h4&gt;
+
+&lt;p&gt;This step is &lt;code class=&quot;highlighter-rouge&quot;&gt;optional&lt;/code&gt; if you want to use existing bot user as a sender of this notification.&lt;/p&gt;
+
+&lt;p&gt;Go to “Administration” -&amp;gt; “Users” and create a new &lt;code class=&quot;highlighter-rouge&quot;&gt;Bot user&lt;/code&gt; and activate.&lt;/p&gt;
+
+&lt;h4 id=&quot;create-a-new-webhook&quot;&gt;2.3. Create a new WebHook&lt;/h4&gt;
+
+&lt;p&gt;Go to “Administration” -&amp;gt; “Integrations” and create a new “Incoming WebHook”. And input each settings like this:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Enabled : True&lt;/li&gt;
+  &lt;li&gt;Name (Optional) : &lt;em&gt;Your WebHook Name (ex: My WebHook)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Post to Channel : &lt;em&gt;Input any default username. This will override. (ex: @zemna)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Post as : &lt;em&gt;Input bot user created by Step 2.2 (ex:my-project-bot)&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Script Enabled : False&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Click &lt;code class=&quot;highlighter-rouge&quot;&gt;Save Changes&lt;/code&gt; to save.&lt;/p&gt;
+
+&lt;h4 id=&quot;test-webhook&quot;&gt;2.4. Test WebHook&lt;/h4&gt;
+
+&lt;p&gt;You can see the &lt;code class=&quot;highlighter-rouge&quot;&gt;curl&lt;/code&gt; example on page. Copy it and execute from command prompt to test. If you can receive notification message, all settings are correct.&lt;/p&gt;
+
+&lt;p&gt;But if you didn’t receive, please check this;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;WebHook is enabled or not?&lt;/li&gt;
+  &lt;li&gt;To send direct message to user, sending user must have &lt;code class=&quot;highlighter-rouge&quot;&gt;create-d&lt;/code&gt; permission. You already give permission or not?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;copy-your-webhook-url&quot;&gt;2.5. Copy your WebHook URL&lt;/h4&gt;
+
+&lt;p&gt;You can see &lt;code class=&quot;highlighter-rouge&quot;&gt;WebHook URL&lt;/code&gt; on &lt;code class=&quot;highlighter-rouge&quot;&gt;Incoming WebHook&lt;/code&gt; page. Copy it to use in your php application.&lt;/p&gt;
+
+&lt;h3 id=&quot;php-application-programming&quot;&gt;3. PHP Application Programming&lt;/h3&gt;
+
+&lt;h4 id=&quot;prerequisites&quot;&gt;3.0. Prerequisites&lt;/h4&gt;
+
+&lt;p&gt;We need a mapping betwwen &lt;code class=&quot;highlighter-rouge&quot;&gt;PHP application user&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Rocket.Chat user&lt;/code&gt;. You have to make like &lt;code class=&quot;highlighter-rouge&quot;&gt;Rocket.Chat Integration&lt;/code&gt; page to let user input Rocket.Chat username, or use &lt;code class=&quot;highlighter-rouge&quot;&gt;same username&lt;/code&gt; between them.&lt;/p&gt;
+
+&lt;h4 id=&quot;install-guzzle-using-composer&quot;&gt;3.1. Install &lt;code class=&quot;highlighter-rouge&quot;&gt;guzzle&lt;/code&gt; using composer&lt;/h4&gt;
+
+&lt;p&gt;We will use &lt;code class=&quot;highlighter-rouge&quot;&gt;guzzle&lt;/code&gt; as a HTTP Client. Install &lt;code class=&quot;highlighter-rouge&quot;&gt;guzzle&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;composer&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;composer require guzzlehttp/guzzle
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;sending-direct-message&quot;&gt;3.2. Sending Direct Message&lt;/h4&gt;
+
+&lt;p&gt;Write coding like bellow to send direct message to user.&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$client = new GuzzleHttp\Client();
+
+$client-&amp;gt;post(&#39;Paste Your WebHook URL Here&#39;, [
+  &#39;body&#39; =&amp;gt; json_encode([
+    &#39;channel&#39; =&amp;gt; &#39;@&#39; . $username,
+    &#39;username&#39; =&amp;gt; &#39;My PHP Project&#39;,
+    &#39;text&#39; =&amp;gt; &#39;New notification arrived&#39;,
+    &#39;attachments&#39; =&amp;gt; [[
+      &#39;title&#39; =&amp;gt; &#39;Notification Title&#39;,
+      &#39;title_link&#39; =&amp;gt; &#39;http://www.example.com/123&#39;,
+      &#39;text&#39; =&amp;gt; &#39;Notification description&#39;,
+      &#39;color&#39; =&amp;gt; &#39;#0000FF&#39;
+    ]]
+  ])
+]);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;See &lt;a href=&quot;http://docs.guzzlephp.org/en/latest/&quot;&gt;Guzzle Documentation&lt;/a&gt; for more options.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 16 Jul 2016 00:00:00 +0000</pubDate>
+        <link>https://blog.zemna.net/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/</link>
+        <guid isPermaLink="true">https://blog.zemna.net/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/</guid>
+        
+        <category>rocketchat</category>
+        
+        <category>php</category>
+        
+        <category>notification</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       <item>
         <title>How to integrate JIRA and BitBucket application with Rocket.Chat</title>
@@ -1026,58 +1128,6 @@ git push --quiet origin gh-pages &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
         <category>laravel</category>
         
         <category>memcached</category>
-        
-        
-        <category>laravel</category>
-        
-      </item>
-    
-      <item>
-        <title>How to disable xdebug</title>
-        <description>&lt;p&gt;When I run &lt;code class=&quot;highlighter-rouge&quot;&gt;composer update&lt;/code&gt; command in shell, composer displays warning like bellow.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;You are running composer with xdebug enabled. This has a major impact on runtime performance. See https://getcomposer.org/xdebug
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;And takes too long time to process.&lt;/p&gt;
-
-&lt;p&gt;I already go to &lt;a href=&quot;https://getcomposer.org/xdebug&quot;&gt;https://getcomposer.org/xdebug&lt;/a&gt; reference and tried to disable xdebug option in &lt;code class=&quot;highlighter-rouge&quot;&gt;php.ini&lt;/code&gt; file. But I couldn’t found it.&lt;/p&gt;
-
-&lt;p&gt;This is the real reference to disable &lt;code class=&quot;highlighter-rouge&quot;&gt;xdebug&lt;/code&gt; option in &lt;code class=&quot;highlighter-rouge&quot;&gt;php.ini&lt;/code&gt; file.&lt;/p&gt;
-
-&lt;h2 id=&quot;get-what-phpini-file-is-used&quot;&gt;Get what php.ini file is used&lt;/h2&gt;
-
-&lt;p&gt;First, check what kind of &lt;code class=&quot;highlighter-rouge&quot;&gt;php.ini&lt;/code&gt; file is used.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php -i | grep &lt;span class=&quot;s2&quot;&gt;&quot;php.ini&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;comment-xdebug-option&quot;&gt;Comment xdebug option&lt;/h2&gt;
-
-&lt;p&gt;Search &lt;code class=&quot;highlighter-rouge&quot;&gt;zend_extension&lt;/code&gt; option and comment it using ‘;(semicolon)’.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;;zend_extension &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/path/to/my/xdebug.so&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;If you can’t find this option in &lt;code class=&quot;highlighter-rouge&quot;&gt;php.ini&lt;/code&gt; file, maybe it is in &lt;code class=&quot;highlighter-rouge&quot;&gt;conf.d&lt;/code&gt; folder. File name is like &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;20-xdebug.ini&#39;&lt;/code&gt;. Open this file and comment it.&lt;/p&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://getcomposer.org/doc/articles/troubleshooting.md#xdebug-impact-on-composer&quot;&gt;Troubleshooting  - Composer&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://laracasts.com/discuss/channels/servers/how-can-i-disable-the-xdebug&quot;&gt;How can I disable the xdebug? - Laracasts&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Wed, 22 Jun 2016 13:06:00 +0000</pubDate>
-        <link>https://blog.zemna.net/laravel/how-to-disable-xdebug/</link>
-        <guid isPermaLink="true">https://blog.zemna.net/laravel/how-to-disable-xdebug/</guid>
-        
-        <category>laravel</category>
-        
-        <category>composer</category>
         
         
         <category>laravel</category>

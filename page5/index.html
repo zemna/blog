@@ -125,6 +125,57 @@
       <article class="box">
         <div class="box-header">
           <h2>
+            <a href="/programming/how-to-deploy-subfolder-to-github-pages/">How to deploy subfolder to Github Pages</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-06-15
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#programming">
+                  Programming
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/programming/how-to-deploy-subfolder-to-github-pages/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>We can use <code class="highlighter-rouge">git subtree</code> to do this. And also nest git commands to execute force push (<a href="http://stackoverflow.com/questions/12644855/how-do-i-reset-a-heroku-git-repository-to-its-initial-state/13403588#13403588">Reference</a>).</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git push origin <span class="sb">`</span>git subtree split --prefix subfolder-name-here master<span class="sb">`</span>:gh-pages --force
+</code></pre>
+</div>
+
+<p>Put this command to <code class="highlighter-rouge">package.json</code> file like bellow.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My App"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git push origin `git subtree split --prefix subfolder-name-here master`:gh-pages --force"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>After that, we can use <code class="highlighter-rouge">npm run deploy</code> command to deploy subfolder to <code class="highlighter-rouge">gh-pages</code> branch.</p>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
             <a href="/erp/erpnext-manual/">ERPNext </a>
           </h2>
           <p class="box-meta text-muted">
@@ -309,7 +360,7 @@
     
       
       <a href="/categories#programming" class="list-group-item">
-        <span class="badge">7</span>
+        <span class="badge">8</span>
         
         Programming
       </a>
@@ -482,8 +533,20 @@
     </span>
     
     <span style="font-size: 94%">
+      <a href="/tags#notification">
+        notification
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
       <a href="/tags#orbit">
         orbit
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#php">
+        php
       </a>
     </span>
     
@@ -505,7 +568,7 @@
       </a>
     </span>
     
-    <span style="font-size: 94%">
+    <span style="font-size: 98%">
       <a href="/tags#rocketchat">
         rocketchat
       </a>
@@ -577,6 +640,13 @@
       
       <li class="post-item">
         <h4>
+          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-16</small>
+          <a href="/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/">PHP Tutorial to Send Direct Message to Rocket.Chat User</a>
+        </h4>
+      </li>
+      
+      <li class="post-item">
+        <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-15</small>
           <a href="/web/how-to-integrate-jira-and-bitbucket-application-with-rocket-chat/">How to integrate JIRA and BitBucket application with Rocket.Chat</a>
         </h4>
@@ -586,13 +656,6 @@
         <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-12</small>
           <a href="/laravel/complex-unique-validation-rule-in-laravel/">Complex unique validation rule in Laravel</a>
-        </h4>
-      </li>
-      
-      <li class="post-item">
-        <h4>
-          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-10</small>
-          <a href="/javascript/how-to-add-a-new-options-by-user-to-select2-dropdown/">How to add a new options by user to Select2 dropdown</a>
         </h4>
       </li>
       

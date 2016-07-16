@@ -125,6 +125,122 @@
       <article class="box">
         <div class="box-header">
           <h2>
+            <a href="/laravel/use-create-option-when-create-migration/">Use --create option when create migration</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-07-08
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#laravel">
+                  Laravel
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/laravel/use-create-option-when-create-migration/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>To create migration, we can use this artisan command.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan make:migration create_companies_table
+</code></pre>
+</div>
+
+<p>Laravel will create a new migration file in <code class="highlighter-rouge">database/migrations</code> directory.</p>
+
+<p>Generated file is like this:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Schema\Blueprint</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Database\Migrations\Migration</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CreateCompaniesTable</span> <span class="k">extends</span> <span class="nx">Migration</span>
+<span class="p">{</span>
+    <span class="sd">/**
+     * Run the migrations.
+     *
+     * @return void
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//
+</span>    <span class="p">}</span>
+
+    <span class="sd">/**
+     * Reverse the migrations.
+     *
+     * @return void
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">up()</code> method is used to create a new tables or add new columns to table.
+<code class="highlighter-rouge">down()</code> method is used to rollback.</p>
+
+<p>We can use <code class="highlighter-rouge">--create</code> option when create migration to automatically generate base code.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan make:migration create_companies_table --create<span class="o">=</span>companies
+</code></pre>
+</div>
+
+<p>Generated file is like this:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">Illuminate\Database\Schema\Blueprint</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Illuminate\Database\Migrations\Migration</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CreateCompaniesTable</span> <span class="k">extends</span> <span class="nx">Migration</span>
+<span class="p">{</span>
+    <span class="sd">/**
+     * Run the migrations.
+     *
+     * @return void
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'companies'</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+     * Reverse the migrations.
+     *
+     * @return void
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">Schema</span><span class="o">::</span><span class="na">drop</span><span class="p">(</span><span class="s1">'companies'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
             <a href="/jekyll/automated-deploy-with-jekyll-gulp-travis-ci-and-github-pages/">Automated Deploy with Jekyll, Gulp, Travis CI and GitHub Pages</a>
           </h2>
           <p class="box-meta text-muted">
@@ -740,75 +856,6 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
         
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/laravel/how-to-disable-xdebug/">How to disable xdebug</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-22
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#laravel">
-                  Laravel
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/laravel/how-to-disable-xdebug/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>When I run <code class="highlighter-rouge">composer update</code> command in shell, composer displays warning like bellow.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>You are running composer with xdebug enabled. This has a major impact on runtime performance. See https://getcomposer.org/xdebug
-</code></pre>
-</div>
-
-<p>And takes too long time to process.</p>
-
-<p>I already go to <a href="https://getcomposer.org/xdebug">https://getcomposer.org/xdebug</a> reference and tried to disable xdebug option in <code class="highlighter-rouge">php.ini</code> file. But I couldn’t found it.</p>
-
-<p>This is the real reference to disable <code class="highlighter-rouge">xdebug</code> option in <code class="highlighter-rouge">php.ini</code> file.</p>
-
-<h2 id="get-what-phpini-file-is-used">Get what php.ini file is used</h2>
-
-<p>First, check what kind of <code class="highlighter-rouge">php.ini</code> file is used.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>php -i | grep <span class="s2">"php.ini"</span>
-</code></pre>
-</div>
-
-<h2 id="comment-xdebug-option">Comment xdebug option</h2>
-
-<p>Search <code class="highlighter-rouge">zend_extension</code> option and comment it using ‘;(semicolon)’.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>;zend_extension <span class="o">=</span> <span class="s2">"/path/to/my/xdebug.so"</span>
-</code></pre>
-</div>
-
-<p>If you can’t find this option in <code class="highlighter-rouge">php.ini</code> file, maybe it is in <code class="highlighter-rouge">conf.d</code> folder. File name is like <code class="highlighter-rouge">'20-xdebug.ini'</code>. Open this file and comment it.</p>
-
-<h2 id="references">References</h2>
-
-<ul>
-  <li><a href="https://getcomposer.org/doc/articles/troubleshooting.md#xdebug-impact-on-composer">Troubleshooting  - Composer</a></li>
-  <li><a href="https://laracasts.com/discuss/channels/servers/how-can-i-disable-the-xdebug">How can I disable the xdebug? - Laracasts</a></li>
-</ul>
-
-        </div>
-
-        
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -866,7 +913,7 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     
       
       <a href="/categories#programming" class="list-group-item">
-        <span class="badge">7</span>
+        <span class="badge">8</span>
         
         Programming
       </a>
@@ -1039,8 +1086,20 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     </span>
     
     <span style="font-size: 94%">
+      <a href="/tags#notification">
+        notification
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
       <a href="/tags#orbit">
         orbit
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#php">
+        php
       </a>
     </span>
     
@@ -1062,7 +1121,7 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
       </a>
     </span>
     
-    <span style="font-size: 94%">
+    <span style="font-size: 98%">
       <a href="/tags#rocketchat">
         rocketchat
       </a>
@@ -1134,6 +1193,13 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
       
       <li class="post-item">
         <h4>
+          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-16</small>
+          <a href="/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/">PHP Tutorial to Send Direct Message to Rocket.Chat User</a>
+        </h4>
+      </li>
+      
+      <li class="post-item">
+        <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-15</small>
           <a href="/web/how-to-integrate-jira-and-bitbucket-application-with-rocket-chat/">How to integrate JIRA and BitBucket application with Rocket.Chat</a>
         </h4>
@@ -1143,13 +1209,6 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
         <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-12</small>
           <a href="/laravel/complex-unique-validation-rule-in-laravel/">Complex unique validation rule in Laravel</a>
-        </h4>
-      </li>
-      
-      <li class="post-item">
-        <h4>
-          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-10</small>
-          <a href="/javascript/how-to-add-a-new-options-by-user-to-select2-dropdown/">How to add a new options by user to Select2 dropdown</a>
         </h4>
       </li>
       

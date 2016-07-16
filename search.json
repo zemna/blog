@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "PHP Tutorial to Send Direct Message to Rocket.Chat User",
+    "category" : "programming",
+    "tags"     : "rocketchat, php, notification",
+    "url"      : "/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/",
+    "date"     : "2016-07-16"
+  },
+  
+  {
     "title"    : "How to integrate JIRA and BitBucket application with Rocket.Chat",
     "category" : "web",
     "tags"     : "jira, bitbucket, rocketchat",
