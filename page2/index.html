@@ -125,6 +125,165 @@
       <article class="box">
         <div class="box-header">
           <h2>
+            <a href="/javascript/how-to-add-a-new-options-by-user-to-select2-dropdown/">How to add a new options by user to Select2 dropdown</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-07-10
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#javascript">
+                  JavaScript
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/javascript/how-to-add-a-new-options-by-user-to-select2-dropdown/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>If you want to give user can add new options to select tag in runtime, you can use <a href="https://select2.github.io/">Select2</a> jQuery library to do it.</p>
+
+<p>Final result is like this:</p>
+
+<p><a href="/assets/img/2016-07-10-how-to-add-a-new-options-by-user-to-select2-dropdown-001.jpg"><img src="/assets/img/2016-07-10-how-to-add-a-new-options-by-user-to-select2-dropdown-001.jpg" alt="Select2 Dropdown" class="img-responsive" /></a></p>
+
+<h3 id="enable-tags-option">1. Enable tags option</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'select'</span><span class="p">).</span><span class="nx">select2</span><span class="p">({</span>
+  <span class="na">tags</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="handle-createtag-function-to-add-extra-properties">2. Handle <code class="highlighter-rouge">createTag</code> function to add extra properties</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'select'</span><span class="p">).</span><span class="nx">select2</span><span class="p">({</span>
+  <span class="na">tags</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">createTag</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">term</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">trim</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">term</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">term</span> <span class="o">===</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="nx">term</span><span class="p">,</span>
+      <span class="na">text</span><span class="p">:</span> <span class="nx">term</span><span class="p">,</span>
+      <span class="na">newTag</span><span class="p">:</span> <span class="kc">true</span> <span class="c1">// add additional perameters</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="update-templateresult-function-to-display-new-text-inside-of-item">3. Update <code class="highlighter-rouge">templateResult</code> function to display “(new)” text inside of item</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'select'</span><span class="p">).</span><span class="nx">select2</span><span class="p">({</span>
+  <span class="na">tags</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">createTag</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">term</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">trim</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">term</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">term</span> <span class="o">===</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="nx">term</span><span class="p">,</span>
+      <span class="na">text</span><span class="p">:</span> <span class="nx">term</span><span class="p">,</span>
+      <span class="na">newTag</span><span class="p">:</span> <span class="kc">true</span> <span class="c1">// add additional perameters</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">templateResult</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">$result</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"&lt;span&gt;&lt;/span&gt;"</span><span class="p">);</span>
+
+    <span class="nx">$result</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">newTag</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">$result</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">" &lt;em&gt;(new)&lt;/em&gt;"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">$result</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="https://select2.github.io/options.html">https://select2.github.io/options.html</a></li>
+  <li><a href="https://stackoverflow.com/questions/14577014/select2-dropdown-but-allow-new-values-by-user/30021059#30021059">https://stackoverflow.com/questions/14577014/select2-dropdown-but-allow-new-values-by-user/30021059#30021059</a></li>
+</ul>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
+            <a href="/laravel/how-to-update-timestamp-in-pivot-table-in-laravel/">How to update timestamp in pivot table in Laravel</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-07-08
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#laravel">
+                  Laravel
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/laravel/how-to-update-timestamp-in-pivot-table-in-laravel/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>When insert a new row to pivot table, we can use <code class="highlighter-rouge">attach()</code> method like this:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>$company = Company::find(1);
+$company-&gt;users()-&gt;attach(1);
+</code></pre>
+</div>
+
+<p>But this will not update created_at and updated_at timestamps column in pivot table.</p>
+
+<p>To update timestamps, use <code class="highlighter-rouge">withTimestamps()</code> method on the relationship method.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>class Company extends Model
+{
+  public function users()
+  {
+    return $this-&gt;belongsToMany(User::class)-&gt;withTimestamps();
+  }
+}
+</code></pre>
+</div>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
             <a href="/laravel/use-create-option-when-create-migration/">Use --create option when create migration</a>
           </h2>
           <p class="box-meta text-muted">
@@ -633,229 +792,6 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
         
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/laravel/some-tips-when-using-entrust-in-laravel/">Some Tips when using Entrust in Laravel</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-24
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#laravel">
-                  Laravel
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/laravel/some-tips-when-using-entrust-in-laravel/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>I got the problem when using <code class="highlighter-rouge">bican/roles</code> Role module in my Laravel project.</p>
-
-<p>There is an error when I check permission.</p>
-
-<p>So I decided to move <code class="highlighter-rouge">zizaco/entrust</code> and tested all features working normal.</p>
-
-<h2 id="how-to-install-entrust">How to install Entrust</h2>
-
-<h4 id="install-use-composer">Install use composer</h4>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>composer require zizaco/entrust:5.2.x-dev
-</code></pre>
-</div>
-
-<h4 id="setting-to-configappphp">Setting to <code class="highlighter-rouge">config/app.php</code></h4>
-
-<p>Add bellow line to <code class="highlighter-rouge">providers</code> array in <code class="highlighter-rouge">config/app.php</code>.</p>
-
-<div class="language-php highlighter-rouge"><pre class="highlight"><code>    Zizaco\Entrust\EntrustServiceProvider::class,
-</code></pre>
-</div>
-
-<p>Add bellow line to <code class="highlighter-rouge">aliases</code> array in <code class="highlighter-rouge">config/app.php</code>.</p>
-
-<div class="language-php highlighter-rouge"><pre class="highlight"><code>    'Entrust' =&gt; Zizaco\Entrust\EntrustFacade::class,
-</code></pre>
-</div>
-
-<h4 id="setting-to-apphttpkernalphp">Setting to <code class="highlighter-rouge">app/Http/Kernal.php</code></h4>
-
-<p>Add bellow lines to <code class="highlighter-rouge">routeMiddleware</code> array in <code class="highlighter-rouge">app/Http/Kernal.php</code>.</p>
-
-<div class="language-php highlighter-rouge"><pre class="highlight"><code>    'role' =&gt; \Zizaco\Entrust\Middleware\EntrustRole::class,
-    'permission' =&gt; \Zizaco\Entrust\Middleware\EntrustPermission::class,
-    'ability' =&gt; \Zizaco\Entrust\Middleware\EntrustAbility::class,
-</code></pre>
-</div>
-
-<h4 id="publish-entrustphp-file">Publish <code class="highlighter-rouge">entrust.php</code> file</h4>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan vendor:publish
-</code></pre>
-</div>
-
-<h2 id="database-setup">Database Setup</h2>
-
-<h4 id="generate-entrust-migration">Generate Entrust migration</h4>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan entrust:migration
-</code></pre>
-</div>
-
-<p>It will generate the <code class="highlighter-rouge">&lt;timestamp&gt;_entrust_setup_tables.php</code> migration.</p>
-
-<p>Execute migration</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan migrate
-</code></pre>
-</div>
-
-<h2 id="trouble-shootings">Trouble shootings</h2>
-
-<h4 id="error-when-execute-migration">Error when execute migration</h4>
-
-<p>After create <code class="highlighter-rouge">&lt;timestamp&gt;_entrust_setup_tables.php</code>, you have to write your users table in this file. Open <code class="highlighter-rouge">&lt;timestamp&gt;_entrust_setup_tables.php</code> file and write name of users table to <code class="highlighter-rouge">28 line</code>.</p>
-
-<div class="language-php highlighter-rouge"><pre class="highlight"><code>    $table-&gt;foreign('user_id')-&gt;references('id')-&gt;on('users')
-        -&gt;onUpdate('cascade')-&gt;onDelete('cascade');
-</code></pre>
-</div>
-
-<h4 id="this-cache-store-does-not-support-tagging">This cache store does not support tagging</h4>
-
-<p>Set <code class="highlighter-rouge">CACHE_DRIVER=array</code> in <code class="highlighter-rouge">.env</code> file.</p>
-
-<ul>
-  <li><a href="https://github.com/Zizaco/entrust/issues/541">https://github.com/Zizaco/entrust/issues/541</a></li>
-</ul>
-
-<h4 id="error-when-delete-role">Error when delete role</h4>
-
-<p>In Laravel 5.2, error is occured when delete role. Because Entrust get User class using <code class="highlighter-rouge">Config::get('auth.model')</code>.</p>
-
-<p>EntrustRoleTrait.php file</p>
-
-<div class="language-php highlighter-rouge"><pre class="highlight"><code>    /**
-     * Many-to-Many relations with the user model.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function users()
-    {
-        return $this-&gt;belongsToMany(Config::get('auth.model'), Config::get('entrust.role_user_table'),Config::get('entrust.role_foreign_key'),Config::get('entrust.user_foreign_key'));
-       // return $this-&gt;belongsToMany(Config::get('auth.model'), Config::get('entrust.role_user_table'));
-    }
-</code></pre>
-</div>
-
-<p>So We have to return right user model by that position. There are two solutions for this.</p>
-
-<h5 id="change-entrustroletraitphp-file-to-use-correct-configuration-value">1. Change EntrustRoleTrait.php file to use correct configuration value.</h5>
-
-<p>We can change <code class="highlighter-rouge">Config::get('auth.model')</code> to <code class="highlighter-rouge">Config::get('auth.providers.users.model')</code>. Laravel 5.2 already have users model information in that position.</p>
-
-<h5 id="add-authmodel-value-to-configauthphp-file">2. Add <code class="highlighter-rouge">auth.model</code> value to config/auth.php file</h5>
-
-<p>We can also add new value to config/auth.php file to allow Entrust get rights value.</p>
-
-<div class="language-php highlighter-rouge"><pre class="highlight"><code>return [
-  ...
-
-  /**
-   * Add this configuration for Entrust
-   */
-  'model' =&gt; App\User::class,
-];
-</code></pre>
-</div>
-
-        </div>
-
-        
-      </article>
-      
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/laravel/class-memcached-not-found-error-in-laravel/">Class memcached not found error in Laravel</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-24
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#laravel">
-                  Laravel
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/laravel/class-memcached-not-found-error-in-laravel/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>If you got bellow error when use memcached in Laravel, please check following steps.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>exception <span class="s1">'Symfony\Component\Debug\Exception\FatalErrorException'</span> with message <span class="s1">'Class '</span>Memcached<span class="s1">' not found'</span> <span class="k">in</span> /var/www/gw/vendor/laravel/framework/src/Illuminate/Cache/MemcachedConnector.php:51
-</code></pre>
-</div>
-
-<h4 id="install-memcached">Install memcached</h4>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install php5-memcached memcached
-</code></pre>
-</div>
-
-<p>Enabled php5-memcached</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo php5enmod memcached
-</code></pre>
-</div>
-
-<p>Restart apache web server</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo service apache2 restart
-</code></pre>
-</div>
-
-<h4 id="check-memcached-service-status">Check memcached service status</h4>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo service memcached status
-</code></pre>
-</div>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="k">*</span> memcached is running
-</code></pre>
-</div>
-
-<h4 id="clear-cache">Clear cache</h4>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan cache:clear
-</code></pre>
-</div>
-
-        </div>
-
-        
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -913,9 +849,16 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     
       
       <a href="/categories#programming" class="list-group-item">
-        <span class="badge">8</span>
+        <span class="badge">10</span>
         
         Programming
+      </a>
+    
+      
+      <a href="/categories#windows" class="list-group-item">
+        <span class="badge">1</span>
+        
+        Windows
       </a>
     
       
@@ -953,6 +896,13 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
         JavaScript
       </a>
     
+      
+      <a href="/categories#mikrotik" class="list-group-item">
+        <span class="badge">2</span>
+        
+        Mikrotik
+      </a>
+    
   </div>
 </section>
 
@@ -972,8 +922,20 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     </span>
     
     <span style="font-size: 94%">
+      <a href="/tags#boot">
+        boot
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
       <a href="/tags#bootstrap">
         bootstrap
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#brute-force">
+        brute-force
       </a>
     </span>
     
@@ -1016,6 +978,12 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     <span style="font-size: 94%">
       <a href="/tags#freetds">
         freetds
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#git">
+        git
       </a>
     </span>
     
@@ -1085,6 +1053,12 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
       </a>
     </span>
     
+    <span style="font-size: 98%">
+      <a href="/tags#mikrotik">
+        mikrotik
+      </a>
+    </span>
+    
     <span style="font-size: 94%">
       <a href="/tags#notification">
         notification
@@ -1134,6 +1108,12 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     </span>
     
     <span style="font-size: 94%">
+      <a href="/tags#slow">
+        slow
+      </a>
+    </span>
+    
+    <span style="font-size: 98%">
       <a href="/tags#social">
         social
       </a>
@@ -1158,8 +1138,20 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     </span>
     
     <span style="font-size: 94%">
+      <a href="/tags#ubuntu">
+        ubuntu
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
       <a href="/tags#unique">
         unique
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#user">
+        user
       </a>
     </span>
     
@@ -1172,6 +1164,12 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     <span style="font-size: 98%">
       <a href="/tags#web">
         web
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#windows">
+        windows
       </a>
     </span>
     
@@ -1193,22 +1191,22 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
       
       <li class="post-item">
         <h4>
+          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-17</small>
+          <a href="/mikrotik/how-to-block-brute-force-attack-in-mikrotik-router/">How To Block Brute Force Attack in Mikrotik Router</a>
+        </h4>
+      </li>
+      
+      <li class="post-item">
+        <h4>
+          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-17</small>
+          <a href="/mikrotik/how-to-block-dns-request-from-outside-network-in-mikrotik-router/">How To Block DNS Request From Outside Network in Mikrotik Router</a>
+        </h4>
+      </li>
+      
+      <li class="post-item">
+        <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-16</small>
           <a href="/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/">PHP Tutorial to Send Direct Message to Rocket.Chat User</a>
-        </h4>
-      </li>
-      
-      <li class="post-item">
-        <h4>
-          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-15</small>
-          <a href="/web/how-to-integrate-jira-and-bitbucket-application-with-rocket-chat/">How to integrate JIRA and BitBucket application with Rocket.Chat</a>
-        </h4>
-      </li>
-      
-      <li class="post-item">
-        <h4>
-          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-12</small>
-          <a href="/laravel/complex-unique-validation-rule-in-laravel/">Complex unique validation rule in Laravel</a>
         </h4>
       </li>
       

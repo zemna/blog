@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://blog.zemna.net/mikrotik/how-to-block-brute-force-attack-in-mikrotik-router/</loc>
+<lastmod>2016-07-17T01:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://blog.zemna.net/mikrotik/how-to-block-dns-request-from-outside-network-in-mikrotik-router/</loc>
+<lastmod>2016-07-17T00:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://blog.zemna.net/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/</loc>
 <lastmod>2016-07-16T00:00:00+00:00</lastmod>
 </url>
@@ -97,6 +105,18 @@
 <lastmod>2016-06-08T13:55:39+00:00</lastmod>
 </url>
 <url>
+<loc>https://blog.zemna.net/programming/how-to-install-latest-version-of-git-to-ubuntu/</loc>
+<lastmod>2015-12-02T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://blog.zemna.net/windows/how-to-fix-the-windows-10-slow-boot-bug/</loc>
+<lastmod>2015-09-20T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://blog.zemna.net/programming/develop-user-management-feature-with-social-login-part-1/</loc>
+<lastmod>2015-06-23T00:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://blog.zemna.net/categories/</loc>
 </url>
 <url>
@@ -119,5 +139,8 @@
 </url>
 <url>
 <loc>https://blog.zemna.net/page5/</loc>
+</url>
+<url>
+<loc>https://blog.zemna.net/page6/</loc>
 </url>
 </urlset>

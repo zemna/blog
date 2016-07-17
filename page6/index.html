@@ -14,7 +14,7 @@
 
   <!-- Facebook Meta -->
   <meta property="fb:app_id" content="632837843538038" />
-  <meta property="og:url" content="https://blog.zemna.net//page5/" />
+  <meta property="og:url" content="https://blog.zemna.net//page6/" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="zemna blog" />
   <meta property="og:description" content="zemna's Blog gives useful information about software programming.
@@ -38,7 +38,7 @@
   <meta name="twitter:domain" content="blog.zemna.net">
 
   <!-- Mobile and Rss -->
-  <link rel="canonical" href="https://blog.zemna.net/page5/"/>
+  <link rel="canonical" href="https://blog.zemna.net/page6/"/>
   <link rel="alternate" type="application/rss+xml" title="zemna blog" href="https://blog.zemna.net/feed.xml"/>
 
   <!-- Begin MailChimp Signup Form -->
@@ -48,7 +48,7 @@
 
   <title>zemna blog</title>
 
-  <link rel="canonical" href="https://blog.zemna.net/page5/">
+  <link rel="canonical" href="https://blog.zemna.net/page6/">
   <link rel="alternate" type="application/rss+xml" title="zemna blog" href="https://blog.zemna.net/feed.xml">
 
   <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
@@ -125,12 +125,12 @@
       <article class="box">
         <div class="box-header">
           <h2>
-            <a href="/programming/how-to-add-social-sharing-buttons-to-jekyll/">How to add social sharing buttons to Jekyll</a>
+            <a href="/programming/welcome-to-jekyll/">Welcome to Jekyll!</a>
           </h2>
           <p class="box-meta text-muted">
             <span>
               <i class="fa fa-calendar"></i>
-              2016-06-16
+              2016-06-08
             </span>
             <span>
               <i class="fa fa-folder"></i>
@@ -143,59 +143,26 @@
             </span>
             <span>
               <i class="fa fa-comments"></i>
-              <a href="/programming/how-to-add-social-sharing-buttons-to-jekyll/#disqus_thread" title="comments">0</a>
+              <a href="/programming/welcome-to-jekyll/#disqus_thread" title="comments">0</a>
             </span>
           </p>
         </div>
 
         <div class="box-body">
-          <p>Lets we study how to add social sharing buttons to Jekyll. You can see the sharing buttons at bottom of this content.</p>
+          <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
-<p>We can try to use <a href="http://fontawesome.io">Font Awesome</a> to generate social icon button.</p>
+<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
 
-<p>Click <a href="http://fontawesome.io/examples/#stacked">this link</a> to get information about stacked icons.</p>
+<p>Jekyll also offers powerful support for code snippets:</p>
 
-<h2 id="facebook-button">Facebook Button</h2>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://www.facebook.com/sharer/sharer.php?u={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}&amp;title={{ page.title | encode }}"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fa-stack"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square fa-stack-2x"</span> <span class="na">style=</span><span class="s">"color: #3b5998;"</span><span class="nt">&gt;&lt;/i&gt;</span>
-        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-facebook fa-stack-1x fa-inverse"</span><span class="nt">&gt;&lt;/i&gt;</span>
-    <span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;/a&gt;</span>
-</code></pre>
-</div>
+<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
 
-<h2 id="twitter-button">Twitter Button</h2>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://twitter.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}&amp;title={{ page.title | encode }}&amp;text={{ page.title | encode }}"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fa-stack"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square fa-stack-2x"</span> <span class="na">style=</span><span class="s">"color: #0084b4;"</span><span class="nt">&gt;&lt;/i&gt;</span>
-        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-twitter fa-stack-1x fa-inverse"</span><span class="nt">&gt;&lt;/i&gt;</span>
-    <span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;/a&gt;</span>
-</code></pre>
-</div>
-
-<h2 id="google-button">Google+ Button</h2>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://plus.google.com/share?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"fa-stack"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-square fa-stack-2x"</span> <span class="na">style=</span><span class="s">"color: #d34836;"</span><span class="nt">&gt;&lt;/i&gt;</span>
-        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-google-plus fa-stack-1x fa-inverse"</span><span class="nt">&gt;&lt;/i&gt;</span>
-    <span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;/a&gt;</span>
-</code></pre>
-</div>
-
-<p>You can also make other types of social buttons.</p>
-
-<h2 id="references">References</h2>
-
-<ul>
-  <li><a href="http://www.sharelinkgenerator.com/">Share Link Generator</a></li>
-  <li><a href="http://designpieces.com/2012/12/social-media-colours-hex-and-rgb/">Social Media Colours</a></li>
-</ul>
 
         </div>
 
@@ -205,12 +172,12 @@
       <article class="box">
         <div class="box-header">
           <h2>
-            <a href="/programming/how-to-integrate-travis-for-jekyll-on-github-pages/">How to Integrate Travis for Jekyll on Github Pages</a>
+            <a href="/programming/how-to-install-latest-version-of-git-to-ubuntu/">How to install latest version of git to ubuntu</a>
           </h2>
           <p class="box-meta text-muted">
             <span>
               <i class="fa fa-calendar"></i>
-              2016-06-15
+              2015-12-02
             </span>
             <span>
               <i class="fa fa-folder"></i>
@@ -223,149 +190,189 @@
             </span>
             <span>
               <i class="fa fa-comments"></i>
-              <a href="/programming/how-to-integrate-travis-for-jekyll-on-github-pages/#disqus_thread" title="comments">0</a>
+              <a href="/programming/how-to-install-latest-version-of-git-to-ubuntu/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>If you want to install latest version of git to Ubuntu operating system, you can use <code class="highlighter-rouge">ppa</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git
+</code></pre>
+</div>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
+            <a href="/windows/how-to-fix-the-windows-10-slow-boot-bug/">How to fix the Windows 10 slow boot bug</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2015-09-20
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#windows">
+                  Windows
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/windows/how-to-fix-the-windows-10-slow-boot-bug/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>Is your laptop slow boot after upgrade to Windows 10?</p>
+
+<p>My Sony Vaio laptop also takes more than 1 minute to showing login screen. I fully stressed because of this, but can fix this problem by this tip.</p>
+
+<p>You can read this great article to fix it.</p>
+
+<p><a href="http://www.expertreviews.co.uk/software/operating-systems/1403760/how-to-fix-the-windows-10-slow-boot-bug">Go to article</a></p>
+
+<h1 id="enablingdisabling-fast-start-up">Enabling/disabling fast start-up</h1>
+<p># Graphics drivers
+# AMD power saver</p>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
+            <a href="/programming/develop-user-management-feature-with-social-login-part-1/">Develop User Management Feature with Social Login – Part1</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2015-06-23
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#programming">
+                  Programming
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/programming/develop-user-management-feature-with-social-login-part-1/#disqus_thread" title="comments">0</a>
             </span>
           </p>
         </div>
 
         <div class="box-body">
           <ul>
-  <li><a href="https://jaicab.com/2016/04/05/travis-for-jekyll-on-github-pages/">https://jaicab.com/2016/04/05/travis-for-jekyll-on-github-pages/</a></li>
+  <li>Part1 – System Analysis &amp; Database Design</li>
+  <li>Part2 – Internal User Management</li>
+  <li>Part3 – Integrate With Social Login</li>
 </ul>
 
-        </div>
+<h2 id="part1--system-analysis--database-design">Part1 – System Analysis &amp; Database Design</h2>
 
-        
-      </article>
-      
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/programming/how-to-deploy-subfolder-to-github-pages/">How to deploy subfolder to Github Pages</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-15
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#programming">
-                  Programming
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/programming/how-to-deploy-subfolder-to-github-pages/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
+<h3 id="system-analysis">1. System Analysis</h3>
 
-        <div class="box-body">
-          <p>We can use <code class="highlighter-rouge">git subtree</code> to do this. And also nest git commands to execute force push (<a href="http://stackoverflow.com/questions/12644855/how-do-i-reset-a-heroku-git-repository-to-its-initial-state/13403588#13403588">Reference</a>).</p>
+<h4 id="requirements">1.1. REQUIREMENTS</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git push origin <span class="sb">`</span>git subtree split --prefix subfolder-name-here master<span class="sb">`</span>:gh-pages --force
+<p>User can register using signup feature. User can login using user credentials.
+If user forget password, user can reset password using registered email.
+User can login using social account like Google, Facebook and Twitter.</p>
+
+<h4 id="big-flow">1.2. BIG FLOW</h4>
+
+<p>The big flow of this feature likes following picture.</p>
+
+<p><a href="https://lh3.googleusercontent.com/g61NSUIKLgM43FX2l0r2JwmWQyuesf2j8xFuU5FhMxfK=w481-h741-no"><img src="https://lh3.googleusercontent.com/g61NSUIKLgM43FX2l0r2JwmWQyuesf2j8xFuU5FhMxfK=w481-h741-no" alt="User Management Big Flow" class="img-responsive" /></a></p>
+
+<p>When user connect to website, user can login using basic login system and also social login. Each login feature have different business logic.</p>
+
+<p><strong>Basic Login</strong></p>
+
+<p>Process is like as traditional one. User register using username, email, password, display name, etc. After register, user can login using username(or email) and password. System also can give a feature to reset password for user who forget password.</p>
+
+<p><strong>Social Login</strong></p>
+
+<p>User also can login using their social account like Google, Facebook and Twitter. Social login has three steps to process. Authorize app by social webpage, verify user in user database and connect social account with user database.</p>
+
+<h3 id="database-design">2. Database Design</h3>
+
+<p>Let’s make a database for user management.</p>
+
+<h4 id="entity-relationship-diagram">2.1. ENTITY RELATIONSHIP DIAGRAM</h4>
+
+<p><a href="https://lh3.googleusercontent.com/xNaWCrNUvPEx-ZJwQX0tR778Vnbg_Ho_6Xl3K39YUFw-=w414-h269-no"><img src="https://lh3.googleusercontent.com/xNaWCrNUvPEx-ZJwQX0tR778Vnbg_Ho_6Xl3K39YUFw-=w414-h269-no" alt="User Management ERD" class="img-responsive" /></a></p>
+
+<p>There are 3 tables to manage user. I divided table by feature group.</p>
+
+<p><strong>‘user’ Table</strong></p>
+
+<p>This is the main table of user. All users have one record in this table. When user login using social login feature, system searches user table to check existence and add record if doesn’t exist.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nv">`user`</span> <span class="p">(</span>
+  <span class="nv">`id`</span> <span class="n">bigint</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="nv">`username`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="nv">`email`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="nv">`password`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="nv">`display_name`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="nv">`created`</span> <span class="n">datetime</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="nv">`user_group`</span> <span class="n">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="nv">`id`</span><span class="p">),</span>
+  <span class="k">UNIQUE</span> <span class="k">KEY</span> <span class="nv">`email`</span> <span class="p">(</span><span class="nv">`email`</span><span class="p">),</span>
+  <span class="k">UNIQUE</span> <span class="k">KEY</span> <span class="nv">`username`</span> <span class="p">(</span><span class="nv">`username`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span>  <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
 </code></pre>
 </div>
 
-<p>Put this command to <code class="highlighter-rouge">package.json</code> file like bellow.</p>
+<p><strong>‘user_password_reset’ Table</strong></p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My App"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"deploy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git push origin `git subtree split --prefix subfolder-name-here master`:gh-pages --force"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<p>This table is used for reset password. I divided this table from user table because of frequency. If user want to reset password, system add a new record to ‘user_password_reset’ table with temporary reset verification key and verification expiration date. This key will be sent to user via email. User can click password reset link from email and set a new password. After complete to set a new password, record in this table will be deleted automatically. User also can’t be set a new password if link is already expired.</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nv">`user_password_reset`</span> <span class="p">(</span>
+  <span class="nv">`user_id`</span> <span class="n">bigint</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="nv">`reset_key`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="nv">`reset_key_expired`</span> <span class="n">datetime</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="nv">`user_id`</span><span class="p">),</span>
+  <span class="k">UNIQUE</span> <span class="k">KEY</span> <span class="nv">`reset_key`</span> <span class="p">(</span><span class="nv">`reset_key`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
+</code></pre>
 </div>
-<p>After that, we can use <code class="highlighter-rouge">npm run deploy</code> command to deploy subfolder to <code class="highlighter-rouge">gh-pages</code> branch.</p>
 
-        </div>
+<p><strong>‘user_provider’ Table</strong></p>
 
-        
-      </article>
-      
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/erp/erpnext-manual/">ERPNext </a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-14
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#erp">
-                  ERP
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/erp/erpnext-manual/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
+<p>This table is for manage social account. Many people have multiple social account. To protect duplication of user creation, social login information will be saved to ‘user_provider’ table and connect with main ‘user’ table.</p>
 
-        <div class="box-body">
-          <p>I’m using <code class="highlighter-rouge">ERPNext</code> for my company to manage stock product and accounting system.</p>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nv">`user_provider`</span> <span class="p">(</span>
+  <span class="nv">`id`</span> <span class="n">bigint</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="nv">`user_id`</span> <span class="n">bigint</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="nv">`provider`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="nv">`provider_uid`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="nv">`id`</span><span class="p">),</span>
+  <span class="k">KEY</span> <span class="nv">`user_id`</span> <span class="p">(</span><span class="nv">`user_id`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span>  <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
+</code></pre>
+</div>
 
-<p><a href="/assets/img/erpnext.jpg"><img src="/assets/img/erpnext.jpg" alt="ERPNext screenshot" /></a></p>
+<h3 id="conclusion">3. Conclusion</h3>
 
-<p>It’s free for 1 user. It contains Accounting, Inventory, Purchasing, Selling, CRM, Human Resources, Manufacturing and Website system. You’ll love it after test this amazing features.</p>
-
-<ul>
-  <li>Website : <a href="https://erpnext.com">https://erpnext.com</a></li>
-  <li>User Manual : <a href="http://frappe.github.io/erpnext/user/manual/en">http://frappe.github.io/erpnext/user/manual/en</a></li>
-  <li>Forum : <a href="https://discuss.erpnext.com">https://discuss.erpnext.com</a></li>
-  <li>Github : <a href="https://github.com/frappe">https://github.com/frappe</a></li>
-</ul>
-
-        </div>
-
-        
-      </article>
-      
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/programming/jekyll/">Jekyll </a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-09
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#programming">
-                  Programming
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/programming/jekyll/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>Simple, blog-aware, static sites generator.</p>
-
-<p>I’m using jekyll to this blog.</p>
-
-<p><a href="http://jekyllrb.com/">http://jekyllrb.com/</a></p>
+<p>In this article, we made a business flow of user management feature and also made a database.</p>
 
         </div>
 
@@ -376,8 +383,8 @@
       <nav id="pagination">
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/page6/">
+          <li class="previous disabled">
+            <a href="#">
               <span aria-hidden="true">
                 <i class="fa fa-chevron-left"></i>
               </span>
@@ -388,7 +395,7 @@
 
           
           <li class="next">
-            <a href="/page4/">
+            <a href="/page5/">
               Newer
               <span aria-hidden="true">
                 <i class="fa fa-chevron-right"></i>

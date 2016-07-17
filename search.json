@@ -1,6 +1,22 @@
 [
   
   {
+    "title"    : "How To Block Brute Force Attack in Mikrotik Router",
+    "category" : "mikrotik",
+    "tags"     : "mikrotik, brute-force",
+    "url"      : "/mikrotik/how-to-block-brute-force-attack-in-mikrotik-router/",
+    "date"     : "2016-07-17"
+  },
+  
+  {
+    "title"    : "How To Block DNS Request From Outside Network in Mikrotik Router",
+    "category" : "mikrotik",
+    "tags"     : "mikrotik",
+    "url"      : "/mikrotik/how-to-block-dns-request-from-outside-network-in-mikrotik-router/",
+    "date"     : "2016-07-17"
+  },
+  
+  {
     "title"    : "PHP Tutorial to Send Direct Message to Rocket.Chat User",
     "category" : "programming",
     "tags"     : "rocketchat, php, notification",
@@ -190,6 +206,30 @@
     "tags"     : "jekyll",
     "url"      : "/programming/welcome-to-jekyll/",
     "date"     : "2016-06-08"
+  },
+  
+  {
+    "title"    : "How to install latest version of git to ubuntu",
+    "category" : "programming",
+    "tags"     : "ubuntu, git",
+    "url"      : "/programming/how-to-install-latest-version-of-git-to-ubuntu/",
+    "date"     : "2015-12-02"
+  },
+  
+  {
+    "title"    : "How to fix the Windows 10 slow boot bug",
+    "category" : "windows",
+    "tags"     : "windows, boot, slow",
+    "url"      : "/windows/how-to-fix-the-windows-10-slow-boot-bug/",
+    "date"     : "2015-09-20"
+  },
+  
+  {
+    "title"    : "Develop User Management Feature with Social Login – Part1",
+    "category" : "programming",
+    "tags"     : "social, user",
+    "url"      : "/programming/develop-user-management-feature-with-social-login-part-1/",
+    "date"     : "2015-06-23"
   }
   
 ]

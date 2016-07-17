@@ -6,9 +6,70 @@
 </description>
     <link>https://blog.zemna.net/</link>
     <atom:link href="https://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 16 Jul 2016 06:47:09 +0000</pubDate>
-    <lastBuildDate>Sat, 16 Jul 2016 06:47:09 +0000</lastBuildDate>
+    <pubDate>Sun, 17 Jul 2016 14:04:06 +0000</pubDate>
+    <lastBuildDate>Sun, 17 Jul 2016 14:04:06 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>How To Block Brute Force Attack in Mikrotik Router</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ ip firewall filter
+add chain=input protocol=tcp dst-port=22 src-address-list=ssh_blacklist action=drop comment=&quot;Drop SSH Brute Forcers&quot; disabled=no
+add chain=input protocol=tcp dst-port=22 connection-state=new src-address-list=ssh_stage3 action=add-src-to-address-list address-list=ssh_blacklist address-list-timeout=1d comment=&quot;&quot; disabled=no
+add chain=input protocol=tcp dst-port=22 connection-state=new src-address-list=ssh_stage2 action=add-src-to-address-list address-list=ssh_stage3 address-list-timeout=1m comment=&quot;&quot; disabled=no
+add chain=input protocol=tcp dst-port=22 connection-state=new src-address-list=ssh_stage1 action=add-src-to-address-list address-list=ssh_stage2 address-list-timeout=1m comment=&quot;&quot; disabled=no
+add chain=input protocol=tcp dst-port=22 connection-state=new action=add-src-to-address-list address-list=ssh_stage1 address-list-timeout=1m comment=&quot;&quot; disabled=no
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ ip firewall filter
+add chain=input protocol=tcp dst-port=21 src-address-list=ftp_blacklist action=drop comment=&quot;Drop FTP Brute Forcers&quot; disabled=no
+add chain=input protocol=tcp dst-port=21 connection-state=new src-address-list=ftp_stage3 action=add-src-to-address-list address-list=ftp_blacklist address-list-timeout=1d comment=&quot;&quot; disabled=no
+add chain=input protocol=tcp dst-port=21 connection-state=new src-address-list=ftp_stage2 action=add-src-to-address-list address-list=ftp_stage3 address-list-timeout=1m comment=&quot;&quot; disabled=no
+add chain=input protocol=tcp dst-port=21 connection-state=new src-address-list=ftp_stage1 action=add-src-to-address-list address-list=ftp_stage2 address-list-timeout=1m comment=&quot;&quot; disabled=no
+add chain=input protocol=tcp dst-port=21 connection-state=new action=add-src-to-address-list address-list=ftp_stage1 address-list-timeout=1m comment=&quot;&quot; disabled=no
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ ip firewall filter
+add chain=input protocol=tcp dst-port=23 src-address-list=telnet_blacklist action=drop comment=&quot;Drop Telnet Brute Forcers&quot; disabled=no
+add chain=input protocol=tcp dst-port=23 connection-state=new src-address-list=telnet_stage3 action=add-src-to-address-list address-list=telnet_blacklist address-list-timeout=1d comment=&quot;&quot; disabled=no
+add chain=input protocol=tcp dst-port=23 connection-state=new src-address-list=telnet_stage2 action=add-src-to-address-list address-list=telnet_stage3 address-list-timeout=1m comment=&quot;&quot; disabled=no
+add chain=input protocol=tcp dst-port=23 connection-state=new src-address-list=telnet_stage1 action=add-src-to-address-list address-list=telnet_stage2 address-list-timeout=1m comment=&quot;&quot; disabled=no
+add chain=input protocol=tcp dst-port=23 connection-state=new action=add-src-to-address-list address-list=telnet_stage1 address-list-timeout=1m comment=&quot;&quot; disabled=no
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 17 Jul 2016 01:00:00 +0000</pubDate>
+        <link>https://blog.zemna.net/mikrotik/how-to-block-brute-force-attack-in-mikrotik-router/</link>
+        <guid isPermaLink="true">https://blog.zemna.net/mikrotik/how-to-block-brute-force-attack-in-mikrotik-router/</guid>
+        
+        <category>mikrotik</category>
+        
+        <category>brute-force</category>
+        
+        
+        <category>mikrotik</category>
+        
+      </item>
+    
+      <item>
+        <title>How To Block DNS Request From Outside Network in Mikrotik Router</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ip firewall filter
+add chain=input in-interface=ether1 protocol=udp dst-port=53 action=drop
+add chain=input in-interface=ether1 protocol=tcp dst-port=53 action=drop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 17 Jul 2016 00:00:00 +0000</pubDate>
+        <link>https://blog.zemna.net/mikrotik/how-to-block-dns-request-from-outside-network-in-mikrotik-router/</link>
+        <guid isPermaLink="true">https://blog.zemna.net/mikrotik/how-to-block-dns-request-from-outside-network-in-mikrotik-router/</guid>
+        
+        <category>mikrotik</category>
+        
+        
+        <category>mikrotik</category>
+        
+      </item>
     
       <item>
         <title>PHP Tutorial to Send Direct Message to Rocket.Chat User</title>
@@ -939,195 +1000,6 @@ git push --quiet origin gh-pages &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
         <category>laravel</category>
         
         <category>homestead</category>
-        
-        
-        <category>laravel</category>
-        
-      </item>
-    
-      <item>
-        <title>Some Tips when using Entrust in Laravel</title>
-        <description>&lt;p&gt;I got the problem when using &lt;code class=&quot;highlighter-rouge&quot;&gt;bican/roles&lt;/code&gt; Role module in my Laravel project.&lt;/p&gt;
-
-&lt;p&gt;There is an error when I check permission.&lt;/p&gt;
-
-&lt;p&gt;So I decided to move &lt;code class=&quot;highlighter-rouge&quot;&gt;zizaco/entrust&lt;/code&gt; and tested all features working normal.&lt;/p&gt;
-
-&lt;h2 id=&quot;how-to-install-entrust&quot;&gt;How to install Entrust&lt;/h2&gt;
-
-&lt;h4 id=&quot;install-use-composer&quot;&gt;Install use composer&lt;/h4&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;composer require zizaco/entrust:5.2.x-dev
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;setting-to-configappphp&quot;&gt;Setting to &lt;code class=&quot;highlighter-rouge&quot;&gt;config/app.php&lt;/code&gt;&lt;/h4&gt;
-
-&lt;p&gt;Add bellow line to &lt;code class=&quot;highlighter-rouge&quot;&gt;providers&lt;/code&gt; array in &lt;code class=&quot;highlighter-rouge&quot;&gt;config/app.php&lt;/code&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    Zizaco\Entrust\EntrustServiceProvider::class,
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Add bellow line to &lt;code class=&quot;highlighter-rouge&quot;&gt;aliases&lt;/code&gt; array in &lt;code class=&quot;highlighter-rouge&quot;&gt;config/app.php&lt;/code&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &#39;Entrust&#39; =&amp;gt; Zizaco\Entrust\EntrustFacade::class,
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;setting-to-apphttpkernalphp&quot;&gt;Setting to &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Http/Kernal.php&lt;/code&gt;&lt;/h4&gt;
-
-&lt;p&gt;Add bellow lines to &lt;code class=&quot;highlighter-rouge&quot;&gt;routeMiddleware&lt;/code&gt; array in &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Http/Kernal.php&lt;/code&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &#39;role&#39; =&amp;gt; \Zizaco\Entrust\Middleware\EntrustRole::class,
-    &#39;permission&#39; =&amp;gt; \Zizaco\Entrust\Middleware\EntrustPermission::class,
-    &#39;ability&#39; =&amp;gt; \Zizaco\Entrust\Middleware\EntrustAbility::class,
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;publish-entrustphp-file&quot;&gt;Publish &lt;code class=&quot;highlighter-rouge&quot;&gt;entrust.php&lt;/code&gt; file&lt;/h4&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;php artisan vendor:publish
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;database-setup&quot;&gt;Database Setup&lt;/h2&gt;
-
-&lt;h4 id=&quot;generate-entrust-migration&quot;&gt;Generate Entrust migration&lt;/h4&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;php artisan entrust:migration
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;It will generate the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;timestamp&amp;gt;_entrust_setup_tables.php&lt;/code&gt; migration.&lt;/p&gt;
-
-&lt;p&gt;Execute migration&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;php artisan migrate
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;trouble-shootings&quot;&gt;Trouble shootings&lt;/h2&gt;
-
-&lt;h4 id=&quot;error-when-execute-migration&quot;&gt;Error when execute migration&lt;/h4&gt;
-
-&lt;p&gt;After create &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;timestamp&amp;gt;_entrust_setup_tables.php&lt;/code&gt;, you have to write your users table in this file. Open &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;timestamp&amp;gt;_entrust_setup_tables.php&lt;/code&gt; file and write name of users table to &lt;code class=&quot;highlighter-rouge&quot;&gt;28 line&lt;/code&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    $table-&amp;gt;foreign(&#39;user_id&#39;)-&amp;gt;references(&#39;id&#39;)-&amp;gt;on(&#39;users&#39;)
-        -&amp;gt;onUpdate(&#39;cascade&#39;)-&amp;gt;onDelete(&#39;cascade&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;this-cache-store-does-not-support-tagging&quot;&gt;This cache store does not support tagging&lt;/h4&gt;
-
-&lt;p&gt;Set &lt;code class=&quot;highlighter-rouge&quot;&gt;CACHE_DRIVER=array&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;.env&lt;/code&gt; file.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/Zizaco/entrust/issues/541&quot;&gt;https://github.com/Zizaco/entrust/issues/541&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;error-when-delete-role&quot;&gt;Error when delete role&lt;/h4&gt;
-
-&lt;p&gt;In Laravel 5.2, error is occured when delete role. Because Entrust get User class using &lt;code class=&quot;highlighter-rouge&quot;&gt;Config::get(&#39;auth.model&#39;)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;EntrustRoleTrait.php file&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    /**
-     * Many-to-Many relations with the user model.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function users()
-    {
-        return $this-&amp;gt;belongsToMany(Config::get(&#39;auth.model&#39;), Config::get(&#39;entrust.role_user_table&#39;),Config::get(&#39;entrust.role_foreign_key&#39;),Config::get(&#39;entrust.user_foreign_key&#39;));
-       // return $this-&amp;gt;belongsToMany(Config::get(&#39;auth.model&#39;), Config::get(&#39;entrust.role_user_table&#39;));
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;So We have to return right user model by that position. There are two solutions for this.&lt;/p&gt;
-
-&lt;h5 id=&quot;change-entrustroletraitphp-file-to-use-correct-configuration-value&quot;&gt;1. Change EntrustRoleTrait.php file to use correct configuration value.&lt;/h5&gt;
-
-&lt;p&gt;We can change &lt;code class=&quot;highlighter-rouge&quot;&gt;Config::get(&#39;auth.model&#39;)&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;Config::get(&#39;auth.providers.users.model&#39;)&lt;/code&gt;. Laravel 5.2 already have users model information in that position.&lt;/p&gt;
-
-&lt;h5 id=&quot;add-authmodel-value-to-configauthphp-file&quot;&gt;2. Add &lt;code class=&quot;highlighter-rouge&quot;&gt;auth.model&lt;/code&gt; value to config/auth.php file&lt;/h5&gt;
-
-&lt;p&gt;We can also add new value to config/auth.php file to allow Entrust get rights value.&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;return [
-  ...
-
-  /**
-   * Add this configuration for Entrust
-   */
-  &#39;model&#39; =&amp;gt; App\User::class,
-];
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Fri, 24 Jun 2016 00:18:00 +0000</pubDate>
-        <link>https://blog.zemna.net/laravel/some-tips-when-using-entrust-in-laravel/</link>
-        <guid isPermaLink="true">https://blog.zemna.net/laravel/some-tips-when-using-entrust-in-laravel/</guid>
-        
-        <category>laravel</category>
-        
-        <category>entrust</category>
-        
-        
-        <category>laravel</category>
-        
-      </item>
-    
-      <item>
-        <title>Class memcached not found error in Laravel</title>
-        <description>&lt;p&gt;If you got bellow error when use memcached in Laravel, please check following steps.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;exception &lt;span class=&quot;s1&quot;&gt;&#39;Symfony\Component\Debug\Exception\FatalErrorException&#39;&lt;/span&gt; with message &lt;span class=&quot;s1&quot;&gt;&#39;Class &#39;&lt;/span&gt;Memcached&lt;span class=&quot;s1&quot;&gt;&#39; not found&#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /var/www/gw/vendor/laravel/framework/src/Illuminate/Cache/MemcachedConnector.php:51
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;install-memcached&quot;&gt;Install memcached&lt;/h4&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo apt-get install php5-memcached memcached
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Enabled php5-memcached&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo php5enmod memcached
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Restart apache web server&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo service apache2 restart
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;check-memcached-service-status&quot;&gt;Check memcached service status&lt;/h4&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo service memcached status
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; memcached is running
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;clear-cache&quot;&gt;Clear cache&lt;/h4&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;php artisan cache:clear
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Fri, 24 Jun 2016 00:18:00 +0000</pubDate>
-        <link>https://blog.zemna.net/laravel/class-memcached-not-found-error-in-laravel/</link>
-        <guid isPermaLink="true">https://blog.zemna.net/laravel/class-memcached-not-found-error-in-laravel/</guid>
-        
-        <category>laravel</category>
-        
-        <category>memcached</category>
         
         
         <category>laravel</category>
