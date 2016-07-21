@@ -5,6 +5,8 @@ excerpt: "Leaning how to setup Virtual Development Environment using Vagrant for
 date:   2016-07-21 13:00:00 +0700
 categories: programming
 tags: php virtual vagrant scotch
+image: assets/img/2016-07-21-setup-virtual-development-environment-for-php-project.jpg
+header-image: /assets/img/2016-07-21-setup-virtual-development-environment-for-php-project.jpg
 ---
 
 To make development environment in programmers computer, There are so many applications which have to install.

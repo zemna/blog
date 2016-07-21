@@ -18,6 +18,15 @@ body {
     margin-top: $line-height-computed;
 }
 
+.post-header {
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: 20px;
+    .post-header-img {
+        width: 100%;
+    }
+}
+
 footer {
     margin-top: 0;
     border-top: 1px solid #ddd;

@@ -58,6 +58,12 @@ layout: default
           </script>
         </div>
 
+        {% if page.header-image %}
+          <div class="post-header">
+            <img src="{{ page.header-image }}" class="post-header-img img-responsive">
+          </div>
+        {% endif %}
+
         <div class="box-body">
           {{ content }}
         </div>
