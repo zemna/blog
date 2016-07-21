@@ -20,7 +20,7 @@
 
 <section class="panel panel-default" id="categories">
   <div class="panel-heading">
-    <h1 class="panel-title">Categories</h1>
+    <h1 class="panel-title">CATEGORIES</h1>
   </div>
   <div class="list-group">
     {% for category in site.categories %}
@@ -36,7 +36,7 @@
 
 <section class="panel panel-default" id="tags">
   <div class="panel-heading">
-    <h1 class="panel-title">Tags</h1>
+    <h1 class="panel-title">TAG CLOUD</h1>
   </div>
 
   <div class="panel-body tags">
@@ -60,25 +60,30 @@
 
 <section class="panel panel-default panel-posts" id="recent-posts">
   <div class="panel-heading">
-    <h1 class="panel-title">Recent Posts</h1>
+    <h1 class="panel-title">RECENT POSTS</h1>
   </div>
-  <div class="panel-body">
-    <ul class="post-list">
-      {% for post in site.posts limit:3 %}
-      <li class="post-item">
-        <h4>
-          <small class="box-meta"><i class="fa fa-calendar"></i> {{ post.date | date: "%Y-%m-%d" }}</small>
+  <div class="panel-body post-list">
+    {% for post in site.posts limit:3 %}
+    <div class="media">
+      <div class="media-left">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+          <img class="media-object" src="{% if post.image %}{{ site.url }}/{{ post.image }}{% else %}{{ site.url }}/assets/img/zemna-logo.png{% endif %}" alt="Post image">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">
           <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h4>
-      </li>
-      {% endfor %}
-    </ul>
+        <i class="fa fa-calendar"></i> {{ post.date | date: "%Y-%m-%d" }}
+      </div>
+    </div>
+    {% endfor %}
   </div>
 </section>
 
 <section class="panel panel-default" id="recent-comments">
   <div class="panel-heading">
-    <h1 class="panel-title">Recent Comments</h1>
+    <h1 class="panel-title">LATEST COMMENTS</h1>
   </div>
 
   <div class="panel-body dsq-widget">

@@ -27,6 +27,22 @@ body {
     }
 }
 
+.post-list {
+    .media {
+        .media-left {
+            .media-object {
+                width: 48px;
+            }
+        }
+        .media-body {
+            font-size: 12px;
+            .media-heading {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
 footer {
     margin-top: 0;
     border-top: 1px solid #ddd;
