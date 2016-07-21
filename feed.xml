@@ -6,9 +6,112 @@
 </description>
     <link>https://blog.zemna.net/</link>
     <atom:link href="https://blog.zemna.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 17 Jul 2016 14:04:06 +0000</pubDate>
-    <lastBuildDate>Sun, 17 Jul 2016 14:04:06 +0000</lastBuildDate>
+    <pubDate>Thu, 21 Jul 2016 06:11:20 +0000</pubDate>
+    <lastBuildDate>Thu, 21 Jul 2016 06:11:20 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Setup Virtual Development Environment for PHP Project</title>
+        <description>&lt;p&gt;To make development environment in programmers computer, There are so many applications which have to install.&lt;/p&gt;
+
+&lt;p&gt;But If we use &lt;code class=&quot;highlighter-rouge&quot;&gt;Virtual&lt;/code&gt; development environment, we can install thoese applications to separeted operating system and also can manage per project.&lt;/p&gt;
+
+&lt;h3 id=&quot;download-and-install-vagrant&quot;&gt;1. Download and Install Vagrant&lt;/h3&gt;
+
+&lt;p&gt;Vagrant is a tool for building complete developemnt environment.&lt;/p&gt;
+
+&lt;p&gt;Go to &lt;a href=&quot;https://www.vagrantup.com/downloads.html&quot;&gt;Download Page&lt;/a&gt; and install to your computer.&lt;/p&gt;
+
+&lt;h3 id=&quot;download-and-install-virtualbox&quot;&gt;2. Download and Install VirtualBox&lt;/h3&gt;
+
+&lt;p&gt;Go to &lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot;&gt;Download Page&lt;/a&gt; and install to your computer.&lt;/p&gt;
+
+&lt;h3 id=&quot;initialize-vagrant-to-your-project&quot;&gt;3. Initialize Vagrant to Your Project&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://box.scotch.io&quot;&gt;Scotch Box&lt;/a&gt; gives preconfigured Vigrant Box with a full array of LAMP Stack features. So we will use Scotch Box to prepare development environment.&lt;/p&gt;
+
+&lt;h4 id=&quot;initialize-vagrant&quot;&gt;3.1. Initialize Vagrant&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;vagrant init
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Above command will make &lt;code class=&quot;highlighter-rouge&quot;&gt;Vagrantfile&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;h4 id=&quot;setup-vagrantfile-file&quot;&gt;3.2. Setup `Vagrantfile’ file&lt;/h4&gt;
+
+&lt;p&gt;You can edit &lt;code class=&quot;highlighter-rouge&quot;&gt;Vagrantfile&lt;/code&gt; made by 3.1 by manual. Or just copy and pate from &lt;a href=&quot;https://github.com/scotch-io/scotch-box/blob/master/Vagrantfile&quot;&gt;https://github.com/scotch-io/scotch-box&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# -*- mode: ruby -*-&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# vi: set ft=ruby :&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;Vagrant.configure(&quot;2&quot;) do |config|&lt;/span&gt;
+
+    &lt;span class=&quot;s&quot;&gt;config.vm.box = &quot;scotch/box&quot;&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;config.vm.network &quot;private_network&quot;, ip&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;192.168.10.100&quot;&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;config.vm.hostname = &quot;my-project&quot;&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;config.vm.synced_folder &quot;.&quot;, &quot;/var/www&quot;, :mount_options =&amp;gt; [&quot;dmode=777&quot;, &quot;fmode=666&quot;]&lt;/span&gt;
+    
+    &lt;span class=&quot;s&quot;&gt;# Optional NFS. Make sure to remove other synced_folder line too&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;#config.vm.synced_folder &quot;.&quot;, &quot;/var/www&quot;, :nfs =&amp;gt; { :mount_options =&amp;gt; [&quot;dmode=777&quot;,&quot;fmode=666&quot;] }&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Update &lt;code class=&quot;highlighter-rouge&quot;&gt;ip address&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;synced_folder&lt;/code&gt; to matching your project. Basically &lt;code class=&quot;highlighter-rouge&quot;&gt;scotch-box&lt;/code&gt; uses &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/public&lt;/code&gt; folder as a document root of web server. So if your root folder is the main of web page, you have to set &lt;code class=&quot;highlighter-rouge&quot;&gt;synced_folder&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/public&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;run-vagrant&quot;&gt;4. Run Vagrant&lt;/h3&gt;
+
+&lt;p&gt;Run vigrant using bellow command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;vagrant up
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;connet-ssh&quot;&gt;5. Connet SSH&lt;/h3&gt;
+
+&lt;p&gt;Connect ssh using bellow command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;vagrant ssh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;adding-mssql-connection-support&quot;&gt;6. Adding MSSQL Connection Support&lt;/h3&gt;
+
+&lt;p&gt;By default, &lt;code class=&quot;highlighter-rouge&quot;&gt;scotch-box&lt;/code&gt; doesn’t support MSSQL connection. So, if you want to connect to MSSQL exeucte bellow command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo apt-get update
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo apt-get php5-sybase
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;enjoy-development&quot;&gt;7. Enjoy Development&lt;/h3&gt;
+
+&lt;p&gt;All done, You can connect virtual web server using &lt;code class=&quot;highlighter-rouge&quot;&gt;ip address&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;hostname&lt;/code&gt; you defined in &lt;code class=&quot;highlighter-rouge&quot;&gt;Vagrantfile&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://box.scotch.io&quot;&gt;https://box.scotch.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 21 Jul 2016 06:00:00 +0000</pubDate>
+        <link>https://blog.zemna.net/programming/setup-virtual-development-environment-for-php-project/</link>
+        <guid isPermaLink="true">https://blog.zemna.net/programming/setup-virtual-development-environment-for-php-project/</guid>
+        
+        <category>php</category>
+        
+        <category>virtual</category>
+        
+        <category>vagrant</category>
+        
+        <category>scotch</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       <item>
         <title>How To Block Brute Force Attack in Mikrotik Router</title>
@@ -972,37 +1075,6 @@ git push --quiet origin gh-pages &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
         
         
         <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>Troubleshooting after update to Homestead 0.5.0</title>
-        <description>&lt;h3 id=&quot;error-1&quot;&gt;Error 1&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Maximum call stack size exceeded&lt;/code&gt; error&lt;/p&gt;
-
-&lt;h4 id=&quot;solution&quot;&gt;Solution&lt;/h4&gt;
-
-&lt;p&gt;Update npm using &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo npm i npm -g&lt;/code&gt; command.&lt;/p&gt;
-
-&lt;h3 id=&quot;error-2&quot;&gt;Error 2&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ENOENT: no such file or directory, scandir &#39;/home/vagrant/app-name/node_modules/node-sass/vendor&#39;&lt;/code&gt; error&lt;/p&gt;
-
-&lt;h4 id=&quot;solution-1&quot;&gt;Solution&lt;/h4&gt;
-
-&lt;p&gt;Execute &lt;code class=&quot;highlighter-rouge&quot;&gt;npm rebuild node-sass --no-bin-links&lt;/code&gt; command. (&lt;a href=&quot;http://laravel.io/forum/10-29-2014-laravel-elixir-sass-error#reply-18818&quot;&gt;Reference&lt;/a&gt;)&lt;/p&gt;
-</description>
-        <pubDate>Mon, 04 Jul 2016 12:10:00 +0000</pubDate>
-        <link>https://blog.zemna.net/laravel/troubleshooting-after-update-to-homestead-0-5-0/</link>
-        <guid isPermaLink="true">https://blog.zemna.net/laravel/troubleshooting-after-update-to-homestead-0-5-0/</guid>
-        
-        <category>laravel</category>
-        
-        <category>homestead</category>
-        
-        
-        <category>laravel</category>
         
       </item>
     

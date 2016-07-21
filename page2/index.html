@@ -125,6 +125,80 @@
       <article class="box">
         <div class="box-header">
           <h2>
+            <a href="/laravel/complex-unique-validation-rule-in-laravel/">Complex unique validation rule in Laravel</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-07-12
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#laravel">
+                  Laravel
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/laravel/complex-unique-validation-rule-in-laravel/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>Laravel provides <code class="highlighter-rouge">unique</code> validation rule for check unique value on a given database table.</p>
+
+<p>Ref : <a href="https://laravel.com/docs/5.1/validation#rule-unique">https://laravel.com/docs/5.1/validation#rule-unique</a></p>
+
+<h3 id="syntax">Syntax</h3>
+
+<p><em>unique:table,column,except,idColumn,whereColumn1,whereValue1,whereColumn2,whereValue2,…</em></p>
+
+<h3 id="ex1-validate-unique-value-in-given-database-table">Ex1. Validate unique value in given database table</h3>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>'username' =&gt; 'unique:users,username'
+</code></pre>
+</div>
+
+<h3 id="ex2-validate-unique-value-except-given-id">Ex2. Validate unique value except given ID</h3>
+
+<p>In mostly used when update existing record.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>'username' =&gt; 'unique:users,username,'.$user-&gt;id
+</code></pre>
+</div>
+
+<h3 id="ex3-gives-id-column-name-if-primary-key-of-table-isnt-id">Ex3. Gives id column name if primary key of table isn’t ‘id’.</h3>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>'username' =&gt; 'unique:users,username,'.$user-&gt;id.',user_id'
+</code></pre>
+</div>
+
+<h3 id="ex4-adding-additional-where-clauses-for-more-complex-condition">Ex4. Adding additional where clauses for more complex condition</h3>
+
+<p>If company has tag list and want to check unique value,</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>'name' =&gt; 'unique:tags,name,NULL,id,company_id,'.$company_id
+</code></pre>
+</div>
+
+<p>If company has hierarchical folder list and want to check unique value per each node,</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>'name' =&gt; 'unique:folders,name,NULL,id,company_id,'.$company_id.',parent_id,'.$parent_id
+</code></pre>
+</div>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
             <a href="/javascript/how-to-add-a-new-options-by-user-to-select2-dropdown/">How to add a new options by user to Select2 dropdown</a>
           </h2>
           <p class="box-meta text-muted">
@@ -744,54 +818,6 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
         
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/laravel/troubleshooting-after-update-to-homestead-0-5-0/">Troubleshooting after update to Homestead 0.5.0</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-07-04
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#laravel">
-                  Laravel
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/laravel/troubleshooting-after-update-to-homestead-0-5-0/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <h3 id="error-1">Error 1</h3>
-
-<p><code class="highlighter-rouge">Maximum call stack size exceeded</code> error</p>
-
-<h4 id="solution">Solution</h4>
-
-<p>Update npm using <code class="highlighter-rouge">sudo npm i npm -g</code> command.</p>
-
-<h3 id="error-2">Error 2</h3>
-
-<p><code class="highlighter-rouge">ENOENT: no such file or directory, scandir '/home/vagrant/app-name/node_modules/node-sass/vendor'</code> error</p>
-
-<h4 id="solution-1">Solution</h4>
-
-<p>Execute <code class="highlighter-rouge">npm rebuild node-sass --no-bin-links</code> command. (<a href="http://laravel.io/forum/10-29-2014-laravel-elixir-sass-error#reply-18818">Reference</a>)</p>
-
-        </div>
-
-        
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -849,7 +875,7 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     
       
       <a href="/categories#programming" class="list-group-item">
-        <span class="badge">10</span>
+        <span class="badge">11</span>
         
         Programming
       </a>
@@ -1071,7 +1097,7 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
       </a>
     </span>
     
-    <span style="font-size: 94%">
+    <span style="font-size: 98%">
       <a href="/tags#php">
         php
       </a>
@@ -1098,6 +1124,12 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     <span style="font-size: 98%">
       <a href="/tags#rocketchat">
         rocketchat
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#scotch">
+        scotch
       </a>
     </span>
     
@@ -1156,8 +1188,20 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
     </span>
     
     <span style="font-size: 94%">
+      <a href="/tags#vagrant">
+        vagrant
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
       <a href="/tags#validation">
         validation
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#virtual">
+        virtual
       </a>
     </span>
     
@@ -1191,6 +1235,13 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
       
       <li class="post-item">
         <h4>
+          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-21</small>
+          <a href="/programming/setup-virtual-development-environment-for-php-project/">Setup Virtual Development Environment for PHP Project</a>
+        </h4>
+      </li>
+      
+      <li class="post-item">
+        <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-17</small>
           <a href="/mikrotik/how-to-block-brute-force-attack-in-mikrotik-router/">How To Block Brute Force Attack in Mikrotik Router</a>
         </h4>
@@ -1200,13 +1251,6 @@ git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
         <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-17</small>
           <a href="/mikrotik/how-to-block-dns-request-from-outside-network-in-mikrotik-router/">How To Block DNS Request From Outside Network in Mikrotik Router</a>
-        </h4>
-      </li>
-      
-      <li class="post-item">
-        <h4>
-          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-16</small>
-          <a href="/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/">PHP Tutorial to Send Direct Message to Rocket.Chat User</a>
         </h4>
       </li>
       

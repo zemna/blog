@@ -125,6 +125,80 @@
       <article class="box">
         <div class="box-header">
           <h2>
+            <a href="/programming/how-to-use-lightbox-in-jekyll/">How to use Lightbox in Jekyll</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-06-16
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#programming">
+                  Programming
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/programming/how-to-use-lightbox-in-jekyll/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <p>Install with bower</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>bower install ekko-lightbox --save
+</code></pre>
+</div>
+
+<p>Basic usage likes bellow,</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"image-url"</span> <span class="na">data-toggle=</span><span class="s">"lightbox"</span> <span class="na">data-title=</span><span class="s">"Image title"</span> <span class="na">data-footer=</span><span class="s">"Image footer"</span><span class="nt">&gt;</span>
+    ![Image Title](/assets/img/github-logo.png){: width="400px" }
+<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+</div>
+
+<p>If you want to give lightbox feature to all images in page, we can it by bellow javascript.</p>
+
+<p>first, give anchor to image in jekyll</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>[![Title](/assets/img/github-logo.png){: width="400px"}](/assets/img/github-logo.png)
+</code></pre>
+</div>
+
+<p>and, make javascript like bellow,</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'img'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="nx">that</span><span class="p">.</span><span class="nx">closest</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-toggle'</span><span class="p">,</span> <span class="s1">'lightbox'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-title'</span><span class="p">,</span> <span class="nx">that</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'alt'</span><span class="p">));</span>
+    <span class="p">});</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">delegate</span><span class="p">(</span><span class="s1">'*[data-toggle="lightbox"]'</span><span class="p">,</span> <span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">ekkoLightbox</span><span class="p">();</span>
+    <span class="p">});</span>    
+<span class="p">})</span>
+</code></pre>
+</div>
+
+<p>This is sample.</p>
+
+<p><a href="/assets/img/github-logo.png"><img src="/assets/img/github-logo.png" alt="Title" width="400px" /></a></p>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
             <a href="/programming/how-to-add-social-sharing-buttons-to-jekyll/">How to add social sharing buttons to Jekyll</a>
           </h2>
           <p class="box-meta text-muted">
@@ -334,44 +408,6 @@
         
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/programming/jekyll/">Jekyll </a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-09
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#programming">
-                  Programming
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/programming/jekyll/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>Simple, blog-aware, static sites generator.</p>
-
-<p>I’m using jekyll to this blog.</p>
-
-<p><a href="http://jekyllrb.com/">http://jekyllrb.com/</a></p>
-
-        </div>
-
-        
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -429,7 +465,7 @@
     
       
       <a href="/categories#programming" class="list-group-item">
-        <span class="badge">10</span>
+        <span class="badge">11</span>
         
         Programming
       </a>
@@ -651,7 +687,7 @@
       </a>
     </span>
     
-    <span style="font-size: 94%">
+    <span style="font-size: 98%">
       <a href="/tags#php">
         php
       </a>
@@ -678,6 +714,12 @@
     <span style="font-size: 98%">
       <a href="/tags#rocketchat">
         rocketchat
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#scotch">
+        scotch
       </a>
     </span>
     
@@ -736,8 +778,20 @@
     </span>
     
     <span style="font-size: 94%">
+      <a href="/tags#vagrant">
+        vagrant
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
       <a href="/tags#validation">
         validation
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#virtual">
+        virtual
       </a>
     </span>
     
@@ -771,6 +825,13 @@
       
       <li class="post-item">
         <h4>
+          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-21</small>
+          <a href="/programming/setup-virtual-development-environment-for-php-project/">Setup Virtual Development Environment for PHP Project</a>
+        </h4>
+      </li>
+      
+      <li class="post-item">
+        <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-17</small>
           <a href="/mikrotik/how-to-block-brute-force-attack-in-mikrotik-router/">How To Block Brute Force Attack in Mikrotik Router</a>
         </h4>
@@ -780,13 +841,6 @@
         <h4>
           <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-17</small>
           <a href="/mikrotik/how-to-block-dns-request-from-outside-network-in-mikrotik-router/">How To Block DNS Request From Outside Network in Mikrotik Router</a>
-        </h4>
-      </li>
-      
-      <li class="post-item">
-        <h4>
-          <small class="box-meta"><i class="fa fa-calendar"></i> 2016-07-16</small>
-          <a href="/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/">PHP Tutorial to Send Direct Message to Rocket.Chat User</a>
         </h4>
       </li>
       
