@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "References about Xamarin",
+    "category" : "mobile",
+    "tags"     : "xamarin, android, ios",
+    "url"      : "/mobile/references-about-xamarin/",
+    "date"     : "2016-07-27"
+  },
+  
+  {
     "title"    : "Setup Virtual Development Environment for PHP Project",
     "category" : "programming",
     "tags"     : "php, virtual, vagrant, scotch",

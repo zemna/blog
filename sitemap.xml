@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://blog.zemna.net/mobile/references-about-xamarin/</loc>
+<lastmod>2016-07-27T13:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://blog.zemna.net/programming/setup-virtual-development-environment-for-php-project/</loc>
 <lastmod>2016-07-21T06:00:00+00:00</lastmod>
 </url>
@@ -146,5 +150,8 @@
 </url>
 <url>
 <loc>https://blog.zemna.net/page6/</loc>
+</url>
+<url>
+<loc>https://blog.zemna.net/page7/</loc>
 </url>
 </urlset>

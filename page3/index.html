@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <meta name="description" content="zemna's Blog gives useful information about software programming.
+  <meta name="description" content="Coding articles, tech guides, tips and tutorials for simple programming.
 "/>
   <meta name="google-site-verification" content="reL65cayQoViDWj4gtXqhRy-Je2z7T6i_UDTGaNSV_Q" />
   <meta name="naver-site-verification" content=""/>
@@ -16,14 +16,14 @@
   <meta property="fb:app_id" content="632837843538038" />
   <meta property="og:url" content="https://blog.zemna.net//page3/" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="zemna blog" />
-  <meta property="og:description" content="zemna's Blog gives useful information about software programming.
+  <meta property="og:title" content="ZEMNA'S BLOG" />
+  <meta property="og:description" content="Coding articles, tech guides, tips and tutorials for simple programming.
 " />
   <meta property="og:image" content="https://blog.zemna.net/assets/img/zemna-logo.png" />
 
   <!-- Google+ Meta -->
-  <meta itemprop="name" content="zemna blog">
-  <meta itemprop="description" content="zemna's Blog gives useful information about software programming.
+  <meta itemprop="name" content="ZEMNA'S BLOG">
+  <meta itemprop="description" content="Coding articles, tech guides, tips and tutorials for simple programming.
 ">
   <meta itemprop="image" content="https://blog.zemna.net/assets/img/zemna-logo.png">
   <meta itemprop="author" content="zemna (zemna@zemna.net)"/>
@@ -31,25 +31,25 @@
   <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@zemna" />
-  <meta name="twitter:title" content="zemna blog" />
-  <meta name="twitter:description" content="zemna's Blog gives useful information about software programming.
+  <meta name="twitter:title" content="ZEMNA'S BLOG" />
+  <meta name="twitter:description" content="Coding articles, tech guides, tips and tutorials for simple programming.
 " />
   <meta name="twitter:image" content="https://blog.zemna.net/assets/img/zemna-logo.png" />
   <meta name="twitter:domain" content="blog.zemna.net">
 
   <!-- Mobile and Rss -->
   <link rel="canonical" href="https://blog.zemna.net/page3/"/>
-  <link rel="alternate" type="application/rss+xml" title="zemna blog" href="https://blog.zemna.net/feed.xml"/>
+  <link rel="alternate" type="application/rss+xml" title="ZEMNA'S BLOG" href="https://blog.zemna.net/feed.xml"/>
 
   <!-- Begin MailChimp Signup Form -->
   <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 
   <link rel="stylesheet" href="/assets/css/style.min.css">
 
-  <title>zemna blog</title>
+  <title>ZEMNA&#39;S BLOG</title>
 
   <link rel="canonical" href="https://blog.zemna.net/page3/">
-  <link rel="alternate" type="application/rss+xml" title="zemna blog" href="https://blog.zemna.net/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="ZEMNA'S BLOG" href="https://blog.zemna.net/feed.xml">
 
   <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
   <link rel="apple-touch-icon-precomposed" href="/assets/img/pencil-152-168414.png">
@@ -82,7 +82,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"><span itemprop="name">zemna blog</span></a>
+      <a class="navbar-brand" href="/"><span itemprop="name">ZEMNA'S BLOG</span></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -121,6 +121,353 @@
   </div>
   <div class="row">
     <section id="main" class="col-md-9">
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
+            <a href="/jekyll/automated-deploy-with-jekyll-gulp-travis-ci-and-github-pages/">Automated Deploy with Jekyll, Gulp, Travis CI and GitHub Pages</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-07-07
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#jekyll">
+                  Jekyll
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/jekyll/automated-deploy-with-jekyll-gulp-travis-ci-and-github-pages/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <h3 id="make-travisyml-file-to-root">1. Make .travis.yml file to root</h3>
+
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">language</span><span class="pi">:</span> <span class="s">node_js</span>
+
+<span class="s">node_js</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s1">'</span><span class="s">4'</span>
+
+<span class="s">cache</span><span class="pi">:</span>
+  <span class="s">directories</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">node_modules</span>
+  <span class="pi">-</span> <span class="s">_assets/vendor</span>
+
+<span class="s">before_install</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">rvm install 2.2</span>
+  <span class="pi">-</span> <span class="s">rvm use 2.2 --fuzzy</span>
+  <span class="pi">-</span> <span class="s">export GEMDIR=$(rvm gemdir)</span>
+
+<span class="s">before_script</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">npm install -g gulp</span>
+  <span class="pi">-</span> <span class="s">npm install -g bower</span>
+  <span class="pi">-</span> <span class="s">gem install jekyll</span>
+  <span class="pi">-</span> <span class="s">gem install jekyll-paginate</span>
+  <span class="pi">-</span> <span class="s">gem install jekyll-sitemap</span>
+  <span class="pi">-</span> <span class="s">gem install jekyll-feed</span>
+  <span class="pi">-</span> <span class="s">gem install html-proofer</span>
+  <span class="pi">-</span> <span class="s">chmod +x ./build.sh</span>
+
+<span class="c1"># execute this script on each commit</span>
+<span class="s">script</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./build.sh"</span>
+
+<span class="c1"># only take into account 'master' branch</span>
+<span class="s">branches</span><span class="pi">:</span>
+  <span class="s">only</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">master</span>
+
+<span class="s">env</span><span class="pi">:</span>
+  <span class="s">global</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">NOKOGIRI_USE_SYSTEM_LIBRARIES=true</span> <span class="c1"># speed up installation of html-proofer</span>
+
+<span class="s">sudo</span><span class="pi">:</span> <span class="s">false</span> <span class="c1"># route your build to the container-based infrastructure for a faster build</span>
+</code></pre>
+</div>
+
+<h3 id="generate-personal-access-tokens-from-github-website">2. Generate <code class="highlighter-rouge">Personal access tokens</code> from GitHub website</h3>
+
+<ol>
+  <li>Click <code class="highlighter-rouge">settings</code> menu</li>
+  <li>Click <code class="highlighter-rouge">Personal access tokens</code> menu</li>
+  <li>Click <code class="highlighter-rouge">Generate new token</code> button
+    <ol>
+      <li>Input <code class="highlighter-rouge">Token description</code> like <code class="highlighter-rouge">travis</code></li>
+      <li>Check <code class="highlighter-rouge">repo</code> scope</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Copy new token to bellow step.</p>
+
+<h3 id="generate-secure-key-to-travisyml">3. Generate secure key to .travis.yml</h3>
+
+<p>Install Travis CLI.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gem install travis
+</code></pre>
+</div>
+
+<p>Use <code class="highlighter-rouge">encrypt</code> command to encrypt data</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>travis encrypt <span class="nv">GH_TOKEN</span><span class="o">=</span>/<span class="k">*</span>Paste new token here<span class="k">*</span>/
+</code></pre>
+</div>
+
+<p>This command will add secret item to .travis.yml file.</p>
+
+<h3 id="make-gulpfilejs-file-to-root">4. Make <code class="highlighter-rouge">gulpfile.js</code> file to root</h3>
+
+<p>I followed <a href="http://cabirol-florian.com/js/2015/10/16/Gulp-Jekyll-Travis-Github/">this article</a> to generate <code class="highlighter-rouge">gulpfile.js</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">debug</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-debug'</span><span class="p">);</span>
+<span class="c1">// CSS</span>
+<span class="kd">var</span> <span class="nx">sass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-ruby-sass'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cleanCSS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-clean-css'</span><span class="p">);</span>
+
+<span class="c1">// JS BUILD</span>
+<span class="kd">var</span> <span class="nx">concat</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-concat'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rename</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-rename'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">uglify</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-uglify'</span><span class="p">);</span>
+
+<span class="c1">// HTML</span>
+<span class="kd">var</span> <span class="nx">htmlmin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-htmlmin'</span><span class="p">);</span>
+
+<span class="c1">// Browser sync</span>
+<span class="kd">var</span> <span class="nx">browserSync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'browser-sync'</span><span class="p">);</span>
+
+<span class="c1">// Import files</span>
+<span class="kd">var</span> <span class="nx">pkg</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./package.json'</span><span class="p">);</span>
+
+<span class="c1">// Images files</span>
+<span class="kd">var</span> <span class="nx">imagemin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-imagemin'</span><span class="p">);</span>
+
+<span class="c1">// Utils</span>
+<span class="kd">var</span> <span class="nx">utils</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-util'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"minimist"</span><span class="p">)(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="kd">var</span> <span class="nx">addsrc</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-add-src'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">spawn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'child_process'</span><span class="p">).</span><span class="nx">spawn</span><span class="p">;</span>
+
+
+<span class="kd">var</span> <span class="nx">dist</span>              <span class="o">=</span> <span class="s1">'public/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">distAssets</span>        <span class="o">=</span> <span class="s1">'./assets/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">distStylesheets</span>   <span class="o">=</span> <span class="nx">distAssets</span> <span class="o">+</span> <span class="s1">'css/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">distJavascripts</span>   <span class="o">=</span> <span class="nx">distAssets</span> <span class="o">+</span> <span class="s1">'js/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">distImages</span>        <span class="o">=</span> <span class="nx">distAssets</span> <span class="o">+</span> <span class="s1">'img/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">distFont</span>          <span class="o">=</span> <span class="nx">distAssets</span> <span class="o">+</span> <span class="s1">'fonts/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">deploy</span>            <span class="o">=</span> <span class="s1">'public/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">src</span>               <span class="o">=</span> <span class="s1">'./'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">srcStylesheets</span>    <span class="o">=</span> <span class="nx">src</span> <span class="o">+</span> <span class="s1">'_assets/styles/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">srcJavascripts</span>    <span class="o">=</span> <span class="nx">src</span> <span class="o">+</span> <span class="s1">'_assets/scripts/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">srcInclude</span>        <span class="o">=</span> <span class="nx">src</span> <span class="o">+</span> <span class="s1">'_includes/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">srcLayout</span>         <span class="o">=</span> <span class="nx">src</span> <span class="o">+</span> <span class="s1">'_layouts/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">srcImg</span>            <span class="o">=</span> <span class="nx">src</span> <span class="o">+</span> <span class="s1">'_assets/images/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">srcPost</span>           <span class="o">=</span> <span class="nx">src</span> <span class="o">+</span> <span class="s1">'_posts/'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">bowerDir</span>          <span class="o">=</span> <span class="nx">src</span> <span class="o">+</span> <span class="s1">'_assets/vendor/'</span><span class="p">;</span>
+
+<span class="c1">// --&gt;</span>
+<span class="c1">// Compass &amp; SASS</span>
+<span class="c1">// &lt;--</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'compass'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">sass</span><span class="p">(</span><span class="nx">srcStylesheets</span> <span class="o">+</span> <span class="s1">'*.scss'</span><span class="p">,</span> <span class="p">{</span>
+            <span class="na">style</span><span class="p">:</span> <span class="s1">'compressed'</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="nx">sass</span><span class="p">.</span><span class="nx">logError</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">debug</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">production</span> <span class="p">?</span> <span class="nx">cleanCSS</span><span class="p">({</span><span class="na">compatibility</span><span class="p">:</span> <span class="s1">'ie8'</span><span class="p">})</span> <span class="p">:</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">noop</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="s1">'style.min.css'</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">distStylesheets</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="c1">// --&gt;</span>
+<span class="c1">// HTML</span>
+<span class="c1">// &lt;--</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'html'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'jekyll'</span><span class="p">],</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// --&gt; Minhtml</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">([</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">deploy</span><span class="p">,</span> <span class="s1">'*.html'</span><span class="p">),</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">deploy</span><span class="p">,</span> <span class="s1">'*/*/*.html'</span><span class="p">),</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">deploy</span><span class="p">,</span> <span class="s1">'*/*/*/*.html'</span><span class="p">)</span>
+    <span class="p">])</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">production</span> <span class="p">?</span> <span class="nx">htmlmin</span><span class="p">({</span><span class="na">collapseWhitespace</span><span class="p">:</span> <span class="kc">true</span><span class="p">})</span> <span class="p">:</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">noop</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">deploy</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span> <span class="nx">options</span><span class="p">.</span><span class="nx">production</span> <span class="p">?</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">noop</span><span class="p">()</span> <span class="p">:</span> <span class="nx">browserSync</span><span class="p">.</span><span class="nx">reload</span><span class="p">({</span><span class="na">stream</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span> <span class="na">once</span><span class="p">:</span> <span class="kc">true</span><span class="p">})</span> <span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// --&gt;</span>
+<span class="c1">// Browser Sync</span>
+<span class="c1">// &lt;--</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'browser-sync'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">browserSync</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">server</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">baseDir</span><span class="p">:</span> <span class="s2">"./"</span> <span class="o">+</span> <span class="nx">deploy</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="c1">// Reload all Browsers</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'bs-reload'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">browserSync</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// --&gt;</span>
+<span class="c1">// js</span>
+<span class="c1">// Concatenate &amp; JS build</span>
+<span class="c1">// &lt;--</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'js-modernizr'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">([</span><span class="nx">bowerDir</span> <span class="o">+</span> <span class="s1">'modernizr/dist/modernizr-build.js'</span><span class="p">])</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="s1">'modernizr.js'</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">distJavascripts</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'modernizr.min.js'</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">production</span> <span class="p">?</span> <span class="nx">uglify</span><span class="p">()</span> <span class="p">:</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">noop</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">distJavascripts</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'js'</span><span class="p">,[</span><span class="s1">'js-modernizr'</span><span class="p">],</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">([</span>
+        <span class="nx">bowerDir</span> <span class="o">+</span> <span class="s1">'fastclick/lib/fastclick.js'</span><span class="p">,</span>
+        <span class="nx">bowerDir</span> <span class="o">+</span> <span class="s1">'jquery/dist/jquery.min.js'</span><span class="p">,</span>
+        <span class="nx">bowerDir</span> <span class="o">+</span> <span class="s1">'simple-jekyll-search/dest/jekyll-search.js'</span><span class="p">,</span>
+        <span class="nx">bowerDir</span> <span class="o">+</span> <span class="s1">'bootstrap-sass/assets/javascripts/bootstrap.js'</span><span class="p">,</span>
+        <span class="nx">bowerDir</span> <span class="o">+</span> <span class="s1">'ekko-lightbox/dist/ekko-lightbox.js'</span><span class="p">,</span>
+        <span class="nx">bowerDir</span> <span class="o">+</span> <span class="s1">'moment/moment.js'</span><span class="p">,</span>
+        <span class="nx">srcJavascripts</span> <span class="o">+</span> <span class="s1">'modules/*.js'</span><span class="p">,</span>
+        <span class="nx">srcJavascripts</span> <span class="o">+</span> <span class="s1">'pages/*.js'</span><span class="p">,</span>
+        <span class="nx">srcJavascripts</span> <span class="o">+</span> <span class="s1">'blog.js'</span><span class="p">])</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="nx">pkg</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">'.min.js'</span><span class="p">))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">production</span> <span class="p">?</span> <span class="nx">uglify</span><span class="p">()</span> <span class="p">:</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">noop</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">distJavascripts</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="c1">// --&gt;</span>
+<span class="c1">// JEKYLL task</span>
+<span class="c1">// &lt;--</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'jekyll'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'images'</span><span class="p">,</span> <span class="s1">'js'</span><span class="p">,</span> <span class="s1">'compass'</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">gulpCallBack</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">jekyllCmd</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">platform</span> <span class="o">===</span> <span class="s2">"win32"</span> <span class="p">?</span> <span class="s2">"jekyll.bat"</span> <span class="p">:</span> <span class="s2">"jekyll"</span><span class="p">;</span>
+    <span class="c1">// After build: cleanup HTML</span>
+    <span class="kd">var</span> <span class="nx">jekyll</span> <span class="o">=</span> <span class="nx">spawn</span><span class="p">(</span><span class="nx">jekyllCmd</span><span class="p">,</span> <span class="p">[</span><span class="s1">'build'</span><span class="p">],</span> <span class="p">{</span><span class="na">stdio</span><span class="p">:</span> <span class="s1">'inherit'</span><span class="p">});</span>
+
+    <span class="nx">jekyll</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'exit'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">gulpCallBack</span><span class="p">(</span><span class="nx">code</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">?</span> <span class="kc">null</span> <span class="p">:</span> <span class="s1">'ERROR: Jekyll process exited with code: '</span><span class="o">+</span><span class="nx">code</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="c1">// --&gt;</span>
+<span class="c1">// Icons task</span>
+<span class="c1">// &lt;--</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'icons'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="nx">bowerDir</span> <span class="o">+</span> <span class="s1">'font-awesome/fonts/**.*'</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">distFont</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="c1">// --&gt;</span>
+<span class="c1">// Images task</span>
+<span class="c1">// &lt;--</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'images'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="nx">srcImg</span> <span class="o">+</span> <span class="s1">'**'</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">production</span> <span class="p">?</span> <span class="nx">imagemin</span><span class="p">({</span>
+            <span class="na">progressive</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="na">optimizationLevel</span> <span class="p">:</span> <span class="mi">3</span>
+        <span class="p">})</span> <span class="p">:</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">noop</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">distImages</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'generate'</span><span class="p">,[</span><span class="s1">'compass'</span><span class="p">,</span> <span class="s1">'js'</span><span class="p">,</span> <span class="s1">'icons'</span><span class="p">,</span> <span class="s1">'images'</span><span class="p">,</span> <span class="s1">'html'</span><span class="p">]);</span>
+
+<span class="c1">// --&gt;</span>
+<span class="c1">// Default task</span>
+<span class="c1">// &lt;--</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'default'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'compass'</span><span class="p">,</span> <span class="s1">'js'</span><span class="p">,</span> <span class="s1">'icons'</span><span class="p">,</span> <span class="s1">'images'</span><span class="p">,</span> <span class="s1">'html'</span><span class="p">,</span> <span class="s1">'browser-sync'</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// --&gt; CSS</span>
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="nx">srcStylesheets</span><span class="o">+</span><span class="s2">"**"</span><span class="p">,</span> <span class="p">[</span><span class="s1">'html'</span><span class="p">]);</span>
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">watch</span><span class="p">([</span>
+        <span class="nx">srcInclude</span> <span class="o">+</span> <span class="s1">'*.html'</span><span class="p">,</span>
+        <span class="nx">srcLayout</span> <span class="o">+</span> <span class="s1">'*.html'</span><span class="p">,</span>
+        <span class="nx">srcPost</span> <span class="o">+</span> <span class="s1">'**'</span><span class="p">,</span>
+        <span class="nx">src</span> <span class="o">+</span> <span class="s1">'*.{md,html}'</span>
+    <span class="p">],</span> <span class="p">[</span><span class="s1">'html'</span><span class="p">]);</span>
+    <span class="c1">// --&gt; Ruby</span>
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">dist</span><span class="p">,</span> <span class="s1">'*/*.rb'</span><span class="p">),</span> <span class="p">[</span><span class="s1">'html'</span><span class="p">]);</span>
+    <span class="c1">// --&gt; JS</span>
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">watch</span><span class="p">([</span><span class="nx">srcJavascripts</span><span class="o">+</span><span class="s2">"**/*.js"</span><span class="p">],</span> <span class="p">[</span><span class="s1">'html'</span><span class="p">]);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<h3 id="make-buildsh-file-to-root">5. Make <code class="highlighter-rouge">build.sh</code> file to root</h3>
+
+<p>This will execute <code class="highlighter-rouge">npm run build</code>, <code class="highlighter-rouge">gulp generate --production</code> and <code class="highlighter-rouge">htmlproofer ./public --disable-external --allow-hash-ref</code> command step by step and commits result to gh-pages branch.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c">#</span>
+<span class="c">## only process script when started not by pull request (PR)</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$TRAVIS_PULL_REQUEST</span> <span class="o">==</span> <span class="s2">"true"</span> <span class="o">]</span>; <span class="k">then
+  </span><span class="nb">echo</span> <span class="s2">"this is PR, exiting"</span>
+  <span class="nb">exit </span>0
+<span class="k">fi</span>
+
+<span class="c"># enable error reporting to the console</span>
+<span class="nb">set</span> -e
+
+<span class="c"># build site with jekyll, by default to 'public' folder</span>
+npm run build
+gulp generate --production
+htmlproofer ./public --disable-external --allow-hash-href
+
+<span class="c"># cleanup</span>
+rm -rf ../blog.zemna.net.gh-pages
+
+<span class="c"># clone 'gh-pages' branch of the repository using encrypted GH_TOKEN for authentification</span>
+git clone -b gh-pages https://<span class="k">${</span><span class="nv">GH_TOKEN</span><span class="k">}</span>@github.com/zemna/blog.git ../blog.zemna.net.gh-pages
+
+<span class="c"># copy generated HTML site to 'gh-pages' branch</span>
+cp -R public/<span class="k">*</span> ../blog.zemna.net.gh-pages
+
+<span class="c"># commit and push generated content to 'gh-pages' branch</span>
+<span class="c"># since repository was cloned in write mode with token auth - we can push there</span>
+<span class="nb">cd</span> ../blog.zemna.net.gh-pages
+git config user.email <span class="s2">"zemna@zemna.net"</span>
+git config user.name <span class="s2">"zemna"</span>
+git add -A .
+git commit -a -m <span class="s2">"Travis #</span><span class="nv">$TRAVIS_BUILD_NUMBER</span><span class="s2">"</span>
+git push --quiet origin gh-pages &gt; /dev/null 2&gt;&amp;1
+</code></pre>
+</div>
+
+<h3 id="exclude-files-or-folders-from-jekyll-build-process">6. Exclude file(s) or folder(s) from Jekyll build process</h3>
+
+<p>Add necessary file(s) or folder(s) to _config.yml file like bellow. Those files will not be built by Jekyll.</p>
+
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">exclude</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">lib</span>
+  <span class="pi">-</span> <span class="s">Gemfile</span>
+  <span class="pi">-</span> <span class="s">Gemfile.lock</span>
+  <span class="pi">-</span> <span class="s">node_modules</span>
+  <span class="pi">-</span> <span class="s">bower.json</span>
+  <span class="pi">-</span> <span class="s2">"</span><span class="s">*.sh"</span>
+  <span class="pi">-</span> <span class="s">README.md</span>
+  <span class="pi">-</span> <span class="s">gulffile.js</span>
+  <span class="pi">-</span> <span class="s">package.json</span>
+</code></pre>
+</div>
+
+<h3 id="conclusion">7. Conclusion</h3>
+
+<p>You can see running example by <a href="https://github.com/zemna/blog">https://github.com/zemna/blog</a> repository.</p>
+
+        </div>
+
+        
+      </article>
       
       <article class="box">
         <div class="box-header">
@@ -462,91 +809,6 @@
         
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/laravel/deploy-laravel-to-production/">Deploy Laravel to Production</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-06-22
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#laravel">
-                  Laravel
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/laravel/deploy-laravel-to-production/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <h2 id="clone-laravel-source-to-server">Clone laravel source to server</h2>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/zemna/groupware.git
-</code></pre>
-</div>
-
-<h2 id="install-necessary-modules">Install necessary modules</h2>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install
-
-<span class="gp">$ </span>composer install --no-dev -o --prefer-dist
-
-<span class="gp">$ </span>bower install
-</code></pre>
-</div>
-
-<h2 id="make-env">Make .env</h2>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cp .env.example .env
-</code></pre>
-</div>
-
-<h2 id="generate-key-to-env">Generate key to .env</h2>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan key:generate
-</code></pre>
-</div>
-
-<h2 id="execute-gulp-if-necessary">Execute <code class="highlighter-rouge">gulp</code> if necessary</h2>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>gulp --production
-</code></pre>
-</div>
-
-<h2 id="migrate-database">Migrate database</h2>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan migrate
-</code></pre>
-</div>
-
-<h2 id="give-owner-to-web-server">Give owner to web server</h2>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chown -R www-data:www-data <span class="k">*</span>
-</code></pre>
-</div>
-
-<h3 id="set-write-permission">Set write permission</h3>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod -R 775 bootstrap/cache
-<span class="gp">$ </span>chmod -R 775 storage
-</code></pre>
-</div>
-
-        </div>
-
-        
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -658,6 +920,13 @@
         Mikrotik
       </a>
     
+      
+      <a href="/categories#mobile" class="list-group-item">
+        <span class="badge">1</span>
+        
+        Mobile
+      </a>
+    
   </div>
 </section>
 
@@ -669,6 +938,12 @@
   <div class="panel-body tags">
     <div class="tags">
     
+    
+    <span style="font-size: 94%">
+      <a href="/tags#android">
+        android
+      </a>
+    </span>
     
     <span style="font-size: 94%">
       <a href="/tags#bitbucket">
@@ -763,6 +1038,12 @@
     <span style="font-size: 94%">
       <a href="/tags#homestead">
         homestead
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#ios">
+        ios
       </a>
     </span>
     
@@ -946,6 +1227,12 @@
       </a>
     </span>
     
+    <span style="font-size: 94%">
+      <a href="/tags#xamarin">
+        xamarin
+      </a>
+    </span>
+    
     </div>
   </div>
 </section>
@@ -960,6 +1247,20 @@
     <h1 class="panel-title">RECENT POSTS</h1>
   </div>
   <div class="panel-body post-list">
+    
+    <div class="media">
+      <div class="media-left">
+        <a href="/mobile/references-about-xamarin/">
+          <img class="media-object" src="https://blog.zemna.net/assets/img/zemna-logo.png" alt="Post image">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <a href="/mobile/references-about-xamarin/">References about Xamarin</a>
+        </h4>
+        <i class="fa fa-calendar"></i> 2016-07-27
+      </div>
+    </div>
     
     <div class="media">
       <div class="media-left">
@@ -984,20 +1285,6 @@
       <div class="media-body">
         <h4 class="media-heading">
           <a href="/mikrotik/how-to-block-brute-force-attack-in-mikrotik-router/">How To Block Brute Force Attack in Mikrotik Router</a>
-        </h4>
-        <i class="fa fa-calendar"></i> 2016-07-17
-      </div>
-    </div>
-    
-    <div class="media">
-      <div class="media-left">
-        <a href="/mikrotik/how-to-block-dns-request-from-outside-network-in-mikrotik-router/">
-          <img class="media-object" src="https://blog.zemna.net/assets/img/zemna-logo.png" alt="Post image">
-        </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">
-          <a href="/mikrotik/how-to-block-dns-request-from-outside-network-in-mikrotik-router/">How To Block DNS Request From Outside Network in Mikrotik Router</a>
         </h4>
         <i class="fa fa-calendar"></i> 2016-07-17
       </div>
