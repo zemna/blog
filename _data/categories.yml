@@ -10,6 +10,9 @@ laravel:
 web:
   name: Web
 
+mobile:
+  name: Mobile
+
 erp:
   name: ERP
 

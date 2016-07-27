@@ -5,10 +5,10 @@ gems:
   - jekyll-feed
 
 # Site settings
-title: "zemna blog"
+title: "ZEMNA'S BLOG"
 email: zemna@zemna.net
 description: > # this means to ignore newlines until "baseurl:"
-  zemna's Blog gives useful information about software programming.
+  Coding articles, tech guides, tips and tutorials for simple programming.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.zemna.net" # the base hostname & protocol for your site
 
