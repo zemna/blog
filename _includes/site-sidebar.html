@@ -63,7 +63,7 @@
     <h1 class="panel-title">RECENT POSTS</h1>
   </div>
   <div class="panel-body post-list">
-    {% for post in site.posts limit:3 %}
+    {% for post in site.posts limit:5 %}
     <div class="media">
       <div class="media-left">
         <a href="{{ post.url | prepend: site.baseurl }}">

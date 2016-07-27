@@ -36,11 +36,16 @@ body {
         }
         .media-body {
             font-size: 12px;
+            color: #aaa;
             .media-heading {
-                font-size: 16px;
+                font-size: 14px;
             }
         }
     }
+}
+
+li.dsq-widget-item {
+    font-size: 12px;
 }
 
 footer {
