@@ -51,10 +51,15 @@ li.dsq-widget-item {
 footer {
     margin-top: 0;
     border-top: 1px solid #ddd;
+    background-color: #222;
+    color: #aaa;
     .container {
         padding-top: 20px;
         .social-links {
             margin-bottom: 10px;
+            a {
+                color: #666;
+            }
         }
         p {
             font-size: 14px;
