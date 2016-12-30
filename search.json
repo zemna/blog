@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "How to solve SSL error of RubyGems",
+    "category" : "programming",
+    "tags"     : "ssl, rubygems",
+    "url"      : "/programming/how-to-solve-ssl-error-of-rubygems/",
+    "date"     : "2016-12-30"
+  },
+  
+  {
     "title"    : "References about Xamarin",
     "category" : "mobile",
     "tags"     : "xamarin, android, ios",

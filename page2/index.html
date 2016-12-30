@@ -125,6 +125,123 @@
       <article class="box">
         <div class="box-header">
           <h2>
+            <a href="/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/">PHP Tutorial to Send Direct Message to Rocket.Chat User</a>
+          </h2>
+          <p class="box-meta text-muted">
+            <span>
+              <i class="fa fa-calendar"></i>
+              2016-07-16
+            </span>
+            <span>
+              <i class="fa fa-folder"></i>
+              
+                <a href="/categories#programming">
+                  Programming
+                </a>
+                
+              
+            </span>
+            <span>
+              <i class="fa fa-comments"></i>
+              <a href="/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/#disqus_thread" title="comments">0</a>
+            </span>
+          </p>
+        </div>
+
+        <div class="box-body">
+          <h3 id="1-overview">1. Overview</h3>
+
+<p>I need to send direct message to target user to notify user action in my PHP application. My company already has <code class="highlighter-rouge">Rocket.Chat</code> messaging system as a <code class="highlighter-rouge">Company Messenger</code>. So I decide to use it. Here is a sample.</p>
+
+<h3 id="2-rocketchat-setting">2. Rocket.Chat Setting</h3>
+
+<h4 id="21-give-create-d-permission-to-bot-role">2.1. Give <code class="highlighter-rouge">create-d</code> permission to <code class="highlighter-rouge">Bot</code> role</h4>
+
+<p>To send <code class="highlighter-rouge">Direct Message</code> from <code class="highlighter-rouge">Bot</code> to user, <code class="highlighter-rouge">Bot</code> role has to have <code class="highlighter-rouge">create-d</code> permission. Go to “Administration” -&gt; “Permissions” and check <code class="highlighter-rouge">create-d</code> permission for <code class="highlighter-rouge">bot</code> role.</p>
+
+<p><a href="/assets/img/rocketchat-create-d-permission-for-bot.jpg"><img src="/assets/img/rocketchat-create-d-permission-for-bot.jpg" alt="Rocket.Chat create-d permission" class="img-responsive" /></a></p>
+
+<h4 id="22-create-a-new-bot-user">2.2. Create a new bot user</h4>
+
+<p>This step is <code class="highlighter-rouge">optional</code> if you want to use existing bot user as a sender of this notification.</p>
+
+<p>Go to “Administration” -&gt; “Users” and create a new <code class="highlighter-rouge">Bot user</code> and activate.</p>
+
+<h4 id="23-create-a-new-webhook">2.3. Create a new WebHook</h4>
+
+<p>Go to “Administration” -&gt; “Integrations” and create a new “Incoming WebHook”. And input each settings like this:</p>
+
+<ul>
+  <li>Enabled : True</li>
+  <li>Name (Optional) : <em>Your WebHook Name (ex: My WebHook)</em></li>
+  <li>Post to Channel : <em>Input any default username. This will override. (ex: @zemna)</em></li>
+  <li>Post as : <em>Input bot user created by Step 2.2 (ex:my-project-bot)</em></li>
+  <li>Script Enabled : False</li>
+</ul>
+
+<p>Click <code class="highlighter-rouge">Save Changes</code> to save.</p>
+
+<h4 id="24-test-webhook">2.4. Test WebHook</h4>
+
+<p>You can see the <code class="highlighter-rouge">curl</code> example on page. Copy it and execute from command prompt to test. If you can receive notification message, all settings are correct.</p>
+
+<p>But if you didn’t receive, please check this;</p>
+
+<ul>
+  <li>WebHook is enabled or not?</li>
+  <li>To send direct message to user, sending user must have <code class="highlighter-rouge">create-d</code> permission. You already give permission or not?</li>
+</ul>
+
+<h4 id="25-copy-your-webhook-url">2.5. Copy your WebHook URL</h4>
+
+<p>You can see <code class="highlighter-rouge">WebHook URL</code> on <code class="highlighter-rouge">Incoming WebHook</code> page. Copy it to use in your php application.</p>
+
+<h3 id="3-php-application-programming">3. PHP Application Programming</h3>
+
+<h4 id="30-prerequisites">3.0. Prerequisites</h4>
+
+<p>We need a mapping betwwen <code class="highlighter-rouge">PHP application user</code> and <code class="highlighter-rouge">Rocket.Chat user</code>. You have to make like <code class="highlighter-rouge">Rocket.Chat Integration</code> page to let user input Rocket.Chat username, or use <code class="highlighter-rouge">same username</code> between them.</p>
+
+<h4 id="31-install-guzzle-using-composer">3.1. Install <code class="highlighter-rouge">guzzle</code> using composer</h4>
+
+<p>We will use <code class="highlighter-rouge">guzzle</code> as a HTTP Client. Install <code class="highlighter-rouge">guzzle</code> using <code class="highlighter-rouge">composer</code>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>composer require guzzlehttp/guzzle
+</code></pre>
+</div>
+
+<h4 id="32-sending-direct-message">3.2. Sending Direct Message</h4>
+
+<p>Write coding like bellow to send direct message to user.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>$client = new GuzzleHttp\Client();
+
+$client-&gt;post('Paste Your WebHook URL Here', [
+  'body' =&gt; json_encode([
+    'channel' =&gt; '@' . $username,
+    'username' =&gt; 'My PHP Project',
+    'text' =&gt; 'New notification arrived',
+    'attachments' =&gt; [[
+      'title' =&gt; 'Notification Title',
+      'title_link' =&gt; 'http://www.example.com/123',
+      'text' =&gt; 'Notification description',
+      'color' =&gt; '#0000FF'
+    ]]
+  ])
+]);
+</code></pre>
+</div>
+
+<p>See <a href="http://docs.guzzlephp.org/en/latest/">Guzzle Documentation</a> for more options.</p>
+
+        </div>
+
+        
+      </article>
+      
+      <article class="box">
+        <div class="box-header">
+          <h2>
             <a href="/web/how-to-integrate-jira-and-bitbucket-application-with-rocket-chat/">How to integrate JIRA and BitBucket application with Rocket.Chat</a>
           </h2>
           <p class="box-meta text-muted">
@@ -164,11 +281,11 @@
 
 <h3 id="how-to-send-jira-notification-to-rocketchat">How to send JIRA notification to Rocket.Chat</h3>
 
-<h4 id="create-new-bot-user">1. Create new Bot user</h4>
+<h4 id="1-create-new-bot-user">1. Create new Bot user</h4>
 
 <p>In Rocket.Chat go to “Administration” -&gt; “Users” and create new bot user(Select user role to <code class="highlighter-rouge">Bots</code>). We will use this user as a sender of JIRA notification. Just make a user like ‘jira’ and activite it.</p>
 
-<h4 id="create-new-integration">2. Create new integration</h4>
+<h4 id="2-create-new-integration">2. Create new integration</h4>
 
 <ol>
   <li>In Rocket.Chat go to “Administration” -&gt; “Integrations” and create “New Integration”.</li>
@@ -271,7 +388,7 @@
 
 <p>Press <code class="highlighter-rouge">Save Changes</code> button and copy <code class="highlighter-rouge">Webhook URL</code>.</p>
 
-<h4 id="create-a-webhook-on-jira">3. Create a WebHook on JIRA</h4>
+<h4 id="3-create-a-webhook-on-jira">3. Create a WebHook on JIRA</h4>
 
 <p>Go to JIRA as administrator and goto “System” -&gt; “WebHooks” and click “Create a WebHook”. Input like this:</p>
 
@@ -286,11 +403,11 @@
 
 <h3 id="how-to-send-bitbucket-notification-to-rocketchat">How to send BitBucket notification to Rocket.Chat</h3>
 
-<h4 id="create-new-bot-user-1">1. Create new Bot User</h4>
+<h4 id="1-create-new-bot-user-1">1. Create new Bot User</h4>
 
 <p>Just like the step 1 of JIRA integration, create a new bot user like ‘bitbucket’.</p>
 
-<h4 id="create-new-integration-1">2. Create new integration</h4>
+<h4 id="2-create-new-integration-1">2. Create new integration</h4>
 
 <p>Same as step 2 of JIRA integration, but use this script to Script section.</p>
 
@@ -301,7 +418,7 @@
 
 <p>Press <code class="highlighter-rouge">Save Changes</code> button and copy `Webhook URL’.</p>
 
-<h4 id="create-a-webhook-on-bitbucket">3. Create a WebHook on BitBucket</h4>
+<h4 id="3-create-a-webhook-on-bitbucket">3. Create a WebHook on BitBucket</h4>
 
 <p>BitBucket doesn’t have WebHook function basically, But they provide it as add-on.</p>
 
@@ -425,7 +542,7 @@
 
 <p><a href="/assets/img/2016-07-10-how-to-add-a-new-options-by-user-to-select2-dropdown-001.jpg"><img src="/assets/img/2016-07-10-how-to-add-a-new-options-by-user-to-select2-dropdown-001.jpg" alt="Select2 Dropdown" class="img-responsive" /></a></p>
 
-<h3 id="enable-tags-option">1. Enable tags option</h3>
+<h3 id="1-enable-tags-option">1. Enable tags option</h3>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'select'</span><span class="p">).</span><span class="nx">select2</span><span class="p">({</span>
   <span class="na">tags</span><span class="p">:</span> <span class="kc">true</span>
@@ -433,7 +550,7 @@
 </code></pre>
 </div>
 
-<h3 id="handle-createtag-function-to-add-extra-properties">2. Handle <code class="highlighter-rouge">createTag</code> function to add extra properties</h3>
+<h3 id="2-handle-createtag-function-to-add-extra-properties">2. Handle <code class="highlighter-rouge">createTag</code> function to add extra properties</h3>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'select'</span><span class="p">).</span><span class="nx">select2</span><span class="p">({</span>
   <span class="na">tags</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -454,7 +571,7 @@
 </code></pre>
 </div>
 
-<h3 id="update-templateresult-function-to-display-new-text-inside-of-item">3. Update <code class="highlighter-rouge">templateResult</code> function to display “(new)” text inside of item</h3>
+<h3 id="3-update-templateresult-function-to-display-new-text-inside-of-item">3. Update <code class="highlighter-rouge">templateResult</code> function to display “(new)” text inside of item</h3>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'select'</span><span class="p">).</span><span class="nx">select2</span><span class="p">({</span>
   <span class="na">tags</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -551,122 +668,6 @@ $company-&gt;users()-&gt;attach(1);
         
       </article>
       
-      <article class="box">
-        <div class="box-header">
-          <h2>
-            <a href="/laravel/use-create-option-when-create-migration/">Use --create option when create migration</a>
-          </h2>
-          <p class="box-meta text-muted">
-            <span>
-              <i class="fa fa-calendar"></i>
-              2016-07-08
-            </span>
-            <span>
-              <i class="fa fa-folder"></i>
-              
-                <a href="/categories#laravel">
-                  Laravel
-                </a>
-                
-              
-            </span>
-            <span>
-              <i class="fa fa-comments"></i>
-              <a href="/laravel/use-create-option-when-create-migration/#disqus_thread" title="comments">0</a>
-            </span>
-          </p>
-        </div>
-
-        <div class="box-body">
-          <p>To create migration, we can use this artisan command.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan make:migration create_companies_table
-</code></pre>
-</div>
-
-<p>Laravel will create a new migration file in <code class="highlighter-rouge">database/migrations</code> directory.</p>
-
-<p>Generated file is like this:</p>
-
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Illuminate\Database\Schema\Blueprint</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Illuminate\Database\Migrations\Migration</span><span class="p">;</span>
-
-<span class="k">class</span> <span class="nc">CreateCompaniesTable</span> <span class="k">extends</span> <span class="nx">Migration</span>
-<span class="p">{</span>
-    <span class="sd">/**
-     * Run the migrations.
-     *
-     * @return void
-     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="c1">//
-</span>    <span class="p">}</span>
-
-    <span class="sd">/**
-     * Reverse the migrations.
-     *
-     * @return void
-     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="c1">//
-</span>    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<p><code class="highlighter-rouge">up()</code> method is used to create a new tables or add new columns to table.
-<code class="highlighter-rouge">down()</code> method is used to rollback.</p>
-
-<p>We can use <code class="highlighter-rouge">--create</code> option when create migration to automatically generate base code.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>php artisan make:migration create_companies_table --create<span class="o">=</span>companies
-</code></pre>
-</div>
-
-<p>Generated file is like this:</p>
-
-<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-
-<span class="k">use</span> <span class="nx">Illuminate\Database\Schema\Blueprint</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Illuminate\Database\Migrations\Migration</span><span class="p">;</span>
-
-<span class="k">class</span> <span class="nc">CreateCompaniesTable</span> <span class="k">extends</span> <span class="nx">Migration</span>
-<span class="p">{</span>
-    <span class="sd">/**
-     * Run the migrations.
-     *
-     * @return void
-     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nx">Schema</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="s1">'companies'</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">Blueprint</span> <span class="nv">$table</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
-            <span class="nv">$table</span><span class="o">-&gt;</span><span class="na">timestamps</span><span class="p">();</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
-
-    <span class="sd">/**
-     * Reverse the migrations.
-     *
-     * @return void
-     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nx">Schema</span><span class="o">::</span><span class="na">drop</span><span class="p">(</span><span class="s1">'companies'</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-        </div>
-
-        
-      </article>
-      
 
       <nav id="pagination">
         <ul class="pager">
@@ -724,7 +725,7 @@ $company-&gt;users()-&gt;attach(1);
     
       
       <a href="/categories#programming" class="list-group-item">
-        <span class="badge">11</span>
+        <span class="badge">12</span>
         
         Programming
       </a>
@@ -996,6 +997,12 @@ $company-&gt;users()-&gt;attach(1);
     </span>
     
     <span style="font-size: 94%">
+      <a href="/tags#rubygems">
+        rubygems
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
       <a href="/tags#scotch">
         scotch
       </a>
@@ -1016,6 +1023,12 @@ $company-&gt;users()-&gt;attach(1);
     <span style="font-size: 98%">
       <a href="/tags#social">
         social
+      </a>
+    </span>
+    
+    <span style="font-size: 94%">
+      <a href="/tags#ssl">
+        ssl
       </a>
     </span>
     
@@ -1108,6 +1121,20 @@ $company-&gt;users()-&gt;attach(1);
     
     <div class="media">
       <div class="media-left">
+        <a href="/programming/how-to-solve-ssl-error-of-rubygems/">
+          <img class="media-object" src="https://blog.zemna.net/assets/img/zemna-logo.png" alt="Post image">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <a href="/programming/how-to-solve-ssl-error-of-rubygems/">How to solve SSL error of RubyGems</a>
+        </h4>
+        <i class="fa fa-calendar"></i> 2016-12-30
+      </div>
+    </div>
+    
+    <div class="media">
+      <div class="media-left">
         <a href="/mobile/references-about-xamarin/">
           <img class="media-object" src="https://blog.zemna.net/assets/img/zemna-logo.png" alt="Post image">
         </a>
@@ -1159,20 +1186,6 @@ $company-&gt;users()-&gt;attach(1);
           <a href="/mikrotik/how-to-block-dns-request-from-outside-network-in-mikrotik-router/">How To Block DNS Request From Outside Network in Mikrotik Router</a>
         </h4>
         <i class="fa fa-calendar"></i> 2016-07-17
-      </div>
-    </div>
-    
-    <div class="media">
-      <div class="media-left">
-        <a href="/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/">
-          <img class="media-object" src="https://blog.zemna.net/assets/img/rocketchat-logo.png" alt="Post image">
-        </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">
-          <a href="/programming/php-tutorial-to-send-notification-message-to-rocket-chat-server/">PHP Tutorial to Send Direct Message to Rocket.Chat User</a>
-        </h4>
-        <i class="fa fa-calendar"></i> 2016-07-16
       </div>
     </div>
     
